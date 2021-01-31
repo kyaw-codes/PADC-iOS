@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieSliderCollectionViewCell" customModule="_2_The_Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="441" height="290"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="441" height="290"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLq-5o-IkX" userLabel="Content View">
+                        <rect key="frame" x="0.0" y="0.0" width="441" height="290"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_1" translatesAutoresizingMaskIntoConstraints="NO" id="M1A-o4-6Mq">
+                                <rect key="frame" x="0.0" y="0.0" width="441" height="290"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Time to Die 2021. Official Review." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wA-eK-4bq">
+                                <rect key="frame" x="20" y="223.5" width="401" height="56.5"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZH3-rC-axw">
+                                <rect key="frame" x="186.5" y="111.5" width="68" height="67"/>
+                                <color key="tintColor" name="Color_Yellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="4Yy-zo-Awp"/>
+                                    <constraint firstAttribute="width" constant="68" id="Eel-S2-zgt"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="Color_Primary"/>
+                        <constraints>
+                            <constraint firstItem="M1A-o4-6Mq" firstAttribute="top" secondItem="mLq-5o-IkX" secondAttribute="top" id="7TH-Be-cYW"/>
+                            <constraint firstAttribute="bottom" secondItem="8wA-eK-4bq" secondAttribute="bottom" constant="10" id="A3h-SU-8Wq"/>
+                            <constraint firstAttribute="bottom" secondItem="M1A-o4-6Mq" secondAttribute="bottom" id="ALW-iS-Ik5"/>
+                            <constraint firstItem="8wA-eK-4bq" firstAttribute="leading" secondItem="mLq-5o-IkX" secondAttribute="leading" constant="20" id="FEQ-f5-V9A"/>
+                            <constraint firstAttribute="trailing" secondItem="M1A-o4-6Mq" secondAttribute="trailing" id="V3J-B3-LPb"/>
+                            <constraint firstItem="M1A-o4-6Mq" firstAttribute="leading" secondItem="mLq-5o-IkX" secondAttribute="leading" id="bIN-18-7qd"/>
+                            <constraint firstAttribute="trailing" secondItem="8wA-eK-4bq" secondAttribute="trailing" constant="20" id="jyi-ZV-OFz"/>
+                            <constraint firstItem="ZH3-rC-axw" firstAttribute="centerX" secondItem="mLq-5o-IkX" secondAttribute="centerX" id="kBF-Hm-fyf"/>
+                            <constraint firstItem="ZH3-rC-axw" firstAttribute="centerY" secondItem="mLq-5o-IkX" secondAttribute="centerY" id="pgh-js-CBO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mLq-5o-IkX" secondAttribute="trailing" id="RQ7-xx-c5N"/>
+                <constraint firstItem="mLq-5o-IkX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bzO-X4-BOy"/>
+                <constraint firstAttribute="bottom" secondItem="mLq-5o-IkX" secondAttribute="bottom" id="dI5-ux-tJt"/>
+                <constraint firstItem="mLq-5o-IkX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="x1g-Bh-cYt"/>
+            </constraints>
+            <size key="customSize" width="377" height="207"/>
+            <connections>
+                <outlet property="movieImageView" destination="M1A-o4-6Mq" id="oJt-Oa-7lX"/>
+                <outlet property="movieTitleLable" destination="8wA-eK-4bq" id="nVY-7s-716"/>
+                <outlet property="playImageView" destination="ZH3-rC-axw" id="pJf-9a-Ojh"/>
+            </connections>
+            <point key="canvasLocation" x="374.63768115942031" y="79.6875"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="slider_1" width="232" height="154.33332824707031"/>
+        <namedColor name="Color_Primary">
+            <color red="0.10000000149011612" green="0.12999999523162842" blue="0.1809999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color_Yellow">
+            <color red="0.9100000262260437" green="0.64300000667572021" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="_2_The_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CL-gl-Kf4" userLabel="View for Navbar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="cQA-jK-LG1">
+                                        <rect key="frame" x="20" y="16" width="32" height="28"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="kGL-Ne-AtI"/>
+                                            <constraint firstAttribute="height" constant="28" id="udE-Af-lGd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-Ba-nWF">
+                                        <rect key="frame" x="165" y="17.5" width="84.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WFT-Dl-JM1">
+                                        <rect key="frame" x="366" y="17" width="28" height="26"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="19H-Zx-VHJ"/>
+                                            <constraint firstAttribute="width" constant="28" id="wQ8-Qf-WGx"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="Color_Primary"/>
+                                <constraints>
+                                    <constraint firstItem="Jca-Ba-nWF" firstAttribute="centerY" secondItem="0CL-gl-Kf4" secondAttribute="centerY" id="59c-pb-uex"/>
+                                    <constraint firstAttribute="height" constant="60" id="82I-JV-aN3"/>
+                                    <constraint firstItem="cQA-jK-LG1" firstAttribute="leading" secondItem="0CL-gl-Kf4" secondAttribute="leading" constant="20" id="AAd-JC-foG"/>
+                                    <constraint firstItem="Jca-Ba-nWF" firstAttribute="centerX" secondItem="0CL-gl-Kf4" secondAttribute="centerX" id="Wmf-2Q-ejn"/>
+                                    <constraint firstItem="WFT-Dl-JM1" firstAttribute="centerY" secondItem="0CL-gl-Kf4" secondAttribute="centerY" id="kbo-wM-ppk"/>
+                                    <constraint firstAttribute="trailing" secondItem="WFT-Dl-JM1" secondAttribute="trailing" constant="20" id="l11-aA-xhD"/>
+                                    <constraint firstItem="cQA-jK-LG1" firstAttribute="centerY" secondItem="0CL-gl-Kf4" secondAttribute="centerY" id="y1W-pX-LUD"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rlR-15-hQX">
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <color key="backgroundColor" name="Color_Primary"/>
+                                <color key="sectionIndexBackgroundColor" name="Color_Primary"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="Color_Primary"/>
+                        <constraints>
+                            <constraint firstItem="0CL-gl-Kf4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="20u-K7-neI"/>
+                            <constraint firstAttribute="bottom" secondItem="rlR-15-hQX" secondAttribute="bottom" id="C1i-8N-6y7"/>
+                            <constraint firstItem="rlR-15-hQX" firstAttribute="top" secondItem="0CL-gl-Kf4" secondAttribute="bottom" id="Ec6-mX-pyi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rlR-15-hQX" secondAttribute="trailing" id="RmI-ze-759"/>
+                            <constraint firstItem="0CL-gl-Kf4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hND-Yr-MSJ"/>
+                            <constraint firstItem="0CL-gl-Kf4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lyF-oL-v7N"/>
+                            <constraint firstItem="rlR-15-hQX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yqh-TW-qDP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="menuImageView" destination="cQA-jK-LG1" id="Zcv-p4-4R4"/>
+                        <outlet property="moviesTableView" destination="rlR-15-hQX" id="o7R-YZ-r89"/>
+                        <outlet property="searchImageView" destination="WFT-Dl-JM1" id="t7l-is-3Gx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204.34782608695653" y="118.52678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_navbar" width="32" height="32"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <namedColor name="Color_Primary">
+            <color red="0.10000000149011612" green="0.12999999523162842" blue="0.1809999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

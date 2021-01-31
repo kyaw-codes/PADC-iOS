@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PopularMovieCollectionViewCell" customModule="_2_The_Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="233" height="394"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="233" height="394"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qg-eQ-ASR">
+                        <rect key="frame" x="0.0" y="0.0" width="233" height="394"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeX-5C-82v">
+                                <rect key="frame" x="0.0" y="364" width="31.5" height="20"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaP-Bb-dHb" customClass="RatingControl" customModule="_2_The_Movies" customModuleProvider="target">
+                                <rect key="frame" x="39.5" y="366" width="80" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="FwX-ag-tSg"/>
+                                    <constraint firstAttribute="width" constant="80" id="yZs-JR-rlq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                        <size key="value" width="16" height="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avengers Endgame" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V30-yX-Uvm">
+                                <rect key="frame" x="0.0" y="335" width="233" height="23"/>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="popular_2" translatesAutoresizingMaskIntoConstraints="NO" id="ZnG-9K-D6k">
+                                <rect key="frame" x="0.0" y="0.0" width="233" height="321"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V30-yX-Uvm" firstAttribute="top" secondItem="ZnG-9K-D6k" secondAttribute="bottom" constant="14" id="0LW-nZ-XDx"/>
+                            <constraint firstItem="V30-yX-Uvm" firstAttribute="leading" secondItem="3qg-eQ-ASR" secondAttribute="leading" id="3uK-2a-P2e"/>
+                            <constraint firstItem="kaP-Bb-dHb" firstAttribute="top" secondItem="V30-yX-Uvm" secondAttribute="bottom" constant="8" id="6ax-d5-bes"/>
+                            <constraint firstAttribute="trailing" secondItem="ZnG-9K-D6k" secondAttribute="trailing" id="EIA-5O-KOr"/>
+                            <constraint firstItem="kaP-Bb-dHb" firstAttribute="centerY" secondItem="PeX-5C-82v" secondAttribute="centerY" id="IBz-kz-fAm"/>
+                            <constraint firstItem="ZnG-9K-D6k" firstAttribute="top" secondItem="3qg-eQ-ASR" secondAttribute="top" id="LeO-4h-3uh"/>
+                            <constraint firstItem="ZnG-9K-D6k" firstAttribute="leading" secondItem="3qg-eQ-ASR" secondAttribute="leading" id="S9B-l1-mZb"/>
+                            <constraint firstItem="PeX-5C-82v" firstAttribute="leading" secondItem="3qg-eQ-ASR" secondAttribute="leading" id="UPr-be-Xv1"/>
+                            <constraint firstItem="kaP-Bb-dHb" firstAttribute="leading" secondItem="PeX-5C-82v" secondAttribute="trailing" constant="8" id="dB3-p2-GLT"/>
+                            <constraint firstAttribute="trailing" secondItem="V30-yX-Uvm" secondAttribute="trailing" id="hZ4-hZ-zxl"/>
+                            <constraint firstAttribute="bottom" secondItem="PeX-5C-82v" secondAttribute="bottom" constant="10" id="pzh-Ki-m3n"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="3qg-eQ-ASR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6cA-1R-3eZ"/>
+                <constraint firstItem="3qg-eQ-ASR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UK9-NZ-Ifr"/>
+                <constraint firstAttribute="bottom" secondItem="3qg-eQ-ASR" secondAttribute="bottom" id="dtE-lh-UAK"/>
+                <constraint firstAttribute="trailing" secondItem="3qg-eQ-ASR" secondAttribute="trailing" id="y9F-tt-EAH"/>
+            </constraints>
+            <size key="customSize" width="233" height="397"/>
+            <connections>
+                <outlet property="movieNameLabel" destination="V30-yX-Uvm" id="TRT-zN-pyS"/>
+                <outlet property="popularImageView" destination="ZnG-9K-D6k" id="99E-eO-uEs"/>
+                <outlet property="ratingControl" destination="kaP-Bb-dHb" id="999-1h-9rm"/>
+                <outlet property="ratingLabel" destination="PeX-5C-82v" id="tJL-tq-bH1"/>
+            </connections>
+            <point key="canvasLocation" x="273.1884057971015" y="208.92857142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="popular_2" width="288" height="426.66665649414062"/>
+    </resources>
+</document>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="310" id="KGk-i7-Jjw" customClass="MovieSliderTableViewCell" customModule="_2_The_Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="464" height="310"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="464" height="310"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="35h-Rj-wFh">
+                        <rect key="frame" x="0.0" y="0.0" width="464" height="260"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="260" id="FhC-Do-Ccz"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NBw-wH-B1n">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="62m-hX-G7w">
+                        <rect key="frame" x="170.5" y="260" width="123" height="39"/>
+                    </pageControl>
+                </subviews>
+                <color key="backgroundColor" name="Color_Primary"/>
+                <constraints>
+                    <constraint firstItem="62m-hX-G7w" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="bIC-HC-fIL"/>
+                    <constraint firstItem="62m-hX-G7w" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gcE-Zr-UyP"/>
+                    <constraint firstItem="35h-Rj-wFh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jbJ-VK-uKp"/>
+                    <constraint firstItem="35h-Rj-wFh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ld2-EE-XwO"/>
+                    <constraint firstAttribute="trailing" secondItem="35h-Rj-wFh" secondAttribute="trailing" id="rFK-8F-wfb"/>
+                    <constraint firstItem="62m-hX-G7w" firstAttribute="top" secondItem="35h-Rj-wFh" secondAttribute="bottom" id="s1t-1D-tAp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="movieSliderCollectionView" destination="35h-Rj-wFh" id="g9x-EK-1FC"/>
+                <outlet property="pageControl" destination="62m-hX-G7w" id="rfS-jf-CMe"/>
+            </connections>
+            <point key="canvasLocation" x="242.0289855072464" y="223.66071428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Color_Primary">
+            <color red="0.10000000149011612" green="0.12999999523162842" blue="0.1809999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

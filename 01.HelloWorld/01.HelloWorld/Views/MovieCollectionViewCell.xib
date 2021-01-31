@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="_1_HelloWorld" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="64" height="86"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="64" height="86"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udg-ID-wBH">
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="86"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_1" translatesAutoresizingMaskIntoConstraints="NO" id="6n9-8d-8fh">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="86"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6n9-8d-8fh" secondAttribute="bottom" id="AV4-H8-E45"/>
+                            <constraint firstAttribute="trailing" secondItem="6n9-8d-8fh" secondAttribute="trailing" id="Tsv-PY-MS7"/>
+                            <constraint firstItem="6n9-8d-8fh" firstAttribute="top" secondItem="udg-ID-wBH" secondAttribute="top" id="jxM-11-mf5"/>
+                            <constraint firstItem="6n9-8d-8fh" firstAttribute="leading" secondItem="udg-ID-wBH" secondAttribute="leading" id="kG7-fn-8Qr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="udg-ID-wBH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1KF-Y0-Yex"/>
+                <constraint firstAttribute="bottom" secondItem="udg-ID-wBH" secondAttribute="bottom" id="MLO-36-oXo"/>
+                <constraint firstItem="udg-ID-wBH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OOK-ea-7r2"/>
+                <constraint firstAttribute="trailing" secondItem="udg-ID-wBH" secondAttribute="trailing" id="Ydq-6g-K9Z"/>
+            </constraints>
+            <size key="customSize" width="64" height="86"/>
+            <connections>
+                <outlet property="imageView" destination="6n9-8d-8fh" id="Aec-P5-SfO"/>
+            </connections>
+            <point key="canvasLocation" x="150.72463768115944" y="145.98214285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="movie_1" width="506" height="750"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
