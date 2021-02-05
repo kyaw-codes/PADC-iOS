@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BestActorsCollectionViewCell" customModule="_2_The_Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOZ-A2-PcW" userLabel="Content View">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="actor_1" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-0N-vfk">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MTh-dj-xja">
+                                <rect key="frame" x="168" y="13.5" width="20" height="17.5"/>
+                                <color key="tintColor" name="Color_Yellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="S8X-gL-bY4"/>
+                                    <constraint firstAttribute="height" constant="20" id="w6u-Vp-9vw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2zm-y3-NBt">
+                                <rect key="frame" x="168" y="13.5" width="20" height="17.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stephen Amell" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boS-Bw-fRc">
+                                <rect key="frame" x="12" y="198.5" width="180" height="17.5"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JIP-9v-Hn3">
+                                <rect key="frame" x="12" y="223.5" width="18" height="18"/>
+                                <color key="tintColor" name="Color_Yellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="Vhz-h6-mC9"/>
+                                    <constraint firstAttribute="width" constant="18" id="kQU-C0-Kpb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU LIKE 18 MOVIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9UN-lb-9s6">
+                                <rect key="frame" x="38" y="225.5" width="154" height="15"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="12"/>
+                                <color key="textColor" name="Color_Bluish_Gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="JIP-9v-Hn3" secondAttribute="bottom" constant="8" id="3Wb-RB-VvK"/>
+                            <constraint firstAttribute="bottom" secondItem="lVl-0N-vfk" secondAttribute="bottom" id="5y0-fv-ajK"/>
+                            <constraint firstAttribute="trailing" secondItem="MTh-dj-xja" secondAttribute="trailing" constant="12" id="ANr-ri-qmu"/>
+                            <constraint firstItem="lVl-0N-vfk" firstAttribute="top" secondItem="QOZ-A2-PcW" secondAttribute="top" id="BZu-gC-Sa5"/>
+                            <constraint firstItem="MTh-dj-xja" firstAttribute="top" secondItem="QOZ-A2-PcW" secondAttribute="top" constant="12" id="Fbj-fO-C10"/>
+                            <constraint firstItem="2zm-y3-NBt" firstAttribute="top" secondItem="MTh-dj-xja" secondAttribute="top" id="GCq-AO-cCj"/>
+                            <constraint firstItem="JIP-9v-Hn3" firstAttribute="top" secondItem="boS-Bw-fRc" secondAttribute="bottom" constant="8" id="HqP-Cl-X7X"/>
+                            <constraint firstItem="lVl-0N-vfk" firstAttribute="leading" secondItem="QOZ-A2-PcW" secondAttribute="leading" id="HtV-GR-ecU"/>
+                            <constraint firstItem="JIP-9v-Hn3" firstAttribute="leading" secondItem="QOZ-A2-PcW" secondAttribute="leading" constant="12" id="I8Y-cz-7ZV"/>
+                            <constraint firstItem="9UN-lb-9s6" firstAttribute="leading" secondItem="JIP-9v-Hn3" secondAttribute="trailing" constant="8" id="K4e-ZO-ZrY"/>
+                            <constraint firstItem="2zm-y3-NBt" firstAttribute="trailing" secondItem="MTh-dj-xja" secondAttribute="trailing" id="KVF-Du-RnL"/>
+                            <constraint firstAttribute="trailing" secondItem="boS-Bw-fRc" secondAttribute="trailing" constant="8" id="NGb-Xh-uHf"/>
+                            <constraint firstItem="2zm-y3-NBt" firstAttribute="leading" secondItem="MTh-dj-xja" secondAttribute="leading" id="R6O-hE-sit"/>
+                            <constraint firstAttribute="trailing" secondItem="9UN-lb-9s6" secondAttribute="trailing" constant="8" id="XE0-cO-hTq"/>
+                            <constraint firstAttribute="trailing" secondItem="lVl-0N-vfk" secondAttribute="trailing" id="c6d-h2-cUk"/>
+                            <constraint firstItem="9UN-lb-9s6" firstAttribute="centerY" secondItem="JIP-9v-Hn3" secondAttribute="centerY" id="dlM-UD-VTl"/>
+                            <constraint firstItem="boS-Bw-fRc" firstAttribute="leading" secondItem="QOZ-A2-PcW" secondAttribute="leading" constant="12" id="src-Ze-tqK"/>
+                            <constraint firstItem="2zm-y3-NBt" firstAttribute="bottom" secondItem="MTh-dj-xja" secondAttribute="bottom" id="wqm-lh-W7g"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="QOZ-A2-PcW" secondAttribute="trailing" id="2tW-ay-PC9"/>
+                <constraint firstAttribute="bottom" secondItem="QOZ-A2-PcW" secondAttribute="bottom" id="Myj-VO-tAj"/>
+                <constraint firstItem="QOZ-A2-PcW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RMM-u0-z3P"/>
+                <constraint firstItem="QOZ-A2-PcW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="m3g-u8-g3u"/>
+            </constraints>
+            <size key="customSize" width="231" height="286"/>
+            <connections>
+                <outlet property="heartFilledImageView" destination="MTh-dj-xja" id="cXb-yM-csv"/>
+                <outlet property="heartImageView" destination="2zm-y3-NBt" id="sox-uA-aEg"/>
+            </connections>
+            <point key="canvasLocation" x="266.66666666666669" y="213.61607142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="actor_1" width="200" height="112.33333587646484"/>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <namedColor name="Color_Bluish_Gray">
+            <color red="0.34400001168251038" green="0.375" blue="0.43799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color_Yellow">
+            <color red="0.9100000262260437" green="0.64300000667572021" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

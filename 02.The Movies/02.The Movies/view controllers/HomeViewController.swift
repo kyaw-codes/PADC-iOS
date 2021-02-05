@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         
         moviesTableView.dataSource = self
         
-        [MovieSliderTableViewCell.self, PopularMovieTableViewCell.self, CheckShowtimeTableViewCell.self, MovieWithGenreTableViewCell.self, ShowcaseTableViewCell.self].forEach {
+        [MovieSliderTableViewCell.self, PopularMovieTableViewCell.self, CheckShowtimeTableViewCell.self, MovieWithGenreTableViewCell.self, ShowcaseTableViewCell.self, BestActorsTableViewCell.self].forEach {
             moviesTableView.register(
                 UINib(nibName: String(describing: $0), bundle: nil), forCellReuseIdentifier: String(describing: $0))
         }
@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +48,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
         case 4:
             return dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
+        case 5:
+            return dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
         default:
             return UITableViewCell()
         }
