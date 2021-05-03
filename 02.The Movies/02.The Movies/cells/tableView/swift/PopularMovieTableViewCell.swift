@@ -11,6 +11,8 @@ class PopularMovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var popularMoviesCollectionView: UICollectionView!
 
+    var delegate: MovieItemDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,4 +44,7 @@ extension PopularMovieTableViewCell: UICollectionViewDataSource, UICollectionVie
         return .init(width: collectionView.frame.width / 3, height: collectionView.frame.height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.onItemTap()
+    }
 }

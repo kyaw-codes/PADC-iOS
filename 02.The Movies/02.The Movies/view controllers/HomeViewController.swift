@@ -39,9 +39,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            return dequeueTableViewCell(ofType: MovieSliderTableViewCell.self, with: tableView, for: indexPath)
+            let cell = dequeueTableViewCell(ofType: MovieSliderTableViewCell.self, with: tableView, for: indexPath)
+            cell.delegate = self
+            return cell
         case 1:
-            return dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
+            let cell = dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
+            cell.delegate = self
+            return cell
         case 2:
             return dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)
         case 3:
@@ -64,5 +68,17 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+}
+
+extension HomeViewController: MovieItemDelegate {
+
+    func onItemTap() {
+        // Navigate to detail view controller
+        let detailVC = MovieDetailViewController.instantiate()
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .flipHorizontal
+        present(detailVC, animated: true, completion: nil)
+    }
+
 }
 
