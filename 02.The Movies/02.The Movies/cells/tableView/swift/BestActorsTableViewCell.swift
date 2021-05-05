@@ -18,8 +18,6 @@ class BestActorsTableViewCell: UITableViewCell {
         moreActorsLabel.underline(for: "MORE ACTORS")
         bestActorsCollectionView.delegate = self
         bestActorsCollectionView.dataSource = self
-        
-        bestActorsCollectionView.registerCellWithNib(BestActorsCollectionViewCell.self)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,7 +33,7 @@ extension BestActorsTableViewCell: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueCollectionViewCell(ofType: BestActorsCollectionViewCell.self, with: collectionView, for: indexPath)
+        let cell = collectionView.dequeueCell(ofType: BestActorsCollectionViewCell.self, for: indexPath, shouldRegister: true)
         cell.actorActionDelegate = self
         return cell
     }

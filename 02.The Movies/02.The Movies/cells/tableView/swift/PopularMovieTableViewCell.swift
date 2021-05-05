@@ -19,8 +19,6 @@ class PopularMovieTableViewCell: UITableViewCell {
         
         popularMoviesCollectionView.delegate = self
         popularMoviesCollectionView.dataSource = self
-        
-        popularMoviesCollectionView.registerCellWithNib(PopularMovieCollectionViewCell.self)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,7 +35,7 @@ extension PopularMovieTableViewCell: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return dequeueCollectionViewCell(ofType: PopularMovieCollectionViewCell.self, with: collectionView, for: indexPath)
+        return collectionView.dequeueCell(ofType: PopularMovieCollectionViewCell.self, for: indexPath, shouldRegister: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

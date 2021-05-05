@@ -27,7 +27,6 @@
 		02451C3025C45F6B001A46FC /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02451C2E25C45F6B001A46FC /* GenreCollectionViewCell.swift */; };
 		02451C3125C45F6B001A46FC /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02451C2F25C45F6B001A46FC /* GenreCollectionViewCell.xib */; };
 		02451C3625C46043001A46FC /* GenreVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02451C3525C46043001A46FC /* GenreVO.swift */; };
-		02451C3B25C51626001A46FC /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02451C3A25C51626001A46FC /* UITableViewCell+Extensions.swift */; };
 		024A014025C57E5200119AFE /* ShowcaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024A013E25C57E5200119AFE /* ShowcaseTableViewCell.swift */; };
 		024A014125C57E5200119AFE /* ShowcaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024A013F25C57E5200119AFE /* ShowcaseTableViewCell.xib */; };
 		024A014525C57E8F00119AFE /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024A014425C57E8F00119AFE /* UILabel+Extensions.swift */; };
@@ -69,7 +68,6 @@
 		02451C2E25C45F6B001A46FC /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		02451C2F25C45F6B001A46FC /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 		02451C3525C46043001A46FC /* GenreVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreVO.swift; sourceTree = "<group>"; };
-		02451C3A25C51626001A46FC /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		024A013E25C57E5200119AFE /* ShowcaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseTableViewCell.swift; sourceTree = "<group>"; };
 		024A013F25C57E5200119AFE /* ShowcaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowcaseTableViewCell.xib; sourceTree = "<group>"; };
 		024A014425C57E8F00119AFE /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 		02451C3925C51612001A46FC /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				02451C3A25C51626001A46FC /* UITableViewCell+Extensions.swift */,
 				02CB100225C51B7C006FC20B /* UICollectionView+Extensions.swift */,
 				024A014425C57E8F00119AFE /* UILabel+Extensions.swift */,
 			);
@@ -371,7 +368,6 @@
 			files = (
 				02CB100325C51B7C006FC20B /* UICollectionView+Extensions.swift in Sources */,
 				0288F1D025CC105B0018D916 /* BestActorsTableViewCell.swift in Sources */,
-				02451C3B25C51626001A46FC /* UITableViewCell+Extensions.swift in Sources */,
 				020B2F8625C3B430008022E6 /* HomeViewController.swift in Sources */,
 				02A1A7E7264071590010D1F3 /* MovieDetailViewController.swift in Sources */,
 				0288F1D625CC11C60018D916 /* BestActorsCollectionViewCell.swift in Sources */,

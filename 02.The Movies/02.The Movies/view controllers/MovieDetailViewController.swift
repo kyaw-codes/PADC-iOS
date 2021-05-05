@@ -32,7 +32,6 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         [actorsCollectionView, creatorsCollectionView].forEach {
             $0?.dataSource = self
             $0?.delegate = self
-            $0?.registerCellWithNib(BestActorsCollectionViewCell.self)
         }
     }
     
@@ -58,7 +57,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueCollectionViewCell(ofType: BestActorsCollectionViewCell.self, with: collectionView, for: indexPath)
+        let cell = collectionView.dequeueCell(ofType: BestActorsCollectionViewCell.self, for: indexPath, shouldRegister: true)
         cell.actorActionDelegate = self
         return cell
     }
