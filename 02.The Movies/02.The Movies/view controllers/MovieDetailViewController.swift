@@ -12,6 +12,8 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var playTrailerButton: UIButton!
     @IBOutlet weak var rateMovieButton: UIButton!
+    @IBOutlet weak var moreCreatorLabel: UILabel!
+    @IBOutlet weak var creatorsCollectionView: UICollectionView!
     
     @IBOutlet weak var actorsCollectionView: UICollectionView!
     
@@ -25,9 +27,13 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         rateMovieButton.layer.borderWidth = 1
         rateMovieButton.layer.cornerRadius = rateMovieButton.frame.height / 2
         
-        actorsCollectionView.dataSource = self
-        actorsCollectionView.delegate = self
-        actorsCollectionView.registerCellWithNib(BestActorsCollectionViewCell.self)
+        moreCreatorLabel.underline(for: moreCreatorLabel.text ?? "")
+        
+        [actorsCollectionView, creatorsCollectionView].forEach {
+            $0?.dataSource = self
+            $0?.delegate = self
+            $0?.registerCellWithNib(BestActorsCollectionViewCell.self)
+        }
     }
     
     private func setupGradient() {
