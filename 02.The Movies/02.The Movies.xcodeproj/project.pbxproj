@@ -42,6 +42,7 @@
 		02A1A7E7264071590010D1F3 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A1A7E6264071590010D1F3 /* MovieDetailViewController.swift */; };
 		02A1A7EA264072210010D1F3 /* MovieItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A1A7E9264072210010D1F3 /* MovieItemDelegate.swift */; };
 		02A1A7ED264072FA0010D1F3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A1A7EC264072FA0010D1F3 /* Storyboarded.swift */; };
+		02AE45BE2642EDD800C7F031 /* theMovieApp_mock.png in Resources */ = {isa = PBXBuildFile; fileRef = 02AE45BD2642EDD800C7F031 /* theMovieApp_mock.png */; };
 		02CB100325C51B7C006FC20B /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB100225C51B7C006FC20B /* UICollectionView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		02A1A7E6264071590010D1F3 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		02A1A7E9264072210010D1F3 /* MovieItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemDelegate.swift; sourceTree = "<group>"; };
 		02A1A7EC264072FA0010D1F3 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		02AE45BD2642EDD800C7F031 /* theMovieApp_mock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theMovieApp_mock.png; sourceTree = "<group>"; };
 		02CB100225C51B7C006FC20B /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 				020B2F9825C3B467008022E6 /* storyboards */,
 				020B2F9925C3B47B008022E6 /* resources */,
 				020B2F8F25C3B432008022E6 /* Info.plist */,
+				02AE45BD2642EDD800C7F031 /* theMovieApp_mock.png */,
 			);
 			path = "02.The Movies";
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				020B2F8B25C3B432008022E6 /* Assets.xcassets in Resources */,
 				0288F1D125CC105B0018D916 /* BestActorsTableViewCell.xib in Resources */,
 				0217BE6C25C3E3E7001E6D8A /* PopularMovieCollectionViewCell.xib in Resources */,
+				02AE45BE2642EDD800C7F031 /* theMovieApp_mock.png in Resources */,
 				020B2F8925C3B430008022E6 /* Main.storyboard in Resources */,
 				020B2FAC25C3BC3F008022E6 /* MovieSliderTableViewCell.xib in Resources */,
 				0288F1D725CC11C60018D916 /* BestActorsCollectionViewCell.xib in Resources */,
