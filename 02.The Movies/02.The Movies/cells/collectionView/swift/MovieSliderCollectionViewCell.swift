@@ -15,7 +15,17 @@ class MovieSliderCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setupGradientLayer()
+    }
+    
+    private func setupGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor(named: "Color_Primary")!.cgColor]
+        gradientLayer.locations = [0, 0.5]
+        movieImageView.layer.addSublayer(gradientLayer)
+        let gradientHeight = movieImageView.frame.height * 0.5
+        gradientLayer.frame = CGRect(x: 0, y: movieImageView.frame.height - gradientHeight, width: movieImageView.frame.width, height: gradientHeight)
     }
 
 }
