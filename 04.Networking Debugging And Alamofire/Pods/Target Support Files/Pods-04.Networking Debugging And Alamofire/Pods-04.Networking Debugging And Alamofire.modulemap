@@ -1,0 +1,6 @@
+framework module Pods_04_Networking_Debugging_And_Alamofire {
+  umbrella header "Pods-04.Networking Debugging And Alamofire-umbrella.h"
+
+  export *
+  module * { export * }
+}

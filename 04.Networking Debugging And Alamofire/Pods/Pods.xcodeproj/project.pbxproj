@@ -1,0 +1,882 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0682ED7FE17D3D9D1AEE5CE070BEF01A /* WHBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532A9C5EC02D9C3C5E268A4942B4AF7 /* WHBaseViewController.swift */; };
+		06BCDAA42193C8C277D80D39CD84E63D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE67BEE4876B5242F8B983CAD502F24 /* Colors.swift */; };
+		0C13838157660E1E39F273DEE572BAF5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F401CCDAAEC95415F179361DC90C53E /* Config.swift */; };
+		101076943BA2EA4F95362E9C17E54930 /* Pods-04.Networking Debugging And Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7710FAC1E1AD80E9F856295976F4D8E4 /* Pods-04.Networking Debugging And Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26677700C2A3D17FC20DB5508D816F4A /* WHCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A42AF16A0B8DBDB71E17C105305F1DB /* WHCollectionView.swift */; };
+		289E60268377BE9DAA41D735DABADEFC /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454C03C45E06D2A3A25F65D3898F5ED /* RequestCell.swift */; };
+		2F084507557332BDD69969D0D76B6BF5 /* Pods-04.Networking Debugging And Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FBDFEC6301CF79618DF92DD9607C27 /* Pods-04.Networking Debugging And Alamofire-dummy.m */; };
+		3F1927BEE23F6AA1E0C3C94DE01421BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		500BA8D51A455E0B15F67BF4B4AADB79 /* WormholyStarterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F29A9D15F1C7F98C5782F91156EBBFB /* WormholyStarterEngine.m */; };
+		518BE10FBE75E51401C7322C556820CF /* BodyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79073B651C5A10E0B0C83D61419E46AC /* BodyDetailViewController.swift */; };
+		5BC5A48765F1D3C675261BE71280CBBA /* SwiftySelfAwareHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181F78E984AF9532FE910C85A6AC285 /* SwiftySelfAwareHelper.swift */; };
+		638E3FDABCAAA3A1AAE4BC8B0408E021 /* RequestModelBeautifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6596D99FCD89A42EBAA208DB39C61F64 /* RequestModelBeautifier.swift */; };
+		649BE8EFEB128D42A13266B509231DA1 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14783CE4D5B593BC0815F8245148F2FB /* TextTableViewCell.xib */; };
+		6597FD721C2C5E10954E6E4764F50116 /* WHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCF2557302BF3CBA2F90567812FD87 /* WHLabel.swift */; };
+		65EF8BCC3F8A96D598C1FB87D8270346 /* WHView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A320026B023E0D5E080F4DF29FD163F /* WHView.swift */; };
+		6C0389F652C122398A27682237E5144D /* Wormholy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F2257B7A7F039FC4B3A2C3D8E162CE3 /* Wormholy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E599F64EF7B54A22981E949CEE8B2AB /* RequestTitleSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0074A75DD8D6218EC0FCB93E2E7A62 /* RequestTitleSectionView.xib */; };
+		6FB90260F9A22DA6CAE6C6EEAC2890E1 /* ActionableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F64AFFD2C1151C989FBF1035B418F1 /* ActionableTableViewCell.swift */; };
+		7925045E39C5D96016540F1B57ED6FB7 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A34E6DEC9464A0F47E34AEC026ACA54 /* Section.swift */; };
+		7B45A0D7E11BC935B26AD730CAD74B7A /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF9A21069E8923142AF926A77B21EDB /* TextTableViewCell.swift */; };
+		7F23489499DEC789F531CCB422A19351 /* RequestTitleSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AFF7C6B687611DCCAC1851F01331B /* RequestTitleSectionView.swift */; };
+		7FDA426A5794ADBABF9EDD57579165B8 /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4C0319733E71873FDF4864C3899BF7 /* RequestDetailViewController.swift */; };
+		80DB3E3D4F5FD36BE176F93741182D00 /* Wormholy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FE8ADCFB4A3DEDE74B04714E0B3010 /* Wormholy.swift */; };
+		80FCFD8A59BA7DEE0C76B07A38E5A481 /* CustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3A5A49B472FE2F41018B25AFFCD6E /* CustomActivity.swift */; };
+		8C0A9C1CE7CA609F610D8136591D0978 /* ActionableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E143AB591193FFDF18443FF403FDF7 /* ActionableTableViewCell.xib */; };
+		93C510F362F2BCE63B1E2CEB34680778 /* WHTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DA67E1EBD6C9ACF02C5531554AABDB /* WHTableView.swift */; };
+		94143C7AA70F7BA6A992E351726AA831 /* NSURLSessionConfiguration+Wormholy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CC4D6A46EC9207F12321A9158C60C92 /* NSURLSessionConfiguration+Wormholy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BFE3421F92A6EE57A688027582925D0 /* WHString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D6333C3BDA795AC8FFFC04C192D377 /* WHString.swift */; };
+		9F9E574DC1605461C6C27A6592DB6CCE /* WormholyMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A597ADFA04BE93A3FBD45F3F91E455B /* WormholyMethodSwizzling.m */; };
+		A1B4D38055DE04C536CB843A2C21E990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		A5AC0341B5FB62952399292004C8348A /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69EBDD30B9391C1DC3CAF7E53B146D0 /* RequestsViewController.swift */; };
+		A6A761E7E444D116B5B2CFC4D7025997 /* WHBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312255630BBA4D2A287680981CCFC62B /* WHBundle.swift */; };
+		B41E5AED04257E8B3A3DA7731DD941D3 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BA40A7D1A83E75E75022984CF6C2C /* RequestModel.swift */; };
+		B7DC29E4554E2C1654C5F665648A3D37 /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE71340F3D8D86C2F990A1C3116A9EE7 /* RequestCell.xib */; };
+		B87C7E3C6901112409A9F68B4CEA1BCF /* CustomHTTPProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0808D67072DC6191C62ECBEED25478A /* CustomHTTPProtocol.swift */; };
+		BE234F8F5B9BEB7F602C178108729D75 /* Wormholy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DAD1E76274A0249B1BB6FF0B4AEDC60 /* Wormholy-dummy.m */; };
+		C01D17D1CF63A9E870D64499CD17AFEE /* Flow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A7ABCC24B125FC68E0CDA91DEF9CCF /* Flow.storyboard */; };
+		CD6B7BB2A844FEFC46C31EB4A08F931B /* WormholyMethodSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8599870CE76EBBDEB98C444EC3C16 /* WormholyMethodSwizzling.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3CCF2EBA891B11E4FFBC04F111021C2 /* WHDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7544C77E509BE559803898114C8C2700 /* WHDate.swift */; };
+		D4ADDBD3BFFF62BD201D177D377A6183 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17DC94EBB5568386ED69B6C3609A385 /* FileHandler.swift */; };
+		E0CA5DEBAA68E8E36CFFADC80CA71B17 /* Postman.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D90446B262E3F6B09A002A1CA0407 /* Postman.swift */; };
+		E597FA991D6E2299DB1CE3ED242F4694 /* Wormholy.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA92ED38E716E03D3FC758C810953B95 /* Wormholy.bundle */; };
+		E81CF219DF7332AEE527BDDD04663179 /* WHNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF86FC1C7103ABEE22F1112157B48B2 /* WHNavigationController.swift */; };
+		E865CCA97FA58F0393660DAA73DBEA32 /* WHTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED087ABDD5C754060B6C07E51213E8C /* WHTextView.swift */; };
+		E88399CE019DF67FB3F164DC911C2580 /* NSURLSessionConfiguration+Wormholy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E87E89F5B58FDA7AEFF730C99216674 /* NSURLSessionConfiguration+Wormholy.m */; };
+		EB457C67D3D914D96F01CC3A93088355 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D176A22953655287D852BCFA8F470C /* Storage.swift */; };
+		EE55A9740E3B1048BDAF5A9507DBA2C3 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092C46AFDA7506E9B6009A4DAFFD841C /* ShareUtils.swift */; };
+		F506176B17701866F408F43D21D0B30D /* Wormholy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BC6F256F42DB9426A806AD32E0AA329D /* Wormholy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F81B749D0121C20CAED634F1FC4CBF42 /* InputStream+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE5B93657F7216042CBE5A3267EB46D /* InputStream+Utils.swift */; };
+		FB4DE667EDC333DCC04AC1F632029A4B /* RequestResponseExportOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F50D64BBB84B5FEFA6EB4A6A6115F22 /* RequestResponseExportOption.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F18CC5830296AA8446769B57DA47CA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93CEC7FFB57A497DE49471C5D9517C13;
+			remoteInfo = "Wormholy-Wormholy";
+		};
+		7EB7A790DDCDFA585358D2D7FC3EA6D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E73ED39761329414C06DD4486C5058E;
+			remoteInfo = Wormholy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		092C46AFDA7506E9B6009A4DAFFD841C /* ShareUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShareUtils.swift; path = Sources/Utils/ShareUtils.swift; sourceTree = "<group>"; };
+		0ED087ABDD5C754060B6C07E51213E8C /* WHTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHTextView.swift; path = Sources/Subclasses/WHTextView.swift; sourceTree = "<group>"; };
+		14783CE4D5B593BC0815F8245148F2FB /* TextTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TextTableViewCell.xib; path = Sources/UI/Cells/TextTableViewCell.xib; sourceTree = "<group>"; };
+		19D176A22953655287D852BCFA8F470C /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Sources/Storage.swift; sourceTree = "<group>"; };
+		20FCF2557302BF3CBA2F90567812FD87 /* WHLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHLabel.swift; path = Sources/Subclasses/WHLabel.swift; sourceTree = "<group>"; };
+		247BEABF7E95DAD7FE99D5A7954A2A20 /* Wormholy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Wormholy.release.xcconfig; sourceTree = "<group>"; };
+		2530BC414137FF7A53A0368B476547B9 /* Wormholy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Wormholy.framework; path = Wormholy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A42AF16A0B8DBDB71E17C105305F1DB /* WHCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHCollectionView.swift; path = Sources/Subclasses/WHCollectionView.swift; sourceTree = "<group>"; };
+		312255630BBA4D2A287680981CCFC62B /* WHBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHBundle.swift; path = Sources/Subclasses/WHBundle.swift; sourceTree = "<group>"; };
+		3C4C0319733E71873FDF4864C3899BF7 /* RequestDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestDetailViewController.swift; path = Sources/UI/RequestDetailViewController.swift; sourceTree = "<group>"; };
+		3F401CCDAAEC95415F179361DC90C53E /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = "Sources/Support Files/Config.swift"; sourceTree = "<group>"; };
+		4E87E89F5B58FDA7AEFF730C99216674 /* NSURLSessionConfiguration+Wormholy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSessionConfiguration+Wormholy.m"; path = "Sources/Objc/NSURLSessionConfiguration+Wormholy.m"; sourceTree = "<group>"; };
+		4EF9A21069E8923142AF926A77B21EDB /* TextTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextTableViewCell.swift; path = Sources/UI/Cells/TextTableViewCell.swift; sourceTree = "<group>"; };
+		4F2257B7A7F039FC4B3A2C3D8E162CE3 /* Wormholy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Wormholy.h; path = Sources/Wormholy.h; sourceTree = "<group>"; };
+		4F50D64BBB84B5FEFA6EB4A6A6115F22 /* RequestResponseExportOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestResponseExportOption.swift; path = Sources/Utils/RequestResponseExportOption.swift; sourceTree = "<group>"; };
+		50F64AFFD2C1151C989FBF1035B418F1 /* ActionableTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionableTableViewCell.swift; path = Sources/UI/Cells/ActionableTableViewCell.swift; sourceTree = "<group>"; };
+		5546A9529173B83421B8017C90E47909 /* Wormholy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Wormholy-Info.plist"; sourceTree = "<group>"; };
+		558A26A77E88D6242188BD5446A6595E /* Pods_04_Networking_Debugging_And_Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_04_Networking_Debugging_And_Alamofire.framework; path = "Pods-04.Networking Debugging And Alamofire.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5669A702071614936E7377B5E30AF99D /* Pods-04.Networking Debugging And Alamofire-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-04.Networking Debugging And Alamofire-frameworks.sh"; sourceTree = "<group>"; };
+		573B787CA339701B4E751742B59B6EF2 /* ResourceBundle-Wormholy-Wormholy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Wormholy-Wormholy-Info.plist"; sourceTree = "<group>"; };
+		58DA67E1EBD6C9ACF02C5531554AABDB /* WHTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHTableView.swift; path = Sources/Subclasses/WHTableView.swift; sourceTree = "<group>"; };
+		6596D99FCD89A42EBAA208DB39C61F64 /* RequestModelBeautifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModelBeautifier.swift; path = Sources/Utils/RequestModelBeautifier.swift; sourceTree = "<group>"; };
+		6874849470F06ABFD0DA5A06C5C7A10A /* Pods-04.Networking Debugging And Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-04.Networking Debugging And Alamofire.debug.xcconfig"; sourceTree = "<group>"; };
+		6A597ADFA04BE93A3FBD45F3F91E455B /* WormholyMethodSwizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WormholyMethodSwizzling.m; path = Sources/Objc/WormholyMethodSwizzling.m; sourceTree = "<group>"; };
+		70E14EF96FDA86181D1CC3DCCB23CFC2 /* Wormholy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Wormholy.modulemap; sourceTree = "<group>"; };
+		7181F78E984AF9532FE910C85A6AC285 /* SwiftySelfAwareHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftySelfAwareHelper.swift; path = Sources/Utils/SwiftySelfAwareHelper.swift; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7544C77E509BE559803898114C8C2700 /* WHDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHDate.swift; path = Sources/Subclasses/WHDate.swift; sourceTree = "<group>"; };
+		75F7B71D54BD94B96AC3B9EA4FF5AE00 /* Wormholy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Wormholy-prefix.pch"; sourceTree = "<group>"; };
+		7710FAC1E1AD80E9F856295976F4D8E4 /* Pods-04.Networking Debugging And Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-04.Networking Debugging And Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		79073B651C5A10E0B0C83D61419E46AC /* BodyDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BodyDetailViewController.swift; path = Sources/UI/BodyDetailViewController.swift; sourceTree = "<group>"; };
+		794C8AA410E7AE1164F74519BCAC580E /* Wormholy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Wormholy.debug.xcconfig; sourceTree = "<group>"; };
+		7A320026B023E0D5E080F4DF29FD163F /* WHView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHView.swift; path = Sources/Subclasses/WHView.swift; sourceTree = "<group>"; };
+		7A34E6DEC9464A0F47E34AEC026ACA54 /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Sources/Models/Section.swift; sourceTree = "<group>"; };
+		7AF86FC1C7103ABEE22F1112157B48B2 /* WHNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHNavigationController.swift; path = Sources/Subclasses/WHNavigationController.swift; sourceTree = "<group>"; };
+		8454C03C45E06D2A3A25F65D3898F5ED /* RequestCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestCell.swift; path = Sources/UI/Cells/RequestCell.swift; sourceTree = "<group>"; };
+		87A7ABCC24B125FC68E0CDA91DEF9CCF /* Flow.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Flow.storyboard; path = Sources/UI/Flow.storyboard; sourceTree = "<group>"; };
+		8AE8599870CE76EBBDEB98C444EC3C16 /* WormholyMethodSwizzling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WormholyMethodSwizzling.h; path = Sources/Objc/WormholyMethodSwizzling.h; sourceTree = "<group>"; };
+		8F29A9D15F1C7F98C5782F91156EBBFB /* WormholyStarterEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WormholyStarterEngine.m; path = Sources/Objc/WormholyStarterEngine.m; sourceTree = "<group>"; };
+		95E143AB591193FFDF18443FF403FDF7 /* ActionableTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ActionableTableViewCell.xib; path = Sources/UI/Cells/ActionableTableViewCell.xib; sourceTree = "<group>"; };
+		964424998BB1E036615AE5FD4C84255F /* Pods-04.Networking Debugging And Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-04.Networking Debugging And Alamofire.modulemap"; sourceTree = "<group>"; };
+		9CC4D6A46EC9207F12321A9158C60C92 /* NSURLSessionConfiguration+Wormholy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSessionConfiguration+Wormholy.h"; path = "Sources/Objc/NSURLSessionConfiguration+Wormholy.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DAD1E76274A0249B1BB6FF0B4AEDC60 /* Wormholy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Wormholy-dummy.m"; sourceTree = "<group>"; };
+		A14D90446B262E3F6B09A002A1CA0407 /* Postman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Postman.swift; path = Sources/Models/Postman/Postman.swift; sourceTree = "<group>"; };
+		A69EBDD30B9391C1DC3CAF7E53B146D0 /* RequestsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestsViewController.swift; path = Sources/UI/RequestsViewController.swift; sourceTree = "<group>"; };
+		AA92ED38E716E03D3FC758C810953B95 /* Wormholy.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Wormholy.bundle; path = "Wormholy-Wormholy.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FBDFEC6301CF79618DF92DD9607C27 /* Pods-04.Networking Debugging And Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-04.Networking Debugging And Alamofire-dummy.m"; sourceTree = "<group>"; };
+		B4D6333C3BDA795AC8FFFC04C192D377 /* WHString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHString.swift; path = Sources/Subclasses/WHString.swift; sourceTree = "<group>"; };
+		BC6F256F42DB9426A806AD32E0AA329D /* Wormholy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Wormholy-umbrella.h"; sourceTree = "<group>"; };
+		BE71340F3D8D86C2F990A1C3116A9EE7 /* RequestCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = RequestCell.xib; path = Sources/UI/Cells/RequestCell.xib; sourceTree = "<group>"; };
+		BF1AFF7C6B687611DCCAC1851F01331B /* RequestTitleSectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTitleSectionView.swift; path = Sources/UI/Sections/RequestTitleSectionView.swift; sourceTree = "<group>"; };
+		C68423AB2F6A1713F922B59295752090 /* Pods-04.Networking Debugging And Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-04.Networking Debugging And Alamofire-Info.plist"; sourceTree = "<group>"; };
+		CF0074A75DD8D6218EC0FCB93E2E7A62 /* RequestTitleSectionView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = RequestTitleSectionView.xib; path = Sources/UI/Sections/RequestTitleSectionView.xib; sourceTree = "<group>"; };
+		D1806225FFE58A4B95260FD58F6F5314 /* Pods-04.Networking Debugging And Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-04.Networking Debugging And Alamofire.release.xcconfig"; sourceTree = "<group>"; };
+		D532A9C5EC02D9C3C5E268A4942B4AF7 /* WHBaseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WHBaseViewController.swift; path = Sources/Subclasses/WHBaseViewController.swift; sourceTree = "<group>"; };
+		DCE5B93657F7216042CBE5A3267EB46D /* InputStream+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "InputStream+Utils.swift"; path = "Sources/Utils/InputStream+Utils.swift"; sourceTree = "<group>"; };
+		DD55ED90DFF86BBF6D13A4D5618D6B05 /* Pods-04.Networking Debugging And Alamofire-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-04.Networking Debugging And Alamofire-acknowledgements.plist"; sourceTree = "<group>"; };
+		DF1BA40A7D1A83E75E75022984CF6C2C /* RequestModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModel.swift; path = Sources/Models/RequestModel.swift; sourceTree = "<group>"; };
+		E0808D67072DC6191C62ECBEED25478A /* CustomHTTPProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomHTTPProtocol.swift; path = Sources/CustomHTTPProtocol.swift; sourceTree = "<group>"; };
+		EDC3A5A49B472FE2F41018B25AFFCD6E /* CustomActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomActivity.swift; path = Sources/Subclasses/CustomActivity.swift; sourceTree = "<group>"; };
+		F17DC94EBB5568386ED69B6C3609A385 /* FileHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileHandler.swift; path = Sources/Utils/FileHandler.swift; sourceTree = "<group>"; };
+		F2FE8ADCFB4A3DEDE74B04714E0B3010 /* Wormholy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Wormholy.swift; path = Sources/Wormholy.swift; sourceTree = "<group>"; };
+		FBE67BEE4876B5242F8B983CAD502F24 /* Colors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = "Sources/Support Files/Colors.swift"; sourceTree = "<group>"; };
+		FD66787FDD4DB7B68B21ADB0F08DE86F /* Pods-04.Networking Debugging And Alamofire-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-04.Networking Debugging And Alamofire-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09FF446459ABB2CF4EB0B45A6D4DC4F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F1927BEE23F6AA1E0C3C94DE01421BC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A5E123E10129002D0E3627883500D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B4D38055DE04C536CB843A2C21E990 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BD0C2A8921E255A98E0EFDDBD30B779 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06A8DE715F1B756A21AC1C98DCBD1487 /* Pods-04.Networking Debugging And Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				964424998BB1E036615AE5FD4C84255F /* Pods-04.Networking Debugging And Alamofire.modulemap */,
+				FD66787FDD4DB7B68B21ADB0F08DE86F /* Pods-04.Networking Debugging And Alamofire-acknowledgements.markdown */,
+				DD55ED90DFF86BBF6D13A4D5618D6B05 /* Pods-04.Networking Debugging And Alamofire-acknowledgements.plist */,
+				B3FBDFEC6301CF79618DF92DD9607C27 /* Pods-04.Networking Debugging And Alamofire-dummy.m */,
+				5669A702071614936E7377B5E30AF99D /* Pods-04.Networking Debugging And Alamofire-frameworks.sh */,
+				C68423AB2F6A1713F922B59295752090 /* Pods-04.Networking Debugging And Alamofire-Info.plist */,
+				7710FAC1E1AD80E9F856295976F4D8E4 /* Pods-04.Networking Debugging And Alamofire-umbrella.h */,
+				6874849470F06ABFD0DA5A06C5C7A10A /* Pods-04.Networking Debugging And Alamofire.debug.xcconfig */,
+				D1806225FFE58A4B95260FD58F6F5314 /* Pods-04.Networking Debugging And Alamofire.release.xcconfig */,
+			);
+			name = "Pods-04.Networking Debugging And Alamofire";
+			path = "Target Support Files/Pods-04.Networking Debugging And Alamofire";
+			sourceTree = "<group>";
+		};
+		1EC72924B33D02DE37312E0756ACCEE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37D98CE4A23443246AD7D14E56005013 /* Wormholy */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		37D98CE4A23443246AD7D14E56005013 /* Wormholy */ = {
+			isa = PBXGroup;
+			children = (
+				50F64AFFD2C1151C989FBF1035B418F1 /* ActionableTableViewCell.swift */,
+				79073B651C5A10E0B0C83D61419E46AC /* BodyDetailViewController.swift */,
+				FBE67BEE4876B5242F8B983CAD502F24 /* Colors.swift */,
+				3F401CCDAAEC95415F179361DC90C53E /* Config.swift */,
+				EDC3A5A49B472FE2F41018B25AFFCD6E /* CustomActivity.swift */,
+				E0808D67072DC6191C62ECBEED25478A /* CustomHTTPProtocol.swift */,
+				F17DC94EBB5568386ED69B6C3609A385 /* FileHandler.swift */,
+				DCE5B93657F7216042CBE5A3267EB46D /* InputStream+Utils.swift */,
+				9CC4D6A46EC9207F12321A9158C60C92 /* NSURLSessionConfiguration+Wormholy.h */,
+				4E87E89F5B58FDA7AEFF730C99216674 /* NSURLSessionConfiguration+Wormholy.m */,
+				A14D90446B262E3F6B09A002A1CA0407 /* Postman.swift */,
+				8454C03C45E06D2A3A25F65D3898F5ED /* RequestCell.swift */,
+				3C4C0319733E71873FDF4864C3899BF7 /* RequestDetailViewController.swift */,
+				DF1BA40A7D1A83E75E75022984CF6C2C /* RequestModel.swift */,
+				6596D99FCD89A42EBAA208DB39C61F64 /* RequestModelBeautifier.swift */,
+				4F50D64BBB84B5FEFA6EB4A6A6115F22 /* RequestResponseExportOption.swift */,
+				A69EBDD30B9391C1DC3CAF7E53B146D0 /* RequestsViewController.swift */,
+				BF1AFF7C6B687611DCCAC1851F01331B /* RequestTitleSectionView.swift */,
+				7A34E6DEC9464A0F47E34AEC026ACA54 /* Section.swift */,
+				092C46AFDA7506E9B6009A4DAFFD841C /* ShareUtils.swift */,
+				19D176A22953655287D852BCFA8F470C /* Storage.swift */,
+				7181F78E984AF9532FE910C85A6AC285 /* SwiftySelfAwareHelper.swift */,
+				4EF9A21069E8923142AF926A77B21EDB /* TextTableViewCell.swift */,
+				D532A9C5EC02D9C3C5E268A4942B4AF7 /* WHBaseViewController.swift */,
+				312255630BBA4D2A287680981CCFC62B /* WHBundle.swift */,
+				2A42AF16A0B8DBDB71E17C105305F1DB /* WHCollectionView.swift */,
+				7544C77E509BE559803898114C8C2700 /* WHDate.swift */,
+				20FCF2557302BF3CBA2F90567812FD87 /* WHLabel.swift */,
+				7AF86FC1C7103ABEE22F1112157B48B2 /* WHNavigationController.swift */,
+				B4D6333C3BDA795AC8FFFC04C192D377 /* WHString.swift */,
+				58DA67E1EBD6C9ACF02C5531554AABDB /* WHTableView.swift */,
+				0ED087ABDD5C754060B6C07E51213E8C /* WHTextView.swift */,
+				7A320026B023E0D5E080F4DF29FD163F /* WHView.swift */,
+				4F2257B7A7F039FC4B3A2C3D8E162CE3 /* Wormholy.h */,
+				F2FE8ADCFB4A3DEDE74B04714E0B3010 /* Wormholy.swift */,
+				8AE8599870CE76EBBDEB98C444EC3C16 /* WormholyMethodSwizzling.h */,
+				6A597ADFA04BE93A3FBD45F3F91E455B /* WormholyMethodSwizzling.m */,
+				8F29A9D15F1C7F98C5782F91156EBBFB /* WormholyStarterEngine.m */,
+				F53178FE25B9230A67E7BABA88DD5B63 /* Resources */,
+				5CCC0CB107E8BDBB9A2FB760C3CAFECE /* Support Files */,
+			);
+			name = Wormholy;
+			path = Wormholy;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5CCC0CB107E8BDBB9A2FB760C3CAFECE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				573B787CA339701B4E751742B59B6EF2 /* ResourceBundle-Wormholy-Wormholy-Info.plist */,
+				70E14EF96FDA86181D1CC3DCCB23CFC2 /* Wormholy.modulemap */,
+				9DAD1E76274A0249B1BB6FF0B4AEDC60 /* Wormholy-dummy.m */,
+				5546A9529173B83421B8017C90E47909 /* Wormholy-Info.plist */,
+				75F7B71D54BD94B96AC3B9EA4FF5AE00 /* Wormholy-prefix.pch */,
+				BC6F256F42DB9426A806AD32E0AA329D /* Wormholy-umbrella.h */,
+				794C8AA410E7AE1164F74519BCAC580E /* Wormholy.debug.xcconfig */,
+				247BEABF7E95DAD7FE99D5A7954A2A20 /* Wormholy.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Wormholy";
+			sourceTree = "<group>";
+		};
+		6A87B3807C8FFF59D8680836960620C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				558A26A77E88D6242188BD5446A6595E /* Pods_04_Networking_Debugging_And_Alamofire.framework */,
+				AA92ED38E716E03D3FC758C810953B95 /* Wormholy.bundle */,
+				2530BC414137FF7A53A0368B476547B9 /* Wormholy.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A65C011CA5942597A2B5AD881D1E5FD2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06A8DE715F1B756A21AC1C98DCBD1487 /* Pods-04.Networking Debugging And Alamofire */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				1EC72924B33D02DE37312E0756ACCEE4 /* Pods */,
+				6A87B3807C8FFF59D8680836960620C5 /* Products */,
+				A65C011CA5942597A2B5AD881D1E5FD2 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F53178FE25B9230A67E7BABA88DD5B63 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				95E143AB591193FFDF18443FF403FDF7 /* ActionableTableViewCell.xib */,
+				87A7ABCC24B125FC68E0CDA91DEF9CCF /* Flow.storyboard */,
+				BE71340F3D8D86C2F990A1C3116A9EE7 /* RequestCell.xib */,
+				CF0074A75DD8D6218EC0FCB93E2E7A62 /* RequestTitleSectionView.xib */,
+				14783CE4D5B593BC0815F8245148F2FB /* TextTableViewCell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9EA07A34F4FC04CFF20C029D99660A28 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				101076943BA2EA4F95362E9C17E54930 /* Pods-04.Networking Debugging And Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACD135B3EF0543AB9A4F4BC3A77BBEEC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94143C7AA70F7BA6A992E351726AA831 /* NSURLSessionConfiguration+Wormholy.h in Headers */,
+				F506176B17701866F408F43D21D0B30D /* Wormholy-umbrella.h in Headers */,
+				6C0389F652C122398A27682237E5144D /* Wormholy.h in Headers */,
+				CD6B7BB2A844FEFC46C31EB4A08F931B /* WormholyMethodSwizzling.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3E73ED39761329414C06DD4486C5058E /* Wormholy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F08E72AA27798F94C9C7599B544BE66 /* Build configuration list for PBXNativeTarget "Wormholy" */;
+			buildPhases = (
+				ACD135B3EF0543AB9A4F4BC3A77BBEEC /* Headers */,
+				882DF3136B01473439FDF18408AFA8B7 /* Sources */,
+				0A5E123E10129002D0E3627883500D4F /* Frameworks */,
+				9A24FBE1EEE18DF5A43A82575E1A12C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A73654D9567FC44B903BD7810ECD4F94 /* PBXTargetDependency */,
+			);
+			name = Wormholy;
+			productName = Wormholy;
+			productReference = 2530BC414137FF7A53A0368B476547B9 /* Wormholy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		619D5094C9F80D35739AF91FB21A9A1E /* Pods-04.Networking Debugging And Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87663F5D6F3337EB51D06A9E0B09F2B9 /* Build configuration list for PBXNativeTarget "Pods-04.Networking Debugging And Alamofire" */;
+			buildPhases = (
+				9EA07A34F4FC04CFF20C029D99660A28 /* Headers */,
+				EC8222B7CB7E206728CB4D962839DD8A /* Sources */,
+				09FF446459ABB2CF4EB0B45A6D4DC4F5 /* Frameworks */,
+				475C4D14A9C1CD2D083DC7B253645531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2FE5436DE2574D8F6FD2F5282944EDF /* PBXTargetDependency */,
+			);
+			name = "Pods-04.Networking Debugging And Alamofire";
+			productName = "Pods-04.Networking Debugging And Alamofire";
+			productReference = 558A26A77E88D6242188BD5446A6595E /* Pods_04_Networking_Debugging_And_Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		93CEC7FFB57A497DE49471C5D9517C13 /* Wormholy-Wormholy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F94F3F1A618F0C6A0ED093D1664E65D /* Build configuration list for PBXNativeTarget "Wormholy-Wormholy" */;
+			buildPhases = (
+				08BD2BF4B2E423BF905590F8EED49CF1 /* Sources */,
+				7BD0C2A8921E255A98E0EFDDBD30B779 /* Frameworks */,
+				0AA4823336B06F9BA00211FCE3377488 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wormholy-Wormholy";
+			productName = "Wormholy-Wormholy";
+			productReference = AA92ED38E716E03D3FC758C810953B95 /* Wormholy.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 6A87B3807C8FFF59D8680836960620C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				619D5094C9F80D35739AF91FB21A9A1E /* Pods-04.Networking Debugging And Alamofire */,
+				3E73ED39761329414C06DD4486C5058E /* Wormholy */,
+				93CEC7FFB57A497DE49471C5D9517C13 /* Wormholy-Wormholy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0AA4823336B06F9BA00211FCE3377488 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C0A9C1CE7CA609F610D8136591D0978 /* ActionableTableViewCell.xib in Resources */,
+				C01D17D1CF63A9E870D64499CD17AFEE /* Flow.storyboard in Resources */,
+				B7DC29E4554E2C1654C5F665648A3D37 /* RequestCell.xib in Resources */,
+				6E599F64EF7B54A22981E949CEE8B2AB /* RequestTitleSectionView.xib in Resources */,
+				649BE8EFEB128D42A13266B509231DA1 /* TextTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		475C4D14A9C1CD2D083DC7B253645531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A24FBE1EEE18DF5A43A82575E1A12C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E597FA991D6E2299DB1CE3ED242F4694 /* Wormholy.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08BD2BF4B2E423BF905590F8EED49CF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		882DF3136B01473439FDF18408AFA8B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FB90260F9A22DA6CAE6C6EEAC2890E1 /* ActionableTableViewCell.swift in Sources */,
+				518BE10FBE75E51401C7322C556820CF /* BodyDetailViewController.swift in Sources */,
+				06BCDAA42193C8C277D80D39CD84E63D /* Colors.swift in Sources */,
+				0C13838157660E1E39F273DEE572BAF5 /* Config.swift in Sources */,
+				80FCFD8A59BA7DEE0C76B07A38E5A481 /* CustomActivity.swift in Sources */,
+				B87C7E3C6901112409A9F68B4CEA1BCF /* CustomHTTPProtocol.swift in Sources */,
+				D4ADDBD3BFFF62BD201D177D377A6183 /* FileHandler.swift in Sources */,
+				F81B749D0121C20CAED634F1FC4CBF42 /* InputStream+Utils.swift in Sources */,
+				E88399CE019DF67FB3F164DC911C2580 /* NSURLSessionConfiguration+Wormholy.m in Sources */,
+				E0CA5DEBAA68E8E36CFFADC80CA71B17 /* Postman.swift in Sources */,
+				289E60268377BE9DAA41D735DABADEFC /* RequestCell.swift in Sources */,
+				7FDA426A5794ADBABF9EDD57579165B8 /* RequestDetailViewController.swift in Sources */,
+				B41E5AED04257E8B3A3DA7731DD941D3 /* RequestModel.swift in Sources */,
+				638E3FDABCAAA3A1AAE4BC8B0408E021 /* RequestModelBeautifier.swift in Sources */,
+				FB4DE667EDC333DCC04AC1F632029A4B /* RequestResponseExportOption.swift in Sources */,
+				A5AC0341B5FB62952399292004C8348A /* RequestsViewController.swift in Sources */,
+				7F23489499DEC789F531CCB422A19351 /* RequestTitleSectionView.swift in Sources */,
+				7925045E39C5D96016540F1B57ED6FB7 /* Section.swift in Sources */,
+				EE55A9740E3B1048BDAF5A9507DBA2C3 /* ShareUtils.swift in Sources */,
+				EB457C67D3D914D96F01CC3A93088355 /* Storage.swift in Sources */,
+				5BC5A48765F1D3C675261BE71280CBBA /* SwiftySelfAwareHelper.swift in Sources */,
+				7B45A0D7E11BC935B26AD730CAD74B7A /* TextTableViewCell.swift in Sources */,
+				0682ED7FE17D3D9D1AEE5CE070BEF01A /* WHBaseViewController.swift in Sources */,
+				A6A761E7E444D116B5B2CFC4D7025997 /* WHBundle.swift in Sources */,
+				26677700C2A3D17FC20DB5508D816F4A /* WHCollectionView.swift in Sources */,
+				D3CCF2EBA891B11E4FFBC04F111021C2 /* WHDate.swift in Sources */,
+				6597FD721C2C5E10954E6E4764F50116 /* WHLabel.swift in Sources */,
+				E81CF219DF7332AEE527BDDD04663179 /* WHNavigationController.swift in Sources */,
+				9BFE3421F92A6EE57A688027582925D0 /* WHString.swift in Sources */,
+				93C510F362F2BCE63B1E2CEB34680778 /* WHTableView.swift in Sources */,
+				E865CCA97FA58F0393660DAA73DBEA32 /* WHTextView.swift in Sources */,
+				65EF8BCC3F8A96D598C1FB87D8270346 /* WHView.swift in Sources */,
+				BE234F8F5B9BEB7F602C178108729D75 /* Wormholy-dummy.m in Sources */,
+				80DB3E3D4F5FD36BE176F93741182D00 /* Wormholy.swift in Sources */,
+				9F9E574DC1605461C6C27A6592DB6CCE /* WormholyMethodSwizzling.m in Sources */,
+				500BA8D51A455E0B15F67BF4B4AADB79 /* WormholyStarterEngine.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC8222B7CB7E206728CB4D962839DD8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F084507557332BDD69969D0D76B6BF5 /* Pods-04.Networking Debugging And Alamofire-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A73654D9567FC44B903BD7810ECD4F94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Wormholy-Wormholy";
+			target = 93CEC7FFB57A497DE49471C5D9517C13 /* Wormholy-Wormholy */;
+			targetProxy = 4F18CC5830296AA8446769B57DA47CA3 /* PBXContainerItemProxy */;
+		};
+		F2FE5436DE2574D8F6FD2F5282944EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Wormholy;
+			target = 3E73ED39761329414C06DD4486C5058E /* Wormholy */;
+			targetProxy = 7EB7A790DDCDFA585358D2D7FC3EA6D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03D2FB45A223750236FC2793337AEE97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6874849470F06ABFD0DA5A06C5C7A10A /* Pods-04.Networking Debugging And Alamofire.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-04.Networking Debugging And Alamofire/Pods-04.Networking Debugging And Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-04.Networking Debugging And Alamofire/Pods-04.Networking Debugging And Alamofire.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		166BD970C3EBB3B111F5F969AA27EF4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 794C8AA410E7AE1164F74519BCAC580E /* Wormholy.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Wormholy";
+				IBSC_MODULE = Wormholy;
+				INFOPLIST_FILE = "Target Support Files/Wormholy/ResourceBundle-Wormholy-Wormholy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = Wormholy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		513EBF749DC972FFFD3C6BF97BFA87A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 794C8AA410E7AE1164F74519BCAC580E /* Wormholy.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Wormholy/Wormholy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Wormholy/Wormholy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Wormholy/Wormholy.modulemap";
+				PRODUCT_MODULE_NAME = Wormholy;
+				PRODUCT_NAME = Wormholy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9FBF93D97C11BEB3E90971F7DA0EC47D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 247BEABF7E95DAD7FE99D5A7954A2A20 /* Wormholy.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Wormholy/Wormholy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Wormholy/Wormholy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Wormholy/Wormholy.modulemap";
+				PRODUCT_MODULE_NAME = Wormholy;
+				PRODUCT_NAME = Wormholy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BC01E0B73776AF6B58DC318A9BE988D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C605C363CC9F26F9FF97DBB1D5C6E25C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		DFF00D55800E7FFD83BC3CE91179D5A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 247BEABF7E95DAD7FE99D5A7954A2A20 /* Wormholy.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Wormholy";
+				IBSC_MODULE = Wormholy;
+				INFOPLIST_FILE = "Target Support Files/Wormholy/ResourceBundle-Wormholy-Wormholy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = Wormholy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		FB7620B4E7D437709166753402A2EF0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1806225FFE58A4B95260FD58F6F5314 /* Pods-04.Networking Debugging And Alamofire.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-04.Networking Debugging And Alamofire/Pods-04.Networking Debugging And Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-04.Networking Debugging And Alamofire/Pods-04.Networking Debugging And Alamofire.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC01E0B73776AF6B58DC318A9BE988D7 /* Debug */,
+				C605C363CC9F26F9FF97DBB1D5C6E25C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F08E72AA27798F94C9C7599B544BE66 /* Build configuration list for PBXNativeTarget "Wormholy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				513EBF749DC972FFFD3C6BF97BFA87A7 /* Debug */,
+				9FBF93D97C11BEB3E90971F7DA0EC47D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F94F3F1A618F0C6A0ED093D1664E65D /* Build configuration list for PBXNativeTarget "Wormholy-Wormholy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				166BD970C3EBB3B111F5F969AA27EF4F /* Debug */,
+				DFF00D55800E7FFD83BC3CE91179D5A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87663F5D6F3337EB51D06A9E0B09F2B9 /* Build configuration list for PBXNativeTarget "Pods-04.Networking Debugging And Alamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03D2FB45A223750236FC2793337AEE97 /* Debug */,
+				FB7620B4E7D437709166753402A2EF0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
