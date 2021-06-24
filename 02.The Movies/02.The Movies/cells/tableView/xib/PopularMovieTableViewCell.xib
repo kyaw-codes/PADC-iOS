@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,21 +11,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="343" id="KGk-i7-Jjw" customClass="PopularMovieTableViewCell" customModule="_2_The_Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="527" height="296"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="380" id="KGk-i7-Jjw" customClass="PopularMovieTableViewCell" customModule="_2_The_Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="526" height="333"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="527" height="296"/>
+                <rect key="frame" x="0.0" y="0.0" width="526" height="333"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEST POPULAR FILMS AND SERIALS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtn-IA-QYz">
-                        <rect key="frame" x="20" y="14" width="293" height="20"/>
+                        <rect key="frame" x="20" y="14" width="293" height="47"/>
                         <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="16"/>
                         <color key="textColor" name="Color_Bluish_Gray"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-fx-LOz">
-                        <rect key="frame" x="0.0" y="46" width="527" height="250"/>
+                        <rect key="frame" x="0.0" y="73" width="526" height="250"/>
                         <color key="backgroundColor" name="Color_Primary"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="fIc-TJ-rMh"/>
@@ -40,7 +41,7 @@
                 <color key="backgroundColor" name="Color_Primary"/>
                 <constraints>
                     <constraint firstItem="Omz-fx-LOz" firstAttribute="top" secondItem="Wtn-IA-QYz" secondAttribute="bottom" constant="12" id="59Q-7d-J9Q"/>
-                    <constraint firstAttribute="bottom" secondItem="Omz-fx-LOz" secondAttribute="bottom" id="6Pf-Bt-dHB"/>
+                    <constraint firstAttribute="bottom" secondItem="Omz-fx-LOz" secondAttribute="bottom" constant="10" id="6Pf-Bt-dHB"/>
                     <constraint firstItem="Wtn-IA-QYz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="9EF-1s-FvV"/>
                     <constraint firstItem="Wtn-IA-QYz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="9fG-sK-Q5n"/>
                     <constraint firstAttribute="trailing" secondItem="Omz-fx-LOz" secondAttribute="trailing" id="FLV-5A-bmX"/>
@@ -50,8 +51,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="popularMoviesCollectionView" destination="Omz-fx-LOz" id="ssa-uX-rHf"/>
+                <outlet property="sectionTitle" destination="Wtn-IA-QYz" id="kOP-jJ-1Ql"/>
             </connections>
-            <point key="canvasLocation" x="290.57971014492756" y="232.03125"/>
+            <point key="canvasLocation" x="289.85507246376812" y="244.08482142857142"/>
         </tableViewCell>
     </objects>
     <resources>

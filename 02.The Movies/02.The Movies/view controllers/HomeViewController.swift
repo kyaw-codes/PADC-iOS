@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     private let movieService = MovieDbService.shared
     private var upcomingMovies: [Movie]?
     private var popularMovies: [Movie]?
+    private var popularSeries: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +40,11 @@ extension HomeViewController {
     public enum Sections: Int, CaseIterable {
         case movieSlider = 0
         case popularMovies = 1
-        case checkShowTime = 2
-        case movieWithGenre = 3
-        case showCase = 4
-        case bestActors = 5
+        case popularSeries = 2
+        case checkShowTime = 3
+        case movieWithGenre = 4
+        case showCase = 5
+        case bestActors = 6
     }
     
     private func loadNetworkRequests() {
@@ -64,6 +66,16 @@ extension HomeViewController {
                 self?.updateUI(at: .popularMovies)
             } catch {
                 print("[Error: while fetching PopularMovies]", error)
+            }
+        }
+        
+        // Fetch popular series
+        movieService.fetchMovies(with: "/tv/popular") { [weak self] result in
+            do {
+                self?.popularSeries = try result.get()
+                self?.updateUI(at: .popularSeries)
+            } catch {
+                print("[Error: while fetching PopularSeries]", error)
             }
         }
     }
@@ -94,7 +106,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case Sections.popularMovies.rawValue:
             let cell = dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
             cell.delegate = self
+            cell.sectionTitle.text = "BEST POPULAR MOVIES"
             cell.movies = popularMovies
+            return cell
+        case Sections.popularSeries.rawValue:
+            let cell = dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
+            cell.delegate = self
+            cell.sectionTitle.text = "BEST POPULAR SERIES"
+            cell.movies = popularSeries
             return cell
         case Sections.checkShowTime.rawValue:
             return dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)

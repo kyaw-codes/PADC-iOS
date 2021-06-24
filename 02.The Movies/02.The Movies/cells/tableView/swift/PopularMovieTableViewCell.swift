@@ -10,7 +10,8 @@ import UIKit
 class PopularMovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var popularMoviesCollectionView: UICollectionView!
-
+    @IBOutlet weak var sectionTitle: UILabel!
+    
     var delegate: MovieItemDelegate?
     
     var movies: [Movie]? {
