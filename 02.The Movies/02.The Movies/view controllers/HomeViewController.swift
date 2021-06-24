@@ -14,7 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var moviesTableView: UITableView!
     
     private let movieService = MovieDbService.shared
-    private var upcomingMovies: [MovieList]?
+    private var upcomingMovies: [Movie]?
+    private var popularMovies: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,26 +37,40 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     
     public enum Sections: Int, CaseIterable {
-        case MovieSlider = 0
-        case PopularMovies = 1
-        case CheckShowTime = 2
-        case MovieWithGenre = 3
-        case ShowCase = 4
-        case BestActors = 5
+        case movieSlider = 0
+        case popularMovies = 1
+        case checkShowTime = 2
+        case movieWithGenre = 3
+        case showCase = 4
+        case bestActors = 5
     }
     
     private func loadNetworkRequests() {
         
         // Fetch upcoming movies
-        movieService.fetchUpcomingMovieList { [weak self] result in
+        movieService.fetchMovies(with: "/movie/upcoming") { [weak self] result in
             do {
                 self?.upcomingMovies = try result.get()
-                let indexSet = IndexSet(integer: Sections.MovieSlider.rawValue)
-                self?.moviesTableView.reloadSections(indexSet, with: .automatic)
+                self?.updateUI(at: .movieSlider)
             } catch {
                 print("[Error: while fetching UpComingMovies]", error)
             }
         }
+
+        // Fetch popular movies
+        movieService.fetchMovies(with: "/movie/popular") { [weak self] result in
+            do {
+                self?.popularMovies = try result.get()
+                self?.updateUI(at: .popularMovies)
+            } catch {
+                print("[Error: while fetching PopularMovies]", error)
+            }
+        }
+    }
+    
+    private func updateUI(at section: Sections) {
+        let indexSet = IndexSet(integer: section.rawValue)
+        moviesTableView.reloadSections(indexSet, with: .automatic)
     }
 }
 
@@ -71,22 +86,23 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case Sections.MovieSlider.rawValue:
+        case Sections.movieSlider.rawValue:
             let cell = dequeueTableViewCell(ofType: MovieSliderTableViewCell.self, with: tableView, for: indexPath)
             cell.delegate = self
             cell.movies = upcomingMovies
             return cell
-        case Sections.PopularMovies.rawValue:
+        case Sections.popularMovies.rawValue:
             let cell = dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
             cell.delegate = self
+            cell.movies = popularMovies
             return cell
-        case Sections.CheckShowTime.rawValue:
+        case Sections.checkShowTime.rawValue:
             return dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)
-        case Sections.MovieWithGenre.rawValue:
+        case Sections.movieWithGenre.rawValue:
             return dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
-        case Sections.ShowCase.rawValue:
+        case Sections.showCase.rawValue:
             return dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
-        case Sections.BestActors.rawValue:
+        case Sections.bestActors.rawValue:
             return dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
         default:
             return UITableViewCell()

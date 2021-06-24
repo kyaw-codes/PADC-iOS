@@ -10,11 +10,13 @@ import SDWebImage
 
 class MovieSliderCollectionViewCell: UICollectionViewCell {
     
-    var movie: MovieList? {
+    var movie: Movie? {
         didSet {
             guard let data = movie else { return }
             movieTitleLable.text = data.title
-            movieImageView.sd_setImage(with: URL(string: "\(imageBaseURL)/\(data.backdropPath)"))
+            if let imagePath = data.backdropPath {
+                movieImageView.sd_setImage(with: URL(string: "\(imageBaseURL)/\(imagePath)"))
+            }
         }
     }
     

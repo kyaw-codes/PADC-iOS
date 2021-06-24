@@ -14,14 +14,14 @@ final class MovieDbService {
     
     private init() {}
     
-    func fetchUpcomingMovieList(_ completion: @escaping (Result<Array<MovieList>, AFError>) -> Void) {
-        AF.request(composeUrlString(subPath: "/movie/upcoming")).responseDecodable(of: Movies.self) { response in
+    func fetchMovies(with subPath: String, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: subPath)).responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }
             
             if let movies = response.value {
-                completion(.success(movies.movieList))
+                completion(.success(movies.movies))
             }
         }.validate(statusCode: 200..<300)
     }

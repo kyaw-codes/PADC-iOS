@@ -13,7 +13,7 @@ class MovieSliderTableViewCell: UITableViewCell {
     @IBOutlet weak var pageControl: UIPageControl!
     
     var delegate: MovieItemDelegate?
-    var movies: [MovieList]? {
+    var movies: [Movie]? {
         didSet {
             pageControl.numberOfPages = movies?.count ?? 0
             movieSliderCollectionView.reloadData()

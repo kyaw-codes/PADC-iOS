@@ -8,17 +8,17 @@
 import Foundation
 
 // MARK: - Movies
-struct Movies: Codable {
-    let dates: Dates
-    let page: Int
-    let movieList: [MovieList]
-    let totalPages, totalResults: Int
+struct MovieResponse: Codable {
+    let dates: Dates?
+    let page: Int?
+    let movies: [Movie]
+    let totalPages, totalResults: Int?
 
     enum CodingKeys: String, CodingKey {
         case dates, page
         case totalPages = "total_pages"
         case totalResults = "total_results"
-        case movieList = "results"
+        case movies = "results"
     }
 }
 
@@ -27,16 +27,16 @@ struct Dates: Codable {
     let maximum, minimum: String
 }
 
-// MARK: - MovieList
-struct MovieList: Codable {
+// MARK: - Movie
+struct Movie: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let originalTitle, overview: String
     let popularity: Double
-    let posterPath, releaseDate, title: String
+    let posterPath, releaseDate, title: String?
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
@@ -55,8 +55,4 @@ struct MovieList: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
-}
-
-enum OriginalLanguage: String, Codable {
-    case en = "en"
 }
