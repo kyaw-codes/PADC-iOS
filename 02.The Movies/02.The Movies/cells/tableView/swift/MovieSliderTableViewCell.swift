@@ -13,13 +13,18 @@ class MovieSliderTableViewCell: UITableViewCell {
     @IBOutlet weak var pageControl: UIPageControl!
     
     var delegate: MovieItemDelegate?
+    var movies: [MovieList]? {
+        didSet {
+            pageControl.numberOfPages = movies?.count ?? 0
+            movieSliderCollectionView.reloadData()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
         movieSliderCollectionView.delegate = self
         movieSliderCollectionView.dataSource = self
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,11 +38,13 @@ class MovieSliderTableViewCell: UITableViewCell {
 extension MovieSliderTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueCell(ofType: MovieSliderCollectionViewCell.self, for: indexPath, shouldRegister: true)
+        let cell = collectionView.dequeueCell(ofType: MovieSliderCollectionViewCell.self, for: indexPath, shouldRegister: true)
+        cell.movie = movies?[indexPath.row]
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchImageView: UIImageView!
     @IBOutlet weak var moviesTableView: UITableView!
     
+    private let movieService = MovieDbService.shared
+    private var upcomingMovies: [MovieList]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,14 +25,44 @@ class HomeViewController: UIViewController {
             moviesTableView.register(
                 UINib(nibName: String(describing: $0), bundle: nil), forCellReuseIdentifier: String(describing: $0))
         }
+        
+        loadNetworkRequests()
     }
     
+}
+
+// MARK: - Network Request
+
+extension HomeViewController {
+    
+    public enum Sections: Int, CaseIterable {
+        case MovieSlider = 0
+        case PopularMovies = 1
+        case CheckShowTime = 2
+        case MovieWithGenre = 3
+        case ShowCase = 4
+        case BestActors = 5
+    }
+    
+    private func loadNetworkRequests() {
+        
+        // Fetch upcoming movies
+        movieService.fetchUpcomingMovieList { [weak self] result in
+            do {
+                self?.upcomingMovies = try result.get()
+                let indexSet = IndexSet(integer: Sections.MovieSlider.rawValue)
+                self?.moviesTableView.reloadSections(indexSet, with: .automatic)
+            } catch {
+                print("[Error: while fetching UpComingMovies]", error)
+            }
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return Sections.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,21 +71,22 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 0:
+        case Sections.MovieSlider.rawValue:
             let cell = dequeueTableViewCell(ofType: MovieSliderTableViewCell.self, with: tableView, for: indexPath)
             cell.delegate = self
+            cell.movies = upcomingMovies
             return cell
-        case 1:
+        case Sections.PopularMovies.rawValue:
             let cell = dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
             cell.delegate = self
             return cell
-        case 2:
+        case Sections.CheckShowTime.rawValue:
             return dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)
-        case 3:
+        case Sections.MovieWithGenre.rawValue:
             return dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
-        case 4:
+        case Sections.ShowCase.rawValue:
             return dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
-        case 5:
+        case Sections.BestActors.rawValue:
             return dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
         default:
             return UITableViewCell()
@@ -67,7 +101,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         setupCell(cell)
         return cell
     }
-    
 }
 
 extension HomeViewController: MovieItemDelegate {

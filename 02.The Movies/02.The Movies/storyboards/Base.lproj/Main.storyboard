@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,7 +37,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WFT-Dl-JM1">
-                                        <rect key="frame" x="366" y="17" width="28" height="26"/>
+                                        <rect key="frame" x="366" y="16.5" width="28" height="26.5"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="19H-Zx-VHJ"/>
@@ -95,10 +96,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZA-Jn-Szg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1464.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1480.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="V0F-tY-L5p">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1464.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1480.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srh-3H-gK3" userLabel="Top Image Container View">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="340"/>
@@ -544,10 +545,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyp-yQ-HgY" userLabel="Creators Container View">
-                                                        <rect key="frame" x="0.0" y="1111" width="414" height="353.5"/>
+                                                        <rect key="frame" x="0.0" y="1111" width="414" height="369.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q0s-yi-qr0">
-                                                                <rect key="frame" x="0.0" y="18" width="414" height="317.5"/>
+                                                                <rect key="frame" x="0.0" y="18" width="414" height="333.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWW-ca-ecE">
                                                                         <rect key="frame" x="24" y="8" width="390" height="91.5"/>
@@ -634,7 +635,7 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lbh-HC-V5d">
-                                                <rect key="frame" x="360" y="41" width="30" height="28"/>
+                                                <rect key="frame" x="360" y="40.5" width="30" height="28.5"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="j1o-K2-s8u"/>

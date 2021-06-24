@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieSliderCollectionViewCell: UICollectionViewCell {
+    
+    var movie: MovieList? {
+        didSet {
+            guard let data = movie else { return }
+            movieTitleLable.text = data.title
+            movieImageView.sd_setImage(with: URL(string: "\(imageBaseURL)/\(data.backdropPath)"))
+        }
+    }
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleLable: UILabel!
@@ -22,7 +31,7 @@ class MovieSliderCollectionViewCell: UICollectionViewCell {
     private func setupGradientLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor(named: "Color_Primary")!.cgColor]
-        gradientLayer.locations = [0, 0.5]
+        gradientLayer.locations = [0, 0.7]
         movieImageView.layer.addSublayer(gradientLayer)
         let gradientHeight = movieImageView.frame.height * 0.5
         gradientLayer.frame = CGRect(x: 0, y: movieImageView.frame.height - gradientHeight, width: movieImageView.frame.width, height: gradientHeight)
