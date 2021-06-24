@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (5.4.3)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - Wormholy (1.6.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.4)
+  - SDWebImage (~> 5.0)
+  - Wormholy
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SDWebImage
+    - Wormholy
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  Wormholy: 2e70f64227e010d363f8d33268369f77faf12471
+
+PODFILE CHECKSUM: 39b81a0f4cc24e43000534408d3f744270b5e28e
+
+COCOAPODS: 1.10.1
