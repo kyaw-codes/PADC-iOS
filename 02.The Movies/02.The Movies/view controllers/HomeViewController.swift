@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     private var upcomingMovies: [Movie]?
     private var popularMovies: [Movie]?
     private var popularSeries: [Movie]?
+    private var movieGenres: [GenreVO]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,18 @@ extension HomeViewController {
                 print("[Error: while fetching PopularSeries]", error)
             }
         }
+        
+        // Fetch movie genres
+        movieService.fetchGenres(with: "/genre/movie/list") { [weak self] result in
+            do {
+                let genres = try result.get()
+                self?.movieGenres = genres.map { $0.convertToVO() }
+                self?.movieGenres?.first?.isSelected = true
+                self?.updateUI(at: .movieWithGenre)
+            } catch {
+                print("[Error: while fetching MovieWithGenres]", error)
+            }
+        }
     }
     
     private func updateUI(at section: Sections) {
@@ -118,7 +131,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case Sections.checkShowTime.rawValue:
             return dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)
         case Sections.movieWithGenre.rawValue:
-            return dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
+            // TODO: - Implement here
+            let cell = dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
+            cell.genreList = movieGenres
+            return cell
         case Sections.showCase.rawValue:
             return dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
         case Sections.bestActors.rawValue:

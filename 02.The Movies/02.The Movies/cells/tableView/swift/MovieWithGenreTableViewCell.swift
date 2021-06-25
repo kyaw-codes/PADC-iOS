@@ -12,15 +12,11 @@ class MovieWithGenreTableViewCell: UITableViewCell {
     @IBOutlet weak var genreCollectionView: UICollectionView!
     @IBOutlet weak var movieCollectionView: UICollectionView!
     
-    fileprivate var genreList: [GenreVO] = [
-        .init(genreName: "ACTION", isSelected: true),
-        .init(genreName: "ADVENTURE", isSelected: false),
-        .init(genreName: "CRIMINAL", isSelected: false),
-        .init(genreName: "DRAMMA", isSelected: false),
-        .init(genreName: "COMEDY", isSelected: false),
-        .init(genreName: "DOCUMENTARY", isSelected: false),
-        .init(genreName: "BIOGRAPHY", isSelected: false)
-    ]
+    var genreList: [GenreVO]? {
+        didSet {
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +37,11 @@ class MovieWithGenreTableViewCell: UITableViewCell {
 extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView == genreCollectionView ? genreList.count : 10
+        if collectionView == genreCollectionView {
+            return genreList?.count ?? 0
+        } else {
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,7 +50,7 @@ extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICol
             return collectionView.dequeueCell(ofType: GenreCollectionViewCell.self, for: indexPath, shouldRegister: true) { [weak self] cell in
                 guard let self = self else { return }
                 // Pass data to the cell
-                cell.data = self.genreList[indexPath.row]
+                cell.data = self.genreList?[indexPath.row]
                 
                 // Implement on tap event
                 cell.onGenreTap = { genreName in
@@ -68,7 +68,7 @@ extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == genreCollectionView {
-            let textWidth = getWidthOf(text: genreList[indexPath.row].genreName, with: UIFont(name: "Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))
+            let textWidth = getWidthOf(text: genreList?[indexPath.row].genreName ?? "", with: UIFont(name: "Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))
             
             return .init(width: textWidth + 20, height: 40)
         } else {
@@ -78,7 +78,7 @@ extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICol
     }
     
     fileprivate func resetGenreSelection(_ genreName: String) {
-        genreList.forEach { genre  in
+        genreList?.forEach { genre  in
             if genre.genreName == genreName {
                 genre.isSelected = true
             } else {

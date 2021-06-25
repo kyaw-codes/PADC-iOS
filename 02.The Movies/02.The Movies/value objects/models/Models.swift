@@ -56,3 +56,18 @@ struct Movie: Codable {
         case voteCount = "vote_count"
     }
 }
+
+// MARK: - MovieGenres
+struct MovieGenres: Codable {
+    let genres: [Genre]?
+}
+
+// MARK: - Genre
+struct Genre: Codable {
+    let id: Int
+    let name: String
+    
+    func convertToVO() -> GenreVO {
+        GenreVO(id: id, genreName: name, isSelected: false)
+    }
+}

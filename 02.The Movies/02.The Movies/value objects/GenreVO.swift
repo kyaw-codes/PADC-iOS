@@ -9,10 +9,12 @@ import Foundation
 
 class GenreVO {
     
+    var id: Int
     var genreName: String
     var isSelected: Bool = false
     
-    init(genreName: String, isSelected: Bool) {
+    init(id: Int = 0, genreName: String, isSelected: Bool) {
+        self.id = id
         self.genreName = genreName
         self.isSelected = isSelected
     }

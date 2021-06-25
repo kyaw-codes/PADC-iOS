@@ -26,6 +26,19 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
+    func fetchGenres(with subPath: String, _ completion: @escaping (Result<Array<Genre>, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: subPath)).responseDecodable(of: MovieGenres.self) { response in
+            if let error = response.error {
+                completion(.failure(error))
+            }
+            
+            if let genre = response.value,
+                let genres = genre.genres {
+                completion(.success(genres))
+            }
+        }.validate(statusCode: 200..<300)
+    }
+    
     private func composeUrlString(subPath: String) -> String {
         let path = subPath.first == "/" ? subPath : "/\(subPath)"
         return "\(baseURL)\(path)?api_key=\(apiKey)"
