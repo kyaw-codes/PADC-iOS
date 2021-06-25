@@ -13,7 +13,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var overlayView: UIView!
     
-    var onGenreTap: ((String) -> Void) = {_ in}
+    var onGenreTap: ((Int) -> Void) = {_ in}
     
     var data: GenreVO? = nil {
         didSet {
@@ -33,7 +33,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
     }
     
     @objc fileprivate func _didCellTap() {
-        onGenreTap(data?.genreName ?? "")
+        onGenreTap(data?.id ?? 0)
     }
 
 }

@@ -85,7 +85,6 @@ extension HomeViewController {
             do {
                 let genres = try result.get()
                 self?.movieGenres = genres.map { $0.convertToVO() }
-                self?.movieGenres?.first?.isSelected = true
                 self?.updateUI(at: .movieWithGenre)
             } catch {
                 print("[Error: while fetching MovieWithGenres]", error)
@@ -131,8 +130,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case Sections.checkShowTime.rawValue:
             return dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)
         case Sections.movieWithGenre.rawValue:
-            // TODO: - Implement here
             let cell = dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
+            cell.movies = popularMovies
             cell.genreList = movieGenres
             return cell
         case Sections.showCase.rawValue:

@@ -14,9 +14,26 @@ class MovieWithGenreTableViewCell: UITableViewCell {
     
     var genreList: [GenreVO]? {
         didSet {
+            // Clean up genres
+            genreList?.removeAll(where: { vo in
+                return movieDict[vo.id] == nil
+            })
             
+            genreList?.first?.isSelected = true
+            genreCollectionView.reloadData()
+            
+            reloadMovies(basedOn: genreList?.first?.id ?? 0)
         }
     }
+    
+    var movies: [Movie]? {
+        didSet {
+            guard let movies = movies else { return }
+            organizeMoviesBasedOnGenre(movies)
+        }
+    }
+    
+    private var movieDict: [Int: Set<Movie>] = [:]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,7 +57,7 @@ extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICol
         if collectionView == genreCollectionView {
             return genreList?.count ?? 0
         } else {
-            return 10
+            return movies?.count ?? 0
         }
     }
     
@@ -53,14 +70,16 @@ extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICol
                 cell.data = self.genreList?[indexPath.row]
                 
                 // Implement on tap event
-                cell.onGenreTap = { genreName in
-                    self.resetGenreSelection(genreName)
-                    self.genreCollectionView.reloadData()
+                cell.onGenreTap = { genreId in
+                    self.resetGenreSelection(genreId)
+                    self.reloadMovies(basedOn: genreId)
                 }
             }
             
         } else {
-            return collectionView.dequeueCell(ofType: PopularMovieCollectionViewCell.self, for: indexPath, shouldRegister: true)
+            let cell = collectionView.dequeueCell(ofType: PopularMovieCollectionViewCell.self, for: indexPath, shouldRegister: true)
+            cell.movie = movies?[indexPath.row]
+            return cell
         }
             
     }
@@ -74,23 +93,45 @@ extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICol
         } else {
             return .init(width: collectionView.frame.width / 3, height: collectionView.frame.height)
         }
-        
+    }
+}
+
+extension MovieWithGenreTableViewCell {
+    
+    // MARK: - Private Helpers
+
+    private func getWidthOf(text: String, with font: UIFont) -> CGFloat {
+        let attribute = [NSAttributedString.Key.font: font]
+        let size = text.size(withAttributes: attribute)
+        return size.width
     }
     
-    fileprivate func resetGenreSelection(_ genreName: String) {
+    private func resetGenreSelection(_ genreId: Int) {
         genreList?.forEach { genre  in
-            if genre.genreName == genreName {
+            if genre.id == genreId {
                 genre.isSelected = true
             } else {
                 genre.isSelected = false
             }
         }
+        genreCollectionView.reloadData()
     }
 
-    fileprivate func getWidthOf(text: String, with font: UIFont) -> CGFloat {
-        let attribute = [NSAttributedString.Key.font: font]
-        let size = text.size(withAttributes: attribute)
-        return size.width
+    private func organizeMoviesBasedOnGenre(_ movies: [Movie]) {
+        movies.forEach { movie in
+            movie.genreIDS.forEach { genreId in
+                if let _ = movieDict[genreId] {
+                    movieDict[genreId]?.insert(movie)
+                } else {
+                    movieDict[genreId] = [movie]
+                }
+            }
+        }
+    }
+    
+    private func reloadMovies(basedOn genreId: Int) {
+        movies = movieDict[genreId]?.map { $0 }
+        movieCollectionView.reloadData()
     }
     
 }
