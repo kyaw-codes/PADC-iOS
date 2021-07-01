@@ -9,9 +9,23 @@ import UIKit
 
 class BestActorsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var actorImageView: UIImageView!
+    @IBOutlet weak var actorNameLabel: UILabel!
+    @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var heartImageView: UIImageView!
     @IBOutlet weak var heartFilledImageView: UIImageView!
     
+    var bestActor: Actor? {
+        didSet {
+            guard let bestActor = bestActor else {
+                return
+            }
+            
+            actorImageView.sd_setImage(with: URL(string: "\(imageBaseURL)/\(bestActor.profilePath ?? "")"))
+            actorNameLabel.text = bestActor.name
+            roleLabel.text = bestActor.role
+        }
+    }
     var actorActionDelegate: ActorActionDelegate?
 
     override func awakeFromNib() {

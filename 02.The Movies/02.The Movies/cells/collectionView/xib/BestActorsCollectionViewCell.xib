@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,9 +22,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOZ-A2-PcW" userLabel="Content View">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="actor_1" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-0N-vfk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="actor_2" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-0N-vfk">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                             </imageView>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWo-c1-wXj">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MTh-dj-xja">
                                 <rect key="frame" x="168" y="13.5" width="20" height="17.5"/>
                                 <color key="tintColor" name="Color_Yellow"/>
@@ -37,7 +42,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stephen Amell" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boS-Bw-fRc">
-                                <rect key="frame" x="12" y="198.5" width="180" height="17.5"/>
+                                <rect key="frame" x="12" y="202.5" width="180" height="17.5"/>
                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -50,10 +55,10 @@
                                     <constraint firstAttribute="width" constant="18" id="kQU-C0-Kpb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU LIKE 18 MOVIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9UN-lb-9s6">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU LIKE 18 MOVIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9UN-lb-9s6">
                                 <rect key="frame" x="38" y="225.5" width="154" height="15"/>
                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="12"/>
-                                <color key="textColor" name="Color_Bluish_Gray"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -65,16 +70,20 @@
                             <constraint firstItem="lVl-0N-vfk" firstAttribute="top" secondItem="QOZ-A2-PcW" secondAttribute="top" id="BZu-gC-Sa5"/>
                             <constraint firstItem="MTh-dj-xja" firstAttribute="top" secondItem="QOZ-A2-PcW" secondAttribute="top" constant="12" id="Fbj-fO-C10"/>
                             <constraint firstItem="2zm-y3-NBt" firstAttribute="top" secondItem="MTh-dj-xja" secondAttribute="top" id="GCq-AO-cCj"/>
-                            <constraint firstItem="JIP-9v-Hn3" firstAttribute="top" secondItem="boS-Bw-fRc" secondAttribute="bottom" constant="8" id="HqP-Cl-X7X"/>
+                            <constraint firstItem="JIP-9v-Hn3" firstAttribute="top" secondItem="boS-Bw-fRc" secondAttribute="bottom" constant="4" id="HqP-Cl-X7X"/>
                             <constraint firstItem="lVl-0N-vfk" firstAttribute="leading" secondItem="QOZ-A2-PcW" secondAttribute="leading" id="HtV-GR-ecU"/>
                             <constraint firstItem="JIP-9v-Hn3" firstAttribute="leading" secondItem="QOZ-A2-PcW" secondAttribute="leading" constant="12" id="I8Y-cz-7ZV"/>
                             <constraint firstItem="9UN-lb-9s6" firstAttribute="leading" secondItem="JIP-9v-Hn3" secondAttribute="trailing" constant="8" id="K4e-ZO-ZrY"/>
                             <constraint firstItem="2zm-y3-NBt" firstAttribute="trailing" secondItem="MTh-dj-xja" secondAttribute="trailing" id="KVF-Du-RnL"/>
                             <constraint firstAttribute="trailing" secondItem="boS-Bw-fRc" secondAttribute="trailing" constant="8" id="NGb-Xh-uHf"/>
+                            <constraint firstItem="WWo-c1-wXj" firstAttribute="leading" secondItem="QOZ-A2-PcW" secondAttribute="leading" id="QTu-Dm-7XF"/>
+                            <constraint firstItem="WWo-c1-wXj" firstAttribute="top" secondItem="QOZ-A2-PcW" secondAttribute="top" id="R2o-zi-eVP"/>
                             <constraint firstItem="2zm-y3-NBt" firstAttribute="leading" secondItem="MTh-dj-xja" secondAttribute="leading" id="R6O-hE-sit"/>
                             <constraint firstAttribute="trailing" secondItem="9UN-lb-9s6" secondAttribute="trailing" constant="8" id="XE0-cO-hTq"/>
                             <constraint firstAttribute="trailing" secondItem="lVl-0N-vfk" secondAttribute="trailing" id="c6d-h2-cUk"/>
                             <constraint firstItem="9UN-lb-9s6" firstAttribute="centerY" secondItem="JIP-9v-Hn3" secondAttribute="centerY" id="dlM-UD-VTl"/>
+                            <constraint firstAttribute="bottom" secondItem="WWo-c1-wXj" secondAttribute="bottom" id="n6P-vN-BEU"/>
+                            <constraint firstAttribute="trailing" secondItem="WWo-c1-wXj" secondAttribute="trailing" id="rNJ-KM-Rcm"/>
                             <constraint firstItem="boS-Bw-fRc" firstAttribute="leading" secondItem="QOZ-A2-PcW" secondAttribute="leading" constant="12" id="src-Ze-tqK"/>
                             <constraint firstItem="2zm-y3-NBt" firstAttribute="bottom" secondItem="MTh-dj-xja" secondAttribute="bottom" id="wqm-lh-W7g"/>
                         </constraints>
@@ -90,20 +99,20 @@
             </constraints>
             <size key="customSize" width="231" height="286"/>
             <connections>
+                <outlet property="actorImageView" destination="lVl-0N-vfk" id="fS6-rA-4ii"/>
+                <outlet property="actorNameLabel" destination="boS-Bw-fRc" id="wSo-9d-nDZ"/>
                 <outlet property="heartFilledImageView" destination="MTh-dj-xja" id="cXb-yM-csv"/>
                 <outlet property="heartImageView" destination="2zm-y3-NBt" id="sox-uA-aEg"/>
+                <outlet property="roleLabel" destination="9UN-lb-9s6" id="b03-W9-s2k"/>
             </connections>
             <point key="canvasLocation" x="266.66666666666669" y="213.61607142857142"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="actor_1" width="200" height="112.33333587646484"/>
+        <image name="actor_2" width="1200" height="800"/>
         <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <namedColor name="Color_Bluish_Gray">
-            <color red="0.34400001168251038" green="0.375" blue="0.43799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Color_Yellow">
             <color red="0.9100000262260437" green="0.64300000667572021" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

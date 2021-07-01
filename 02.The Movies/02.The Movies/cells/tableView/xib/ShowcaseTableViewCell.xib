@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,29 +18,29 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOWCASES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vc5-Ei-ghS">
-                        <rect key="frame" x="20" y="24" width="105" height="47"/>
+                        <rect key="frame" x="20" y="24" width="105" height="25"/>
                         <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="16"/>
                         <color key="textColor" name="Color_Bluish_Gray"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MORE SHOWCASES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9e-qM-3k2">
-                        <rect key="frame" x="306.5" y="39" width="137.5" height="17.5"/>
+                        <rect key="frame" x="306.5" y="28" width="137.5" height="17.5"/>
                         <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zqH-Sx-9Hw">
-                        <rect key="frame" x="0.0" y="71" width="464" height="250"/>
+                        <rect key="frame" x="0.0" y="61" width="464" height="260"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="250" id="Zf2-v4-55q"/>
+                            <constraint firstAttribute="height" constant="260" id="veC-MN-Pdd"/>
                         </constraints>
                         <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="18" minimumInteritemSpacing="0.0" id="YVO-lP-EMa">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="20" minY="16" maxX="20" maxY="30"/>
+                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="16"/>
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
@@ -49,7 +49,7 @@
                     <constraint firstAttribute="trailing" secondItem="i9e-qM-3k2" secondAttribute="trailing" constant="20" id="3Mp-IK-Gig"/>
                     <constraint firstItem="vc5-Ei-ghS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="6cy-DW-U1X"/>
                     <constraint firstAttribute="bottom" secondItem="zqH-Sx-9Hw" secondAttribute="bottom" id="7Xq-gH-bCy"/>
-                    <constraint firstItem="zqH-Sx-9Hw" firstAttribute="top" secondItem="vc5-Ei-ghS" secondAttribute="bottom" id="ZQt-ud-7Kh"/>
+                    <constraint firstItem="zqH-Sx-9Hw" firstAttribute="top" secondItem="vc5-Ei-ghS" secondAttribute="bottom" constant="12" id="ZQt-ud-7Kh"/>
                     <constraint firstAttribute="trailing" secondItem="zqH-Sx-9Hw" secondAttribute="trailing" id="dRh-xa-odb"/>
                     <constraint firstItem="i9e-qM-3k2" firstAttribute="centerY" secondItem="vc5-Ei-ghS" secondAttribute="centerY" id="eNy-gp-jui"/>
                     <constraint firstItem="zqH-Sx-9Hw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pBN-SD-pcx"/>
@@ -58,6 +58,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="collectionViewHeight" destination="veC-MN-Pdd" id="atI-FX-AQr"/>
                 <outlet property="moreShowCasesLabel" destination="i9e-qM-3k2" id="XWF-pG-l9d"/>
                 <outlet property="showcaseCollectionView" destination="zqH-Sx-9Hw" id="kM5-Lj-0m5"/>
             </connections>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,12 +31,12 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="62m-hX-G7w">
-                        <rect key="frame" x="189" y="260" width="86.5" height="33"/>
+                        <rect key="frame" x="210" y="260" width="44.5" height="39"/>
                     </pageControl>
                 </subviews>
                 <color key="backgroundColor" name="Color_Primary"/>
                 <constraints>
-                    <constraint firstItem="62m-hX-G7w" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="-6" id="bIC-HC-fIL"/>
+                    <constraint firstItem="62m-hX-G7w" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="bIC-HC-fIL"/>
                     <constraint firstItem="62m-hX-G7w" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gcE-Zr-UyP"/>
                     <constraint firstItem="35h-Rj-wFh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jbJ-VK-uKp"/>
                     <constraint firstItem="35h-Rj-wFh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ld2-EE-XwO"/>

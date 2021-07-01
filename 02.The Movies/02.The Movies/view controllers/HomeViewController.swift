@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     private var popularMovies: [Movie]?
     private var popularSeries: [Movie]?
     private var movieGenres: [GenreVO]?
+    private var showcaseMovies: [Movie]?
+    private var bestActors: [Actor]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +92,26 @@ extension HomeViewController {
                 print("[Error: while fetching MovieWithGenres]", error)
             }
         }
+        
+        // Fetch show cases
+        movieService.fetchMovies(with: "/movie/top_rated") { [weak self] result in
+            do {
+                self?.showcaseMovies = try result.get()
+                self?.updateUI(at: .showCase)
+            } catch {
+                print("[Error: while fetching TopRated]", error)
+            }
+        }
+        
+        // Fetch actors
+        movieService.fetchActors(with: "/person/popular") { [weak self] result in
+            do {
+                self?.bestActors = try result.get()
+                self?.updateUI(at: .bestActors)
+            } catch {
+                print("[Error: while fetching Actors]", error)
+            }
+        }
     }
     
     private func updateUI(at section: Sections) {
@@ -135,9 +157,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.genreList = movieGenres
             return cell
         case Sections.showCase.rawValue:
-            return dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
+            let cell = dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
+            cell.movies = showcaseMovies
+            return cell
         case Sections.bestActors.rawValue:
-            return dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
+            let cell = dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
+            cell.actors = bestActors
+            return cell
         default:
             return UITableViewCell()
         }
@@ -155,11 +181,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: MovieItemDelegate {
 
-    func onItemTap() {
+    func onItemTap(movieId: Int?) {
         // Navigate to detail view controller
         let detailVC = MovieDetailViewController.instantiate()
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .flipHorizontal
+        detailVC.movieId = movieId ?? -1
         present(detailVC, animated: true, completion: nil)
     }
 

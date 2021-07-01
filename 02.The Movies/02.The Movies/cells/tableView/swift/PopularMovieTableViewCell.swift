@@ -52,6 +52,6 @@ extension PopularMovieTableViewCell: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.onItemTap()
+        delegate?.onItemTap(movieId: movies?[indexPath.row].id)
     }
 }

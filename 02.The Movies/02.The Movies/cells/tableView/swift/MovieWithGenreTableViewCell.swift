@@ -119,7 +119,7 @@ extension MovieWithGenreTableViewCell {
 
     private func organizeMoviesBasedOnGenre(_ movies: [Movie]) {
         movies.forEach { movie in
-            movie.genreIDS.forEach { genreId in
+            movie.genreIDS?.forEach { genreId in
                 if let _ = movieDict[genreId] {
                     movieDict[genreId]?.insert(movie)
                 } else {

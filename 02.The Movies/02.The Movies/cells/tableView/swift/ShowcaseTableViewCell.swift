@@ -11,6 +11,13 @@ class ShowcaseTableViewCell: UITableViewCell {
 
     @IBOutlet weak var moreShowCasesLabel: UILabel!
     @IBOutlet weak var showcaseCollectionView: UICollectionView!
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+    
+    var movies: [Movie]? {
+        didSet {
+            showcaseCollectionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +26,11 @@ class ShowcaseTableViewCell: UITableViewCell {
         
         showcaseCollectionView.dataSource = self
         showcaseCollectionView.delegate = self
+        
+        let cellWidth = showcaseCollectionView.frame.width * 0.8
+        let cellHeight = (cellWidth / 16) * 9
+        let sectionInset: CGFloat = 16
+        collectionViewHeight.constant = cellHeight + sectionInset
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,15 +42,19 @@ class ShowcaseTableViewCell: UITableViewCell {
 extension ShowcaseTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueCell(ofType: ShowCaseCollectionViewCell.self, for: indexPath, shouldRegister: true)
+        let cell = collectionView.dequeueCell(ofType: ShowCaseCollectionViewCell.self, for: indexPath, shouldRegister: true)
+        cell.movie = movies?[indexPath.row]
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width * 0.8, height: collectionView.frame.height - 46)
+        let cellWidth = collectionView.frame.width * 0.8
+        let cellHeight = (cellWidth / 16) * 9
+        return .init(width: cellWidth, height: cellHeight)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

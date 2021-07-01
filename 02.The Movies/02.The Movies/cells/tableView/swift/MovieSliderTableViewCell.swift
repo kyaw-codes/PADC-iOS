@@ -52,7 +52,7 @@ extension MovieSliderTableViewCell: UICollectionViewDelegateFlowLayout, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.onItemTap()
+        delegate?.onItemTap(movieId: movies?[indexPath.row].id)
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

@@ -47,6 +47,8 @@
 		02D86EA026849193005C0BF0 /* MovieDbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D86E9F26849193005C0BF0 /* MovieDbService.swift */; };
 		02D86EA22684921B005C0BF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D86EA12684921B005C0BF0 /* Constants.swift */; };
 		02D86EA52684931B005C0BF0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D86EA42684931B005C0BF0 /* Models.swift */; };
+		02FF31A1268E11F000C221CE /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FF319F268E11F000C221CE /* CompanyCollectionViewCell.swift */; };
+		02FF31A2268E11F000C221CE /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FF31A0268E11F000C221CE /* CompanyCollectionViewCell.xib */; };
 		FD3C73DEC5DB8B4C9C7C5545 /* Pods_02_The_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE508BF3DC1C5151C1A5E2F /* Pods_02_The_Movies.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		02D86E9F26849193005C0BF0 /* MovieDbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDbService.swift; sourceTree = "<group>"; };
 		02D86EA12684921B005C0BF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		02D86EA42684931B005C0BF0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		02FF319F268E11F000C221CE /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
+		02FF31A0268E11F000C221CE /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		C6FB68FBA36D209A0949477C /* Pods-02.The Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-02.The Movies.debug.xcconfig"; path = "Target Support Files/Pods-02.The Movies/Pods-02.The Movies.debug.xcconfig"; sourceTree = "<group>"; };
 		CDE508BF3DC1C5151C1A5E2F /* Pods_02_The_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_02_The_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87DDDFCE913C119DB574FBE /* Pods-02.The Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-02.The Movies.release.xcconfig"; path = "Target Support Files/Pods-02.The Movies/Pods-02.The Movies.release.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 		0299F00225C3BF4600AA14EB /* swift */ = {
 			isa = PBXGroup;
 			children = (
+				02FF319F268E11F000C221CE /* CompanyCollectionViewCell.swift */,
 				0299F00925C3BF8A00AA14EB /* MovieSliderCollectionViewCell.swift */,
 				0217BE6925C3E3E7001E6D8A /* PopularMovieCollectionViewCell.swift */,
 				02451C2E25C45F6B001A46FC /* GenreCollectionViewCell.swift */,
@@ -278,6 +283,7 @@
 		0299F00325C3BF4D00AA14EB /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				02FF31A0268E11F000C221CE /* CompanyCollectionViewCell.xib */,
 				0299F00A25C3BF8A00AA14EB /* MovieSliderCollectionViewCell.xib */,
 				0217BE6A25C3E3E7001E6D8A /* PopularMovieCollectionViewCell.xib */,
 				02451C2F25C45F6B001A46FC /* GenreCollectionViewCell.xib */,
@@ -408,6 +414,7 @@
 				020B2F8925C3B430008022E6 /* Main.storyboard in Resources */,
 				020B2FAC25C3BC3F008022E6 /* MovieSliderTableViewCell.xib in Resources */,
 				0288F1D725CC11C60018D916 /* BestActorsCollectionViewCell.xib in Resources */,
+				02FF31A2268E11F000C221CE /* CompanyCollectionViewCell.xib in Resources */,
 				02451C3125C45F6B001A46FC /* GenreCollectionViewCell.xib in Resources */,
 				024A014125C57E5200119AFE /* ShowcaseTableViewCell.xib in Resources */,
 				0299F00C25C3BF8A00AA14EB /* MovieSliderCollectionViewCell.xib in Resources */,
@@ -485,6 +492,7 @@
 				024A014525C57E8F00119AFE /* UILabel+Extensions.swift in Sources */,
 				0217BE6B25C3E3E7001E6D8A /* PopularMovieCollectionViewCell.swift in Sources */,
 				020B2FAB25C3BC3F008022E6 /* MovieSliderTableViewCell.swift in Sources */,
+				02FF31A1268E11F000C221CE /* CompanyCollectionViewCell.swift in Sources */,
 				0217BE6125C3DA0B001E6D8A /* PopularMovieTableViewCell.swift in Sources */,
 				02D86EA22684921B005C0BF0 /* Constants.swift in Sources */,
 				02D86EA52684931B005C0BF0 /* Models.swift in Sources */,
