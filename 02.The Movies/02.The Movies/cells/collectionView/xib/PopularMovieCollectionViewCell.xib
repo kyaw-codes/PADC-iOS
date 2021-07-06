@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,17 +17,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="233" height="394"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qg-eQ-ASR">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qg-eQ-ASR">
                         <rect key="frame" x="0.0" y="0.0" width="233" height="394"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeX-5C-82v">
-                                <rect key="frame" x="0.0" y="364" width="31.5" height="20"/>
+                                <rect key="frame" x="0.0" y="374" width="31.5" height="20"/>
                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaP-Bb-dHb" customClass="RatingControl" customModule="_2_The_Movies" customModuleProvider="target">
-                                <rect key="frame" x="39.5" y="366" width="80" height="16"/>
+                                <rect key="frame" x="39.5" y="376" width="80" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="FwX-ag-tSg"/>
                                     <constraint firstAttribute="width" constant="80" id="yZs-JR-rlq"/>
@@ -44,20 +45,20 @@
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avengers Endgame" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V30-yX-Uvm">
-                                <rect key="frame" x="0.0" y="335" width="233" height="23"/>
+                                <rect key="frame" x="0.0" y="349" width="233" height="23"/>
                                 <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="popular_2" translatesAutoresizingMaskIntoConstraints="NO" id="ZnG-9K-D6k">
-                                <rect key="frame" x="0.0" y="0.0" width="233" height="321"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ZnG-9K-D6k">
+                                <rect key="frame" x="0.0" y="0.0" width="233" height="335"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="V30-yX-Uvm" firstAttribute="top" secondItem="ZnG-9K-D6k" secondAttribute="bottom" constant="14" id="0LW-nZ-XDx"/>
                             <constraint firstItem="V30-yX-Uvm" firstAttribute="leading" secondItem="3qg-eQ-ASR" secondAttribute="leading" id="3uK-2a-P2e"/>
-                            <constraint firstItem="kaP-Bb-dHb" firstAttribute="top" secondItem="V30-yX-Uvm" secondAttribute="bottom" constant="8" id="6ax-d5-bes"/>
+                            <constraint firstItem="kaP-Bb-dHb" firstAttribute="top" secondItem="V30-yX-Uvm" secondAttribute="bottom" constant="4" id="6ax-d5-bes"/>
                             <constraint firstAttribute="trailing" secondItem="ZnG-9K-D6k" secondAttribute="trailing" id="EIA-5O-KOr"/>
                             <constraint firstItem="kaP-Bb-dHb" firstAttribute="centerY" secondItem="PeX-5C-82v" secondAttribute="centerY" id="IBz-kz-fAm"/>
                             <constraint firstItem="ZnG-9K-D6k" firstAttribute="top" secondItem="3qg-eQ-ASR" secondAttribute="top" id="LeO-4h-3uh"/>
@@ -65,7 +66,7 @@
                             <constraint firstItem="PeX-5C-82v" firstAttribute="leading" secondItem="3qg-eQ-ASR" secondAttribute="leading" id="UPr-be-Xv1"/>
                             <constraint firstItem="kaP-Bb-dHb" firstAttribute="leading" secondItem="PeX-5C-82v" secondAttribute="trailing" constant="8" id="dB3-p2-GLT"/>
                             <constraint firstAttribute="trailing" secondItem="V30-yX-Uvm" secondAttribute="trailing" id="hZ4-hZ-zxl"/>
-                            <constraint firstAttribute="bottom" secondItem="PeX-5C-82v" secondAttribute="bottom" constant="10" id="pzh-Ki-m3n"/>
+                            <constraint firstAttribute="bottom" secondItem="PeX-5C-82v" secondAttribute="bottom" id="pzh-Ki-m3n"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -87,7 +88,4 @@
             <point key="canvasLocation" x="273.1884057971015" y="208.92857142857142"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="popular_2" width="288" height="426.66665649414062"/>
-    </resources>
 </document>

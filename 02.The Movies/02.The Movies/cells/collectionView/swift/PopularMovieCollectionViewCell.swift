@@ -19,7 +19,7 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let data = movie else { return }
             
-            if let imagePath = data.backdropPath {
+            if let imagePath = data.posterPath {
                 popularImageView.sd_setImage(with: URL(string: "\(imageBaseURL)/\(imagePath)"))
             }
             
@@ -29,7 +29,7 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
                 movieNameLabel.text = data.name
             }
             
-            ratingLabel.text = "\(data.voteAverage ?? 0)"
+            ratingLabel.text = String(format: "%.1f", data.voteAverage ?? 0)
             ratingControl.rating = Int(round(data.voteAverage ?? 0 * 0.5))
         }
     }

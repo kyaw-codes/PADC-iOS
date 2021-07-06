@@ -30,6 +30,7 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var releasedDateLabel: UILabel!
     @IBOutlet weak var movieDescriptionLabel: UILabel!
     @IBOutlet weak var badgeCollectionView: UICollectionView!
+    @IBOutlet weak var similarMoviesCollectionView: UICollectionView!
     
     // MARK: - Properties
     
@@ -40,6 +41,7 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     private var companies: [ProductionCompany]?
     private var movieDetail: MovieDetailResponse?
     private var actors: [Actor]?
+    private var similarMovies: [Movie]?
     
     // MARK: - Lifecycle
     
@@ -62,6 +64,9 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         badgeCollectionView.delegate = self
         badgeCollectionView.dataSource = self
         
+        similarMoviesCollectionView.delegate = self
+        similarMoviesCollectionView.dataSource = self
+        
         fetchDetail()
     }
     
@@ -75,6 +80,7 @@ class MovieDetailViewController: UIViewController, Storyboarded {
             }
         }
         fetchMovieCredits()
+        fetchSimilarMovies()
     }
     
     private func fetchMovieCredits() {
@@ -82,6 +88,17 @@ class MovieDetailViewController: UIViewController, Storyboarded {
             do {
                 self?.actors = try result.get()
                 self?.actorsCollectionView.reloadData()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    private func fetchSimilarMovies() {
+        dbService.fetchSimilarMovies(of: movieId, contentType: self.contentType) { [weak self] result in
+            do {
+                self?.similarMovies = try result.get()
+                self?.similarMoviesCollectionView.reloadData()
             } catch {
                 print(error)
             }
@@ -163,7 +180,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
         } else if collectionView == actorsCollectionView {
             return actors?.count ?? 0
         } else {
-            return 10
+            return similarMovies?.count ?? 0
         }
     }
     
@@ -186,8 +203,8 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
             cell.bestActor = actors?[indexPath.row]
             return cell
         } else {
-            let cell = collectionView.dequeueCell(ofType: BestActorsCollectionViewCell.self, for: indexPath, shouldRegister: true)
-            cell.actorActionDelegate = self
+            let cell = collectionView.dequeueCell(ofType: PopularMovieCollectionViewCell.self, for: indexPath, shouldRegister: true)
+            cell.movie = similarMovies?[indexPath.row]
             return cell
         }
     }
@@ -205,7 +222,19 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
             let height = width + width * 0.5
             return .init(width: width, height: height)
         } else {
-            return .init(width: collectionView.frame.width / 2.5, height: collectionView.frame.height)
+            return .init(width: collectionView.frame.width / 3, height: collectionView.frame.height)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == similarMoviesCollectionView {
+            // Navigate to detail view controller
+            let detailVC = MovieDetailViewController.instantiate()
+            detailVC.modalPresentationStyle = .fullScreen
+            detailVC.modalTransitionStyle = .flipHorizontal
+            detailVC.movieId = similarMovies?[indexPath.row].id ?? -1
+            detailVC.contentType = self.contentType
+            present(detailVC, animated: true, completion: nil)
         }
     }
 }
