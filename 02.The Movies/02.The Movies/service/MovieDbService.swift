@@ -12,6 +12,11 @@ final class MovieDbService {
     
     static let shared: MovieDbService = MovieDbService()
     
+    enum ContentType: String {
+        case movie = "movie"
+        case tv = "tv"
+    }
+    
     private init() {}
     
     func fetchMovies(with subPath: String, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
@@ -26,20 +31,21 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
-    func fetchSeries(of id: Int, _ completion: @escaping (Result<MovieDetailResponse, AFError>) -> Void) {
-        AF.request(composeUrlString(subPath: "tv/\(id)")).responseDecodable(of: MovieDetailResponse.self) { response in
+    func fetchActor(of id: Int, contentType: ContentType = .movie, _ completion: @escaping (Result<Array<Actor>, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: "\(contentType.rawValue)/\(id)/credits")).responseDecodable(of: MovieCreditResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }
             
-            if let detail = response.value {
-                completion(.success(detail))
+            if let response = response.value,
+                let actors = response.convertToActor() {
+                completion(.success(actors))
             }
         }.validate(statusCode: 200..<300)
     }
     
-    func fetchMovie(of id: Int, _ completion: @escaping (Result<MovieDetailResponse, AFError>) -> Void) {
-        AF.request(composeUrlString(subPath: "movie/\(id)")).responseDecodable(of: MovieDetailResponse.self) { response in
+    func fetchMovie(of id: Int, contentType: ContentType = .movie, _ completion: @escaping (Result<MovieDetailResponse, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: "\(contentType.rawValue)/\(id)")).responseDecodable(of: MovieDetailResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }

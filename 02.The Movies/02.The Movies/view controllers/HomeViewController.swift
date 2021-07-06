@@ -183,7 +183,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: MovieItemDelegate {
 
-    func onItemTap(movieId: Int?, type: MovieDetailViewController.ContentType) {
+    func onItemTap(movieId: Int?, type: MovieDbService.ContentType) {
         // Navigate to detail view controller
         let detailVC = MovieDetailViewController.instantiate()
         detailVC.modalPresentationStyle = .fullScreen

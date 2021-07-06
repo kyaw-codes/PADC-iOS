@@ -34,11 +34,12 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     // MARK: - Properties
     
     var movieId: Int = -1
-    var contentType: ContentType = .movie
+    var contentType: MovieDbService.ContentType = .movie
     
     private let dbService = MovieDbService.shared
     private var companies: [ProductionCompany]?
     private var movieDetail: MovieDetailResponse?
+    private var actors: [Actor]?
     
     // MARK: - Lifecycle
     
@@ -65,23 +66,24 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     }
     
     private func fetchDetail() {
-        if contentType == .movie {
-            dbService.fetchMovie(of: movieId) { [weak self] result in
-                do {
-                    self?.movieDetail = try result.get()
-                    self?.bindData(with: self?.movieDetail)
-                } catch {
-                    print(error)
-                }
+        dbService.fetchMovie(of: movieId, contentType: self.contentType) { [weak self] result in
+            do {
+                self?.movieDetail = try result.get()
+                self?.bindData(with: self?.movieDetail)
+            } catch {
+                print(error)
             }
-        } else {
-            dbService.fetchSeries(of: movieId) { [weak self] result in
-                do {
-                    self?.movieDetail = try result.get()
-                    self?.bindData(with: self?.movieDetail)
-                } catch {
-                    print(error)
-                }
+        }
+        fetchMovieCredits()
+    }
+    
+    private func fetchMovieCredits() {
+        dbService.fetchActor(of: movieId, contentType: self.contentType) { [weak self] result in
+            do {
+                self?.actors = try result.get()
+                self?.actorsCollectionView.reloadData()
+            } catch {
+                print(error)
             }
         }
     }
@@ -158,6 +160,8 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
             return companies?.count ?? 0
         } else if collectionView == badgeCollectionView {
             return movieDetail?.genres?.count ?? 0
+        } else if collectionView == actorsCollectionView {
+            return actors?.count ?? 0
         } else {
             return 10
         }
@@ -176,6 +180,11 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
                 cell.genre = genre
             }
             return cell
+        } else if collectionView == actorsCollectionView {
+            let cell = collectionView.dequeueCell(ofType: BestActorsCollectionViewCell.self, for: indexPath, shouldRegister: true)
+            cell.actorActionDelegate = self
+            cell.bestActor = actors?[indexPath.row]
+            return cell
         } else {
             let cell = collectionView.dequeueCell(ofType: BestActorsCollectionViewCell.self, for: indexPath, shouldRegister: true)
             cell.actorActionDelegate = self
@@ -185,24 +194,19 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == companiesCollectionView {
-            let width = 140
+            let width = 100
             return .init(width: width, height: width)
         } else if collectionView == badgeCollectionView {
             let text = movieDetail?.genres?[indexPath.row].name ?? ""
             let textWidth = text.getWidth(of: UIFont(name: "Geeza Pro Regular", size: 15) ?? UIFont.systemFont(ofSize: 15))
             return .init(width: textWidth + 26, height: collectionView.frame.height)
-        }
-        else {
+        } else if collectionView == actorsCollectionView {
+            let width = collectionView.frame.width * 0.35
+            let height = width + width * 0.5
+            return .init(width: width, height: height)
+        } else {
             return .init(width: collectionView.frame.width / 2.5, height: collectionView.frame.height)
         }
-    }
-}
-
-extension MovieDetailViewController {
-    
-    enum ContentType {
-        case movie
-        case tv
     }
 }
 
