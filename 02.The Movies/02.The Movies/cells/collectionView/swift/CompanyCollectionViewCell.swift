@@ -18,10 +18,13 @@ class CompanyCollectionViewCell: UICollectionViewCell {
                 return
             }
             
-            let logoUrlString = "\(imageBaseURL)/\(company.logoPath ?? "")"
-            companyImageView.sd_setImage(with: URL(string: logoUrlString))
-            
-            companyNameLabel.text = company.name
+            if let path = company.logoPath {
+                let logoUrlString = "\(imageBaseURL)/\(path)"
+                companyImageView.sd_setImage(with: URL(string: logoUrlString))
+                companyNameLabel.text = ""
+            } else {
+                companyNameLabel.text = company.name
+            }
         }
     }
 

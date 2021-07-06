@@ -22,10 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="272" height="283"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZSx-R6-iGT">
-                                <rect key="frame" x="41" y="22.5" width="190" height="198"/>
+                                <rect key="frame" x="16" y="16" width="240" height="251"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldS-aS-vMG">
-                                <rect key="frame" x="16" y="255" width="240" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldS-aS-vMG">
+                                <rect key="frame" x="16" y="16" width="240" height="251"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" name="Color_Primary"/>
                                 <nil key="highlightedColor"/>
@@ -33,13 +33,16 @@
                         </subviews>
                         <color key="backgroundColor" name="Color_Yellow"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ldS-aS-vMG" secondAttribute="trailing" constant="16" id="BVB-MF-DQw"/>
-                            <constraint firstItem="ldS-aS-vMG" firstAttribute="leading" secondItem="cVC-2v-Rd1" secondAttribute="leading" constant="16" id="QYY-2L-naT"/>
-                            <constraint firstItem="ZSx-R6-iGT" firstAttribute="height" secondItem="cVC-2v-Rd1" secondAttribute="height" multiplier="0.7" id="UO6-bz-wx8"/>
-                            <constraint firstItem="ZSx-R6-iGT" firstAttribute="centerX" secondItem="cVC-2v-Rd1" secondAttribute="centerX" id="Yek-fF-aYv"/>
-                            <constraint firstItem="ZSx-R6-iGT" firstAttribute="width" secondItem="cVC-2v-Rd1" secondAttribute="width" multiplier="0.7" id="aFN-2p-eOC"/>
-                            <constraint firstAttribute="bottom" secondItem="ldS-aS-vMG" secondAttribute="bottom" constant="10" id="d0Y-cZ-Hn4"/>
-                            <constraint firstItem="ZSx-R6-iGT" firstAttribute="centerY" secondItem="cVC-2v-Rd1" secondAttribute="centerY" constant="-20" id="yRb-xj-34k"/>
+                            <constraint firstItem="ZSx-R6-iGT" firstAttribute="leading" secondItem="cVC-2v-Rd1" secondAttribute="leading" constant="16" id="6GK-0E-4Jn"/>
+                            <constraint firstItem="ldS-aS-vMG" firstAttribute="top" secondItem="cVC-2v-Rd1" secondAttribute="top" constant="16" id="DCg-hy-ILw"/>
+                            <constraint firstItem="ldS-aS-vMG" firstAttribute="leading" secondItem="cVC-2v-Rd1" secondAttribute="leading" constant="16" id="HFM-3f-vnz"/>
+                            <constraint firstAttribute="bottom" secondItem="ZSx-R6-iGT" secondAttribute="bottom" constant="16" id="MvI-JU-h8Q"/>
+                            <constraint firstItem="ldS-aS-vMG" firstAttribute="centerX" secondItem="cVC-2v-Rd1" secondAttribute="centerX" id="Nvn-z2-f3p"/>
+                            <constraint firstAttribute="bottom" secondItem="ldS-aS-vMG" secondAttribute="bottom" constant="16" id="SjB-bc-FbS"/>
+                            <constraint firstAttribute="trailing" secondItem="ZSx-R6-iGT" secondAttribute="trailing" constant="16" id="USn-pU-Bu9"/>
+                            <constraint firstItem="ZSx-R6-iGT" firstAttribute="top" secondItem="cVC-2v-Rd1" secondAttribute="top" constant="16" id="VZ3-tu-Ghh"/>
+                            <constraint firstItem="ldS-aS-vMG" firstAttribute="centerY" secondItem="cVC-2v-Rd1" secondAttribute="centerY" id="gIJ-tl-Ozp"/>
+                            <constraint firstAttribute="trailing" secondItem="ldS-aS-vMG" secondAttribute="trailing" constant="16" id="vlN-yl-I8I"/>
                         </constraints>
                     </view>
                 </subviews>

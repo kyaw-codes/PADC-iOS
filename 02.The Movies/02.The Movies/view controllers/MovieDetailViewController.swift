@@ -10,6 +10,8 @@ import SDWebImage
 
 class MovieDetailViewController: UIViewController, Storyboarded {
 
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var playTrailerButton: UIButton!
     @IBOutlet weak var rateMovieButton: UIButton!
     @IBOutlet weak var companiesCollectionView: UICollectionView!
@@ -27,11 +29,18 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var companiesLabel: UILabel!
     @IBOutlet weak var releasedDateLabel: UILabel!
     @IBOutlet weak var movieDescriptionLabel: UILabel!
+    @IBOutlet weak var badgeCollectionView: UICollectionView!
+    
+    // MARK: - Properties
     
     var movieId: Int = -1
+    var contentType: ContentType = .movie
     
     private let dbService = MovieDbService.shared
     private var companies: [ProductionCompany]?
+    private var movieDetail: MovieDetailResponse?
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,39 +55,67 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         
         actorsCollectionView.dataSource = self
         actorsCollectionView.delegate = self
-        
         companiesCollectionView.dataSource = self
         companiesCollectionView.delegate = self
+        
+        badgeCollectionView.delegate = self
+        badgeCollectionView.dataSource = self
         
         fetchDetail()
     }
     
     private func fetchDetail() {
-        dbService.fetchMovie(of: movieId) { [weak self] result in
-            do {
-                let movieDetail = try result.get()
-                self?.bindData(with: movieDetail)
-            } catch {
-                print(error)
+        if contentType == .movie {
+            dbService.fetchMovie(of: movieId) { [weak self] result in
+                do {
+                    self?.movieDetail = try result.get()
+                    self?.bindData(with: self?.movieDetail)
+                } catch {
+                    print(error)
+                }
+            }
+        } else {
+            dbService.fetchSeries(of: movieId) { [weak self] result in
+                do {
+                    self?.movieDetail = try result.get()
+                    self?.bindData(with: self?.movieDetail)
+                } catch {
+                    print(error)
+                }
             }
         }
     }
     
-    private func bindData(with detail: MovieDetailResponse) {
+    private func bindData(with detail: MovieDetailResponse?) {
+        guard let detail = detail else {
+            return
+        }
+
         let imagePath = "\(imageBaseURL)/\(detail.backdropPath ?? "")"
         backgroundImageView.sd_setImage(with: URL(string: imagePath))
-        releasedYearLabel.text = String(detail.releaseDate?.split(separator: "-").first ?? "")
-        titleLabel.text = detail.title
-        
-        let hour = (detail.runtime ?? 0) / 60
-        let minute = (detail.runtime ?? 0) - hour * 60
-        durationLabel.text = "\(hour)h \(minute)min"
-        
+
+        if contentType == .movie {
+            releasedYearLabel.text = String(detail.releaseDate?.split(separator: "-").first ?? "")
+            releasedDateLabel.text = detail.releaseDate
+            originalTitleLabel.text = detail.originalTitle
+            titleLabel.text = detail.title
+
+            let hour = (detail.runtime ?? 0) / 60
+            let minute = (detail.runtime ?? 0) - hour * 60
+            durationLabel.text = "\(hour)h \(minute)min"
+        } else {
+            releasedYearLabel.text = String(detail.lastAirDate?.split(separator: "-").first ?? "")
+            releasedDateLabel.text = detail.lastAirDate
+            originalTitleLabel.text = detail.originalName
+            titleLabel.text = detail.name
+            
+            durationLabel.text = "\(detail.noOfSeasons ?? 1) \((detail.noOfSeasons ?? 1) > 1 ? "Seasons" : "Season")"
+        }
+
         voteCountLabel.text = "\(String((detail.voteCount ?? 0))) VOTES"
         ratingControlView.rating = Int((detail.voteAverage ?? 0) * 0.5)
         popularityLabel.text = String(format: "%.1f", detail.popularity ?? 0)
         storylineLabel.text = detail.overview
-        originalTitleLabel.text = detail.originalTitle
         
         var rawGenres = detail.genres?.map { $0.name }.reduce("") { "\($0 ?? "") \($1), " }
         rawGenres?.removeLast(2)
@@ -92,17 +129,17 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         
         companiesLabel.text = rawCompanies
         
-        releasedDateLabel.text = detail.releaseDate
         movieDescriptionLabel.text = detail.overview
         
         companies = detail.productionCompanies
         companiesCollectionView.reloadData()
+        badgeCollectionView.reloadData()
     }
     
     private func setupGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.init(named: "Color_Dark_Blue")!.cgColor]
-        gradientLayer.locations = [0, 0.9]
+        gradientLayer.locations = [0, 0.8]
         backgroundImageView.layer.addSublayer(gradientLayer)
 
         let gradientHeight = backgroundImageView.frame.height * 0.5
@@ -119,6 +156,8 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == companiesCollectionView {
             return companies?.count ?? 0
+        } else if collectionView == badgeCollectionView {
+            return movieDetail?.genres?.count ?? 0
         } else {
             return 10
         }
@@ -129,6 +168,12 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
             let cell = collectionView.dequeueCell(ofType: CompanyCollectionViewCell.self, for: indexPath, shouldRegister: true)
             if let company = companies?[indexPath.row] {
                 cell.company = company
+            }
+            return cell
+        } else if collectionView == badgeCollectionView {
+            let genre = movieDetail?.genres?[indexPath.row]
+            let cell = collectionView.dequeueCell(ofType: GenreBadgeCollectionViewCell.self, for: indexPath, shouldRegister: true) { cell in
+                cell.genre = genre
             }
             return cell
         } else {
@@ -142,9 +187,22 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
         if collectionView == companiesCollectionView {
             let width = 140
             return .init(width: width, height: width)
-        } else {
+        } else if collectionView == badgeCollectionView {
+            let text = movieDetail?.genres?[indexPath.row].name ?? ""
+            let textWidth = text.getWidth(of: UIFont(name: "Geeza Pro Regular", size: 15) ?? UIFont.systemFont(ofSize: 15))
+            return .init(width: textWidth + 26, height: collectionView.frame.height)
+        }
+        else {
             return .init(width: collectionView.frame.width / 2.5, height: collectionView.frame.height)
         }
+    }
+}
+
+extension MovieDetailViewController {
+    
+    enum ContentType {
+        case movie
+        case tv
     }
 }
 

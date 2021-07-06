@@ -26,6 +26,18 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
+    func fetchSeries(of id: Int, _ completion: @escaping (Result<MovieDetailResponse, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: "tv/\(id)")).responseDecodable(of: MovieDetailResponse.self) { response in
+            if let error = response.error {
+                completion(.failure(error))
+            }
+            
+            if let detail = response.value {
+                completion(.success(detail))
+            }
+        }.validate(statusCode: 200..<300)
+    }
+    
     func fetchMovie(of id: Int, _ completion: @escaping (Result<MovieDetailResponse, AFError>) -> Void) {
         AF.request(composeUrlString(subPath: "movie/\(id)")).responseDecodable(of: MovieDetailResponse.self) { response in
             if let error = response.error {

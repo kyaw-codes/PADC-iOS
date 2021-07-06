@@ -19,6 +19,8 @@ class ShowcaseTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: MovieItemDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -55,6 +57,10 @@ extension ShowcaseTableViewCell: UICollectionViewDelegateFlowLayout, UICollectio
         let cellWidth = collectionView.frame.width * 0.8
         let cellHeight = (cellWidth / 16) * 9
         return .init(width: cellWidth, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.onItemTap(movieId: movies?[indexPath.row].id, type: .movie)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -154,11 +154,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case Sections.movieWithGenre.rawValue:
             let cell = dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
             cell.movies = popularMovies
+            cell.delegate = self
             cell.genreList = movieGenres
             return cell
         case Sections.showCase.rawValue:
             let cell = dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
             cell.movies = showcaseMovies
+            cell.delegate = self
             return cell
         case Sections.bestActors.rawValue:
             let cell = dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
@@ -181,12 +183,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: MovieItemDelegate {
 
-    func onItemTap(movieId: Int?) {
+    func onItemTap(movieId: Int?, type: MovieDetailViewController.ContentType) {
         // Navigate to detail view controller
         let detailVC = MovieDetailViewController.instantiate()
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .flipHorizontal
         detailVC.movieId = movieId ?? -1
+        detailVC.contentType = type
         present(detailVC, animated: true, completion: nil)
     }
 

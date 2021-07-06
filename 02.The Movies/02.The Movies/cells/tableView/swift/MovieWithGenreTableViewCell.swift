@@ -26,6 +26,8 @@ class MovieWithGenreTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: MovieItemDelegate?
+    
     var movies: [Movie]? {
         didSet {
             guard let movies = movies else { return }
@@ -87,12 +89,16 @@ extension MovieWithGenreTableViewCell: UICollectionViewDelegateFlowLayout, UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == genreCollectionView {
-            let textWidth = getWidthOf(text: genreList?[indexPath.row].genreName ?? "", with: UIFont(name: "Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))
-            
+            let genreName = genreList?[indexPath.row].genreName ?? ""
+            let textWidth = genreName.getWidth(of: UIFont(name: "Geeza Pro Regular", size: 14) ?? .systemFont(ofSize: 14))
             return .init(width: textWidth + 20, height: 40)
         } else {
             return .init(width: collectionView.frame.width / 3, height: collectionView.frame.height)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.onItemTap(movieId: movies?[indexPath.row].id, type: .movie)
     }
 }
 
@@ -100,12 +106,6 @@ extension MovieWithGenreTableViewCell {
     
     // MARK: - Private Helpers
 
-    private func getWidthOf(text: String, with font: UIFont) -> CGFloat {
-        let attribute = [NSAttributedString.Key.font: font]
-        let size = text.size(withAttributes: attribute)
-        return size.width
-    }
-    
     private func resetGenreSelection(_ genreId: Int) {
         genreList?.forEach { genre  in
             if genre.id == genreId {
