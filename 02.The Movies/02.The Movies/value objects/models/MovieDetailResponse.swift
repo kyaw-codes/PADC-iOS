@@ -30,6 +30,7 @@ struct MovieDetailResponse: Codable {
     let voteCount: Int?
     let episodeRunTime: [Int]?
     let noOfSeasons: Int?
+    let mediaType: String?
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -53,6 +54,25 @@ struct MovieDetailResponse: Codable {
         case voteCount = "vote_count"
         case episodeRunTime = "episode_run_time"
         case noOfSeasons = "number_of_seasons"
+        case mediaType = "media_type"
+    }
+    
+    func convertToMovie() -> Movie {
+        Movie(adult: self.adult,
+              backdropPath: self.backdropPath,
+              genreIDS: nil, id: self.id,
+              originalLanguage: self.originalLanguage,
+              originalTitle: self.originalTitle,
+              overview: self.overview,
+              popularity: self.popularity,
+              posterPath: self.posterPath,
+              releaseDate: self.releaseDate,
+              name: self.name,
+              title: self.title,
+              video: self.video,
+              voteAverage: self.voteAverage,
+              voteCount: self.voteCount,
+              mediaType: self.mediaType)
     }
 }
 

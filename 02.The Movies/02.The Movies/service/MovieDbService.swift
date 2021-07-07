@@ -69,6 +69,35 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
+    func fetchActorDetail(actorId id: Int, _ completion: @escaping(Result<ActorDetailResponse, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: "person/\(id)")).responseDecodable(of: ActorDetailResponse.self) { response in
+            if let error = response.error {
+                completion(.failure(error))
+            }
+            
+            if let actorResponse = response.value {
+                completion(.success(actorResponse))
+            }
+        }.validate(statusCode: 200..<300)
+    }
+    
+    
+    /// Fetch movies related to an actor/actress
+    /// - Parameters:
+    ///   - actorId: Id of an actor
+    ///   - completion: Pass Result<ActorCreditResponse, AFError>
+    func fetchMovies(of actorId: Int, _ completion: @escaping(Result<ActorCreditResponse, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: "person/\(actorId)/combined_credits")).responseDecodable(of: ActorCreditResponse.self) { response in
+            if let error = response.error {
+                completion(.failure(error))
+            }
+            
+            if let actorResponse = response.value {
+                completion(.success(actorResponse))
+            }
+        }.validate(statusCode: 200..<300)
+    }
+    
     func fetchSimilarMovies(of id: Int, contentType: ContentType = .movie, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
         AF.request(composeUrlString(subPath: "\(contentType.rawValue)/\(id)/recommendations")).responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {

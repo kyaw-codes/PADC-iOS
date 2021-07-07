@@ -14,7 +14,7 @@ struct MovieCreditResponse: Codable {
     
     func convertToActor() -> [Actor]? {
         cast?.map({ cast in
-            Actor(gender: cast.gender, id: cast.castID ?? cast.id!, movies: nil, role: cast.knownForDepartment?.rawValue, name: cast.name, popularity: cast.popularity, profilePath: cast.profilePath)
+            Actor(gender: cast.gender, id: cast.id!, movies: nil, role: cast.knownForDepartment?.rawValue, name: cast.name, popularity: cast.popularity, profilePath: cast.profilePath)
         })
     }
 

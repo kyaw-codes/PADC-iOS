@@ -40,6 +40,7 @@ struct Movie: Codable, Hashable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
+    let mediaType: String?
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -54,6 +55,7 @@ struct Movie: Codable, Hashable {
         case title, video, name
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+        case mediaType = "media_type"
     }
 }
 

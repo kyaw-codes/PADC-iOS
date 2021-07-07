@@ -252,12 +252,14 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
             detailVC.movieId = similarMovies?[indexPath.row].id ?? -1
             detailVC.contentType = self.contentType
             present(detailVC, animated: true, completion: nil)
+        } else if collectionView == actorsCollectionView {
+            self.onActorCellTap(actorId: actors?[indexPath.row].id ?? -1)
         }
     }
 }
 
 extension MovieDetailViewController : ActorActionDelegate {
     func onFavouriteTap(isFavourite: Bool) {
-        // DO SOMETHING
+        // MARK: - DO SOMETHING
     }
 }

@@ -165,6 +165,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case Sections.bestActors.rawValue:
             let cell = dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
             cell.actors = bestActors
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()
@@ -195,3 +196,10 @@ extension HomeViewController: MovieItemDelegate {
 
 }
 
+extension HomeViewController: ActorActionDelegate {
+    
+    func onFavouriteTap(isFavourite: Bool) {
+        // TODO: - Do something
+    }
+    
+}

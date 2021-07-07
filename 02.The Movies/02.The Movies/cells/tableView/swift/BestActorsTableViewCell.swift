@@ -13,6 +13,8 @@ class BestActorsTableViewCell: UITableViewCell {
     @IBOutlet weak var moreActorsLabel: UILabel!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
+    var delegate: ActorActionDelegate?
+    
     var actors: [Actor]? {
         didSet {
             bestActorsCollectionView.reloadData()
@@ -45,7 +47,7 @@ extension BestActorsTableViewCell: UICollectionViewDelegateFlowLayout, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(ofType: BestActorsCollectionViewCell.self, for: indexPath, shouldRegister: true)
-        cell.actorActionDelegate = self
+        cell.actorActionDelegate = self.delegate
         cell.bestActor = actors?[indexPath.row]
         return cell
     }
@@ -56,11 +58,7 @@ extension BestActorsTableViewCell: UICollectionViewDelegateFlowLayout, UICollect
         return .init(width: width, height: height)
     }
     
-}
-
-extension BestActorsTableViewCell: ActorActionDelegate {
-    func onFavouriteTap(isFavourite: Bool) {
-        debugPrint("isFavourite: \(isFavourite)")
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.onActorCellTap(actorId: actors?[indexPath.row].id ?? -1)
     }
-
 }
