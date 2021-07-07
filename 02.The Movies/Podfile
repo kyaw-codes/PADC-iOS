@@ -9,4 +9,5 @@ target '02.The Movies' do
   pod 'Alamofire', '~> 5.4'
   pod 'Wormholy', :configurations => ['Debug']
   pod 'SDWebImage', '~> 5.0'
+  pod 'YouTubePlayer'
 end

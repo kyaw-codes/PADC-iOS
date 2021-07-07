@@ -330,6 +330,9 @@
                                                                                         <state key="normal" title="PLAY TRAILER" image="play.circle.fill" catalog="system">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="onPlayTrailerTapped:" destination="3kL-H4-aY9" eventType="touchUpInside" id="9EM-cz-10g"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGm-ED-Xpt">
                                                                                         <rect key="frame" x="168" y="0.0" width="160" height="38"/>
@@ -638,10 +641,11 @@
                                                                         </cells>
                                                                     </collectionView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <edgeInsets key="layoutMargins" top="8" left="24" bottom="8" right="0.0"/>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" name="Color_Secondary"/>
+                                                        <color key="backgroundColor" name="Color_Dark_Blue"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="iQq-Pg-8WB" secondAttribute="trailing" id="07s-rI-9bm"/>
                                                             <constraint firstItem="iQq-Pg-8WB" firstAttribute="top" secondItem="oDC-mr-ev2" secondAttribute="top" constant="16" id="iSo-FN-CVX"/>
@@ -735,6 +739,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs2-RB-k8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="521.73913043478262" y="286.60714285714283"/>
+        </scene>
+        <!--Youtube Player View Controller-->
+        <scene sceneID="dZb-Fm-nCl">
+            <objects>
+                <viewController storyboardIdentifier="YoutubePlayerViewController" id="hWr-IC-eR6" customClass="YoutubePlayerViewController" customModule="_2_The_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vqR-SN-jTh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRx-Ct-rHr" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="348" width="414" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="CrK-I0-HcC"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELX-j8-XTW">
+                                <rect key="frame" x="16" y="60" width="76.5" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancelTapped:" destination="hWr-IC-eR6" eventType="touchUpInside" id="R2v-b2-scq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ecv-Oh-gvF"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ecv-Oh-gvF" firstAttribute="trailing" secondItem="SRx-Ct-rHr" secondAttribute="trailing" id="45E-TH-y4f"/>
+                            <constraint firstItem="ELX-j8-XTW" firstAttribute="leading" secondItem="ecv-Oh-gvF" secondAttribute="leading" constant="16" id="Dsx-IR-gtr"/>
+                            <constraint firstItem="SRx-Ct-rHr" firstAttribute="centerY" secondItem="vqR-SN-jTh" secondAttribute="centerY" id="HHE-YU-bsF"/>
+                            <constraint firstItem="SRx-Ct-rHr" firstAttribute="leading" secondItem="ecv-Oh-gvF" secondAttribute="leading" id="V6q-WU-bJK"/>
+                            <constraint firstItem="ELX-j8-XTW" firstAttribute="top" secondItem="ecv-Oh-gvF" secondAttribute="top" constant="16" id="rGf-xo-wUW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="heightConstraint" destination="CrK-I0-HcC" id="OhR-tC-9DD"/>
+                        <outlet property="youtubePlayerView" destination="SRx-Ct-rHr" id="1tg-hJ-Hca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGw-K0-OMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="111"/>
         </scene>
     </scenes>
     <resources>

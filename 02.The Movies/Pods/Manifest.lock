@@ -4,23 +4,27 @@ PODS:
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
   - Wormholy (1.6.4)
+  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - SDWebImage (~> 5.0)
   - Wormholy
+  - YouTubePlayer
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - SDWebImage
     - Wormholy
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   Wormholy: 2e70f64227e010d363f8d33268369f77faf12471
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 39b81a0f4cc24e43000534408d3f744270b5e28e
+PODFILE CHECKSUM: 47559872bd91b3607a8b5d39977eae42274a4aa2
 
 COCOAPODS: 1.10.1

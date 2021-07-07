@@ -105,6 +105,19 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         }
     }
     
+    private func downloadVideoAndPlay() {
+        dbService.fetchTrailer(of: movieId, contentType: self.contentType) { [weak self] result in
+            do {
+                let trailer = try result.get()
+                let playerVC = YoutubePlayerViewController.instantiate()
+                playerVC.keyPath = trailer.keyPath
+                self?.present(playerVC, animated: true, completion: nil)
+            } catch {
+                
+            }
+        }
+    }
+    
     private func bindData(with detail: MovieDetailResponse?) {
         guard let detail = detail else {
             return
@@ -167,6 +180,10 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     
     @IBAction func onBackTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction private func onPlayTrailerTapped(_ sender: Any) {
+        self.downloadVideoAndPlay()
     }
 }
 

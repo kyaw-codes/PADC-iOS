@@ -56,6 +56,19 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
+    func fetchTrailer(of id: Int, contentType: ContentType = .movie, _ completion: @escaping (Result<Trailer, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: "\(contentType.rawValue)/\(id)/videos")).responseDecodable(of: MovieTrailerResponse.self) { response in
+            if let error = response.error {
+                completion(.failure(error))
+            }
+            
+            if let trailerResponse = response.value,
+                let trailer = trailerResponse.results?.first {
+                completion(.success(trailer))
+            }
+        }.validate(statusCode: 200..<300)
+    }
+    
     func fetchSimilarMovies(of id: Int, contentType: ContentType = .movie, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
         AF.request(composeUrlString(subPath: "\(contentType.rawValue)/\(id)/recommendations")).responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
