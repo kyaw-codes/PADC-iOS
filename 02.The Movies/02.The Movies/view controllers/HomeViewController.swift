@@ -23,6 +23,12 @@ class HomeViewController: UIViewController {
     private var showcaseMovieResponse: MovieResponse?
     private var actorResponse: ActorResponse?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -172,7 +178,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                 let vc = ListViewController.instantiate()
                 vc.type = .movies
                 vc.movieResponse = self?.showcaseMovieResponse
-                self?.present(vc, animated: true, completion: nil)
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
         case Sections.bestActors.rawValue:
@@ -181,7 +187,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.onViewMoreTapped = { [weak self] in
                 let vc = ListViewController.instantiate()
                 vc.actorResponse = self?.actorResponse
-                self?.present(vc, animated: true, completion: nil)
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
             cell.delegate = self
             return cell
@@ -198,6 +204,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         setupCell(cell)
         return cell
     }
+    
+    @IBAction private func onSearchButtonTapped(_ sender: Any) {
+        // TODO: - Implement search action
+        print("Search")
+    }
 }
 
 extension HomeViewController: MovieItemDelegate {
@@ -205,11 +216,9 @@ extension HomeViewController: MovieItemDelegate {
     func onItemTap(movieId: Int?, type: MovieDbService.ContentType) {
         // Navigate to detail view controller
         let detailVC = MovieDetailViewController.instantiate()
-        detailVC.modalPresentationStyle = .fullScreen
-        detailVC.modalTransitionStyle = .flipHorizontal
         detailVC.movieId = movieId ?? -1
         detailVC.contentType = type
-        present(detailVC, animated: true, completion: nil)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
 }

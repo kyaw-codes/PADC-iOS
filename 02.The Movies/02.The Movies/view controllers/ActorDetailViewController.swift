@@ -54,6 +54,7 @@ class ActorDetailViewController: UIViewController, Storyboarded {
         dbService.fetchActorDetail(actorId: id) { [weak self] result in
             do {
                 self?.actorDetail = try result.get()
+                self?.navigationItem.title = self?.actorDetail?.name
             } catch {
                 print(error)
             }
@@ -145,7 +146,6 @@ extension ActorDetailViewController: MovieItemDelegate {
         let vc = MovieDetailViewController.instantiate()
         vc.movieId = movieId ?? -1
         vc.contentType = type
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

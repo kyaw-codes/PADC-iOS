@@ -20,6 +20,6 @@ extension ActorActionDelegate where Self: UIViewController {
     func onActorCellTapped(actorId id: Int) {
         let vc = ActorDetailViewController.instantiate()
         vc.id = id
-        (self as UIViewController).present(vc, animated: true, completion: nil)
+        (self as UIViewController).navigationController?.pushViewController(vc, animated: true)
     }
 }

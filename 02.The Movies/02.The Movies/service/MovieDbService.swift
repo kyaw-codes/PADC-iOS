@@ -19,6 +19,11 @@ final class MovieDbService {
     
     private init() {}
     
+    /// Fetch all movies
+    /// - Parameters:
+    ///   - subPath: The sub path to fetch movies. The movies could be latest  or top rated or upcoming or something
+    ///   - pageNo: The page nunber you want to fetch
+    ///   - completion: Pass Result<Array<Movie>, AFError> as a parameter
     func fetchMovies(with subPath: String, pageNo: Int = 1, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
         AF.request("\(composeUrlString(subPath: subPath))&page=\(pageNo)").responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
@@ -31,6 +36,11 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
+    
+    /// Fetch movies for show case section
+    /// - Parameters:
+    ///   - subPath: The sub path to fetch movies. The movies could be latest  or top rated or upcoming or something
+    ///   - completion: Pass Result<MovieResponse, AFError> as a parameter
     func fetchShowcaseMovies(with subPath: String, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void) {
         AF.request(composeUrlString(subPath: subPath)).responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
@@ -43,6 +53,12 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
+    
+    /// Fetch an actor with specific id
+    /// - Parameters:
+    ///   - id: Actor id
+    ///   - contentType: He could be acting in either movies or series
+    ///   - completion: Pass Result<Array<Actor>, AFError> as a parameter
     func fetchActor(of id: Int, contentType: ContentType = .movie, _ completion: @escaping (Result<Array<Actor>, AFError>) -> Void) {
         AF.request(composeUrlString(subPath: "\(contentType.rawValue)/\(id)/credits")).responseDecodable(of: MovieCreditResponse.self) { response in
             if let error = response.error {
@@ -56,6 +72,12 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
+    
+    /// Fetch detail of a movie
+    /// - Parameters:
+    ///   - id: The movie id
+    ///   - contentType: The type of a movie (It could be movie or tv)
+    ///   - completion: Pass Result<MovieDetailResponse, AFError> as a parameter
     func fetchMovie(of id: Int, contentType: ContentType = .movie, _ completion: @escaping (Result<MovieDetailResponse, AFError>) -> Void) {
         AF.request(composeUrlString(subPath: "\(contentType.rawValue)/\(id)")).responseDecodable(of: MovieDetailResponse.self) { response in
             if let error = response.error {

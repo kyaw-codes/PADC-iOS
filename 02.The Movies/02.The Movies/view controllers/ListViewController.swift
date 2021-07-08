@@ -56,6 +56,8 @@ class ListViewController: UIViewController, Storyboarded {
         collectionView.reloadData()
         
         setupUpButton()
+        
+        navigationItem.title = type == .casts ? "All Actors" : "Top Rated Movies"
     }
     
     private func fetchNextPage(pageNo: Int) {

@@ -66,6 +66,8 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         
         similarMoviesCollectionView.delegate = self
         similarMoviesCollectionView.dataSource = self
+                        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
         
         fetchDetail()
     }
@@ -73,8 +75,10 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     private func fetchDetail() {
         dbService.fetchMovie(of: movieId, contentType: self.contentType) { [weak self] result in
             do {
-                self?.movieDetail = try result.get()
-                self?.bindData(with: self?.movieDetail)
+                let movieDetail = try result.get()
+                self?.movieDetail = movieDetail
+                self?.bindData(with: movieDetail)
+                self?.navigationItem.title = movieDetail.name ?? movieDetail.title
             } catch {
                 print(error)
             }
@@ -181,7 +185,7 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func onBackTapped(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction private func onPlayTrailerTapped(_ sender: Any) {
@@ -249,11 +253,9 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
         if collectionView == similarMoviesCollectionView {
             // Navigate to detail view controller
             let detailVC = MovieDetailViewController.instantiate()
-            detailVC.modalPresentationStyle = .fullScreen
-            detailVC.modalTransitionStyle = .flipHorizontal
             detailVC.movieId = similarMovies?[indexPath.row].id ?? -1
             detailVC.contentType = self.contentType
-            present(detailVC, animated: true, completion: nil)
+            navigationController?.pushViewController(detailVC, animated: true)
         } else if collectionView == actorsCollectionView {
             self.onActorCellTapped(actorId: actors?[indexPath.row].id ?? -1)
         }
