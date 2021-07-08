@@ -13,6 +13,8 @@ class ShowcaseTableViewCell: UITableViewCell {
     @IBOutlet weak var showcaseCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
+    var onMoreShowcasesTapped: (() -> Void)?
+    
     var movies: [Movie]? {
         didSet {
             showcaseCollectionView.reloadData()
@@ -25,6 +27,7 @@ class ShowcaseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         moreShowCasesLabel.underline(for: "MORE SHOWCASES")
+        moreShowCasesLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMoreShowcasesTapped(_:))))
         
         showcaseCollectionView.dataSource = self
         showcaseCollectionView.delegate = self
@@ -37,6 +40,10 @@ class ShowcaseTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @IBAction private func handleMoreShowcasesTapped(_ sender: Any) {
+        onMoreShowcasesTapped?()
     }
     
 }

@@ -19,14 +19,26 @@ final class MovieDbService {
     
     private init() {}
     
-    func fetchMovies(with subPath: String, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
-        AF.request(composeUrlString(subPath: subPath)).responseDecodable(of: MovieResponse.self) { response in
+    func fetchMovies(with subPath: String, pageNo: Int = 1, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
+        AF.request("\(composeUrlString(subPath: subPath))&page=\(pageNo)").responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }
             
             if let movies = response.value {
                 completion(.success(movies.movies))
+            }
+        }.validate(statusCode: 200..<300)
+    }
+    
+    func fetchShowcaseMovies(with subPath: String, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void) {
+        AF.request(composeUrlString(subPath: subPath)).responseDecodable(of: MovieResponse.self) { response in
+            if let error = response.error {
+                completion(.failure(error))
+            }
+            
+            if let movieResponse = response.value {
+                completion(.success(movieResponse))
             }
         }.validate(statusCode: 200..<300)
     }

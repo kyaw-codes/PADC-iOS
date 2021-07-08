@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     private var movieGenres: [GenreVO]?
     private var showcaseMovies: [Movie]?
     private var bestActors: [Actor] = []
+    private var showcaseMovieResponse: MovieResponse?
     private var actorResponse: ActorResponse?
     
     override func viewDidLoad() {
@@ -95,9 +96,10 @@ extension HomeViewController {
         }
         
         // Fetch show cases
-        movieService.fetchMovies(with: "/movie/top_rated") { [weak self] result in
+        movieService.fetchShowcaseMovies(with: "/movie/top_rated") { [weak self] result in
             do {
-                self?.showcaseMovies = try result.get()
+                self?.showcaseMovieResponse = try result.get()
+                self?.showcaseMovies = self?.showcaseMovieResponse?.movies
                 self?.updateUI(at: .showCase)
             } catch {
                 print("[Error: while fetching TopRated]", error)
@@ -166,13 +168,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
             cell.movies = showcaseMovies
             cell.delegate = self
+            cell.onMoreShowcasesTapped = { [weak self] in
+                let vc = ListViewController.instantiate()
+                vc.type = .movies
+                vc.movieResponse = self?.showcaseMovieResponse
+                self?.present(vc, animated: true, completion: nil)
+            }
             return cell
         case Sections.bestActors.rawValue:
             let cell = dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
             cell.actors = bestActors
             cell.onViewMoreTapped = { [weak self] in
-                let vc = ActorsViewController.instantiate()
-                vc.initialActors = self?.actorResponse
+                let vc = ListViewController.instantiate()
+                vc.actorResponse = self?.actorResponse
                 self?.present(vc, animated: true, completion: nil)
             }
             cell.delegate = self

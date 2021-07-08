@@ -771,7 +771,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGw-K0-OMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345" y="111"/>
+            <point key="canvasLocation" x="1259" y="119"/>
         </scene>
         <!--Actor Detail View Controller-->
         <scene sceneID="aY8-5D-ke4">
@@ -1104,12 +1104,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="su4-5E-sYI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153.6231884057975" y="118.52678571428571"/>
+            <point key="canvasLocation" x="2023" y="119"/>
         </scene>
-        <!--Actors View Controller-->
+        <!--List View Controller-->
         <scene sceneID="qij-1o-TEX">
             <objects>
-                <viewController storyboardIdentifier="ActorsViewController" id="odH-eD-coF" customClass="ActorsViewController" customModule="_2_The_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListViewController" id="odH-eD-coF" customClass="ListViewController" customModule="_2_The_Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2rA-5D-zIX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1162,7 +1162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frr-vr-FWv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836.2318840579715" y="131.91964285714286"/>
+            <point key="canvasLocation" x="2807" y="119"/>
         </scene>
     </scenes>
     <resources>
