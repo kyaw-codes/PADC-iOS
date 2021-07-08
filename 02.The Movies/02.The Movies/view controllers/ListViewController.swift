@@ -49,8 +49,6 @@ class ListViewController: UIViewController, Storyboarded {
             }
             currentPage = movieResponse?.page ?? 1
             noOfPages = movieResponse?.totalPages ?? 1
-            print(currentPage)
-            print(noOfPages)
         }
         
         collectionView.reloadData()
@@ -161,7 +159,7 @@ extension ListViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         } else {
             let vc = MovieDetailViewController.instantiate()
             vc.movieId = movies[indexPath.row].id ?? -1
-            self.present(vc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
