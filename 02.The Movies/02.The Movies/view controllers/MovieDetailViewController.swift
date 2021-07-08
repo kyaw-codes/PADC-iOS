@@ -150,7 +150,9 @@ class MovieDetailViewController: UIViewController, Storyboarded {
         storylineLabel.text = detail.overview
         
         var rawGenres = detail.genres?.map { $0.name }.reduce("") { "\($0 ?? "") \($1), " }
-        rawGenres?.removeLast(2)
+        if (rawGenres?.count ?? 0) >= 2 {
+            rawGenres?.removeLast(2)
+        }
         genresLabel.text = rawGenres ?? ""
         
         var rawCompanies = detail.productionCompanies?.map { $0.name }.reduce("") { "\($0 ?? "") \($1 ?? ""), " }
@@ -253,13 +255,13 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
             detailVC.contentType = self.contentType
             present(detailVC, animated: true, completion: nil)
         } else if collectionView == actorsCollectionView {
-            self.onActorCellTap(actorId: actors?[indexPath.row].id ?? -1)
+            self.onActorCellTapped(actorId: actors?[indexPath.row].id ?? -1)
         }
     }
 }
 
 extension MovieDetailViewController : ActorActionDelegate {
-    func onFavouriteTap(isFavourite: Bool) {
+    func onFavouriteTapped(isFavourite: Bool) {
         // MARK: - DO SOMETHING
     }
 }

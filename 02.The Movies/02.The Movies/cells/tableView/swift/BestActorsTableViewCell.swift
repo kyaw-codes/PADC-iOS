@@ -20,11 +20,15 @@ class BestActorsTableViewCell: UITableViewCell {
             bestActorsCollectionView.reloadData()
         }
     }
+    
+    var onViewMoreTapped: (() -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
         moreActorsLabel.underline(for: "MORE ACTORS")
+        moreActorsLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onMoreActorsTapped(_:))))
+        
         bestActorsCollectionView.delegate = self
         bestActorsCollectionView.dataSource = self
         
@@ -38,6 +42,9 @@ class BestActorsTableViewCell: UITableViewCell {
 
     }
     
+    @IBAction private func onMoreActorsTapped(_ sender: Any) {
+        onViewMoreTapped?()
+    }
 }
 
 extension BestActorsTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -59,6 +66,6 @@ extension BestActorsTableViewCell: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.onActorCellTap(actorId: actors?[indexPath.row].id ?? -1)
+        delegate?.onActorCellTapped(actorId: actors?[indexPath.row].id ?? -1)
     }
 }

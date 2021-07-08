@@ -10,14 +10,14 @@ import UIKit
 
 protocol ActorActionDelegate {
     
-    func onFavouriteTap(isFavourite: Bool)
+    func onFavouriteTapped(isFavourite: Bool)
     
-    func onActorCellTap(actorId id: Int)
+    func onActorCellTapped(actorId id: Int)
 }
 
 extension ActorActionDelegate where Self: UIViewController {
     
-    func onActorCellTap(actorId id: Int) {
+    func onActorCellTapped(actorId id: Int) {
         let vc = ActorDetailViewController.instantiate()
         vc.id = id
         (self as UIViewController).present(vc, animated: true, completion: nil)

@@ -146,6 +146,6 @@ extension ActorDetailViewController: MovieItemDelegate {
         vc.movieId = movieId ?? -1
         vc.contentType = type
         vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nili)
+        self.present(vc, animated: true, completion: nil)
     }
 }

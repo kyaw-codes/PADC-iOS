@@ -19,7 +19,8 @@ class HomeViewController: UIViewController {
     private var popularSeries: [Movie]?
     private var movieGenres: [GenreVO]?
     private var showcaseMovies: [Movie]?
-    private var bestActors: [Actor]?
+    private var bestActors: [Actor] = []
+    private var actorResponse: ActorResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +107,11 @@ extension HomeViewController {
         // Fetch actors
         movieService.fetchActors(with: "/person/popular") { [weak self] result in
             do {
-                self?.bestActors = try result.get()
+                let actorResponse = try result.get()
+                actorResponse.actors?.forEach {
+                    self?.bestActors.append($0)
+                }
+                self?.actorResponse = actorResponse
                 self?.updateUI(at: .bestActors)
             } catch {
                 print("[Error: while fetching Actors]", error)
@@ -165,6 +170,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case Sections.bestActors.rawValue:
             let cell = dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
             cell.actors = bestActors
+            cell.onViewMoreTapped = { [weak self] in
+                let vc = ActorsViewController.instantiate()
+                vc.initialActors = self?.actorResponse
+                self?.present(vc, animated: true, completion: nil)
+            }
             cell.delegate = self
             return cell
         default:
@@ -198,7 +208,7 @@ extension HomeViewController: MovieItemDelegate {
 
 extension HomeViewController: ActorActionDelegate {
     
-    func onFavouriteTap(isFavourite: Bool) {
+    func onFavouriteTapped(isFavourite: Bool) {
         // TODO: - Do something
     }
     

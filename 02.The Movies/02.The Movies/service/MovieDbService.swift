@@ -123,15 +123,14 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
-    func fetchActors(with subPath: String, _ completion: @escaping (Result<Array<Actor>, AFError>) -> Void) {
-        AF.request(composeUrlString(subPath: subPath)).responseDecodable(of: ActorResponse.self) { response in
+    func fetchActors(with subPath: String, pageNo: Int = 1, _ completion: @escaping (Result<ActorResponse, AFError>) -> Void) {
+        AF.request("\(composeUrlString(subPath: subPath))&page=\(pageNo)").responseDecodable(of: ActorResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }
             
-            if let actorResponse = response.value,
-               let actors = actorResponse.actors {
-                completion(.success(actors))
+            if let actorResponse = response.value {
+                completion(.success(actorResponse))
             }
         }.validate(statusCode: 200..<300)
     }

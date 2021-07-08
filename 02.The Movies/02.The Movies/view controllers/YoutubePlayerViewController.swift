@@ -32,8 +32,4 @@ class YoutubePlayerViewController: UIViewController, Storyboarded {
         heightConstraint.constant = (self.view.frame.width * 9) / 16
     }
     
-    @IBAction private func onCancelTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
 }

@@ -44,13 +44,13 @@ class BestActorsCollectionViewCell: UICollectionViewCell {
     @objc fileprivate func onTapFavourite() {
         heartImageView.isHidden = true
         heartFilledImageView.isHidden = false
-        actorActionDelegate?.onFavouriteTap(isFavourite: true)
+        actorActionDelegate?.onFavouriteTapped(isFavourite: true)
     }
     
     @objc fileprivate func onTapUnfavourite() {
         heartImageView.isHidden = false
         heartFilledImageView.isHidden = true
-        actorActionDelegate?.onFavouriteTap(isFavourite: false)
+        actorActionDelegate?.onFavouriteTapped(isFavourite: false)
     }
 
 }
