@@ -9,6 +9,8 @@ import UIKit
 
 class ActorDetailViewController: UIViewController, Storyboarded {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,18 +23,24 @@ class ActorDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var detailBirthPlaceLabel: UILabel!
     @IBOutlet weak var detailRoleLabel: UILabel!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
+
+    // MARK: - Properties
     
     var actorDetail: ActorDetailResponse? {
         didSet {
-            bindData()
+            guard let actorDetail = actorDetail else {
+                return
+            }
+            bindData(with: actorDetail)
         }
     }
     
-    private var dbService = MovieDbService.shared
-    private var movies: [Movie] = []
-    
+    let dbService = MovieDbService.shared
+    var movies: [Movie] = []
     var id: Int = -1
 
+    // MARK: - Lifecycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,32 +58,9 @@ class ActorDetailViewController: UIViewController, Storyboarded {
         }
     }
     
-    private func fetchDetial() {
-        dbService.fetchActorDetail(actorId: id) { [weak self] result in
-            do {
-                self?.actorDetail = try result.get()
-                self?.navigationItem.title = self?.actorDetail?.name
-            } catch {
-                print(error)
-            }
-        }
-        
-        dbService.fetchMovies(of: id) { [weak self] result in
-            do {
-                let result = try result.get()
-                result.movies?.forEach { self?.movies.append($0.convertToMovie()) }
-                self?.moviesCollectionView.reloadData()
-            } catch {
-                print(error)
-            }
-        }
-    }
+    // MARK: - Private Helpers
     
-    private func bindData() {
-        guard let actorDetail = actorDetail else {
-            return
-        }
-        
+    private func bindData(with actorDetail: ActorDetailResponse) {
         if let imagePath = actorDetail.profilePath {
             let imageUrlString = "\(imageBaseURL)/\(imagePath)"
             profileImageView.sd_setImage(with: URL(string: imageUrlString))
@@ -111,41 +96,4 @@ class ActorDetailViewController: UIViewController, Storyboarded {
         gradientLayer.frame = CGRect(x: 0, y: imageViewHeight - gradientHeight, width: self.view.frame.width, height: gradientHeight)
     }
     
-}
-
-extension ActorDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueCell(ofType: PopularMovieCollectionViewCell.self, for: indexPath, shouldRegister: true) { [weak self] cell in
-            
-            cell.movie = self?.movies[indexPath.row]
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: collectionView.frame.width / 3, height: collectionView.frame.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movie = movies[indexPath.row]
-        self.onItemTap(
-            movieId: movie.id,
-            type: (movie.mediaType ?? "movie") == "tv"
-                ? .tv
-                : .movie
-        )
-    }
-}
-
-extension ActorDetailViewController: MovieItemDelegate {
-    func onItemTap(movieId: Int?, type: MovieDbService.ContentType) {
-        let vc = MovieDetailViewController.instantiate()
-        vc.movieId = movieId ?? -1
-        vc.contentType = type
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }

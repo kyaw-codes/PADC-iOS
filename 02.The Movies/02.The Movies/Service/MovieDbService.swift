@@ -36,13 +36,24 @@ final class MovieDbService {
         }.validate(statusCode: 200..<300)
     }
     
-    
     /// Fetch movies for show case section
     /// - Parameters:
     ///   - subPath: The sub path to fetch movies. The movies could be latest  or top rated or upcoming or something
     ///   - completion: Pass Result<MovieResponse, AFError> as a parameter
     func fetchShowcaseMovies(with subPath: String, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void) {
         AF.request(composeUrlString(subPath: subPath)).responseDecodable(of: MovieResponse.self) { response in
+            if let error = response.error {
+                completion(.failure(error))
+            }
+            
+            if let movieResponse = response.value {
+                completion(.success(movieResponse))
+            }
+        }.validate(statusCode: 200..<300)
+    }
+    
+    func searchMovie(with keyword: String, pageNo: Int = 1, _ completion: @escaping(Result<MovieResponse, AFError>) -> Void) {
+        AF.request("\(composeUrlString(subPath: "search/movie/"))&query=\(keyword)").responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }
