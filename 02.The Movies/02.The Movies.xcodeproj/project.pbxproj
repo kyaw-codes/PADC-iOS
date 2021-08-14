@@ -357,7 +357,7 @@
 		02451C3425C4602F001A46FC /* ValueObjects */ = {
 			isa = PBXGroup;
 			children = (
-				02D86EA32684930D005C0BF0 /* models */,
+				02D86EA32684930D005C0BF0 /* Models */,
 				02451C3525C46043001A46FC /* GenreVO.swift */,
 				02D86EA12684921B005C0BF0 /* Constants.swift */,
 			);
@@ -427,7 +427,7 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		02D86EA32684930D005C0BF0 /* models */ = {
+		02D86EA32684930D005C0BF0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				02D86EA42684931B005C0BF0 /* MovieResponse.swift */,
@@ -438,7 +438,7 @@
 				02CBA8EA26955B7500E3BCD6 /* MovieTrailerResponse.swift */,
 				02CBA8EE2695683000E3BCD6 /* ActorCreditResponse.swift */,
 			);
-			path = models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		0584AEC621DB2C3EC4702B10 /* Frameworks */ = {
