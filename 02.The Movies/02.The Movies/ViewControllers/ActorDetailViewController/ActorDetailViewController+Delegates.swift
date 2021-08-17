@@ -40,7 +40,7 @@ extension ActorDetailViewController: UICollectionViewDelegateFlowLayout, UIColle
 
 extension ActorDetailViewController: MovieItemDelegate {
     
-    func onItemTap(movieId: Int?, type: MovieDbService.ContentType) {
+    func onItemTap(movieId: Int?, type: MovieFetchType) {
         let vc = MovieDetailViewController.instantiate()
         vc.movieId = movieId ?? -1
         vc.contentType = type

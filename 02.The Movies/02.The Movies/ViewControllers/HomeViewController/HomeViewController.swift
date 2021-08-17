@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    let movieService = MovieDbService.shared
+    let movieService = NetworkAgentImpl.shared
     var upcomingMovies: [Movie]?
     var popularMovies: [Movie]?
     var popularSeries: [Movie]?

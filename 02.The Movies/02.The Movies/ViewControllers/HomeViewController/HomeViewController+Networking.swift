@@ -12,7 +12,7 @@ extension HomeViewController {
     func loadNetworkRequests() {
         
         // Fetch upcoming movies
-        movieService.fetchMovies(with: "/movie/upcoming") { [weak self] result in
+        movieService.fetchMovies(withEndpoint: .upComingMovies) { [weak self] result in
             do {
                 self?.upcomingMovies = try result.get()
                 self?.updateUI(at: .movieSlider)
@@ -22,7 +22,7 @@ extension HomeViewController {
         }
 
         // Fetch popular movies
-        movieService.fetchMovies(with: "/movie/popular") { [weak self] result in
+        movieService.fetchMovies(withEndpoint: .popularMovies) { [weak self] result in
             do {
                 self?.popularMovies = try result.get()
                 self?.updateUI(at: .popularMovies)
@@ -32,7 +32,7 @@ extension HomeViewController {
         }
         
         // Fetch popular series
-        movieService.fetchMovies(with: "/tv/popular") { [weak self] result in
+        movieService.fetchMovies(withEndpoint: .popularSeries) { [weak self] result in
             do {
                 self?.popularSeries = try result.get()
                 self?.updateUI(at: .popularSeries)
@@ -42,7 +42,7 @@ extension HomeViewController {
         }
         
         // Fetch movie genres
-        movieService.fetchGenres(with: "/genre/movie/list") { [weak self] result in
+        movieService.fetchGenres(withEndpoint: .genres) { [weak self] result in
             do {
                 let genres = try result.get()
                 self?.movieGenres = genres.map { $0.convertToVO() }
@@ -53,7 +53,7 @@ extension HomeViewController {
         }
         
         // Fetch show cases
-        movieService.fetchShowcaseMovies(with: "/movie/top_rated") { [weak self] result in
+        movieService.fetchShowcaseMovies(withEndpoint: .showcaseMovies) { [weak self] result in
             do {
                 self?.showcaseMovieResponse = try result.get()
                 self?.showcaseMovies = self?.showcaseMovieResponse?.movies
@@ -64,7 +64,7 @@ extension HomeViewController {
         }
         
         // Fetch actors
-        movieService.fetchActors(with: "/person/popular") { [weak self] result in
+        movieService.fetchActors(withEndpoint: .popularActors) { [weak self] result in
             do {
                 let actorResponse = try result.get()
                 actorResponse.actors?.forEach {

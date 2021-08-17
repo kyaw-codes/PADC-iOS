@@ -35,14 +35,14 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     // MARK: - Properties
     
     var movieId: Int = -1
-    var contentType: MovieDbService.ContentType = .movie
+    var contentType: MovieFetchType = .movie
     
     var companies: [ProductionCompany]?
     var movieDetail: MovieDetailResponse?
     var actors: [Actor]?
     var similarMovies: [Movie]?
     
-    let dbService = MovieDbService.shared
+    let networkAgent = NetworkAgentImpl.shared
 
     // MARK: - Lifecycle
     

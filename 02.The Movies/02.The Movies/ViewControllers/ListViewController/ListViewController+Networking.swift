@@ -18,7 +18,7 @@ extension ListViewController {
     }
     
     private func fetchActors(pageNo: Int) {
-        movieService.fetchActors(with: "/person/popular", pageNo: pageNo) { [weak self] result in
+        movieService.fetchActors(withEndpoint: .allActors(pageNo: pageNo)) { [weak self] result in
             do {
                 let actorResponse = try result.get()
                 actorResponse.actors?.forEach {
@@ -33,7 +33,7 @@ extension ListViewController {
     }
     
     private func fetchMovies(pageNo: Int) {
-        movieService.fetchMovies(with: "/movie/top_rated", pageNo: pageNo) { [weak self] result in
+        movieService.fetchMovies(withEndpoint: .showcaseMovies, pageNo: pageNo) { [weak self] result in
             do {
                 let movies = try result.get()
                 movies.forEach {

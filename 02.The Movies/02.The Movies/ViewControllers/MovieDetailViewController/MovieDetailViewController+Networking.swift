@@ -10,7 +10,7 @@ import UIKit
 extension MovieDetailViewController {
     
     func fetchContents() {
-        dbService.fetchMovie(of: movieId, contentType: self.contentType) { [weak self] result in
+        networkAgent.fetchMovieDetail(movieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 let movieDetail = try result.get()
                 self?.movieDetail = movieDetail
@@ -26,7 +26,7 @@ extension MovieDetailViewController {
     }
     
     func downloadVideoAndPlay() {
-        dbService.fetchTrailer(of: movieId, contentType: self.contentType) { [weak self] result in
+        networkAgent.fetchTrailer(movieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 let trailer = try result.get()
                 let playerVC = YoutubePlayerViewController.instantiate()
@@ -39,7 +39,7 @@ extension MovieDetailViewController {
     }
     
     private func fetchMovieCredits() {
-        dbService.fetchActor(of: movieId, contentType: self.contentType) { [weak self] result in
+        networkAgent.fetchActors(ofMovieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 self?.actors = try result.get()
                 self?.actorsCollectionView.reloadData()
@@ -50,7 +50,7 @@ extension MovieDetailViewController {
     }
     
     private func fetchSimilarMovies() {
-        dbService.fetchSimilarMovies(of: movieId, contentType: self.contentType) { [weak self] result in
+        networkAgent.fetchSimilarMovies(ofMovieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 self?.similarMovies = try result.get()
                 self?.similarMoviesCollectionView.reloadData()

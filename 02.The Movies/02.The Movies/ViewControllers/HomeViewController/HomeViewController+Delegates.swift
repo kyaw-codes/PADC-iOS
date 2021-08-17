@@ -76,7 +76,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: MovieItemDelegate, ActorActionDelegate {
 
-    func onItemTap(movieId: Int?, type: MovieDbService.ContentType) {
+    func onItemTap(movieId: Int?, type: MovieFetchType) {
         // Navigate to detail view controller
         let detailVC = MovieDetailViewController.instantiate()
         detailVC.movieId = movieId ?? -1

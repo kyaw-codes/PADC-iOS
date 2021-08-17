@@ -9,5 +9,5 @@ import Foundation
 
 protocol MovieItemDelegate {
     
-    func onItemTap(movieId: Int?, type: MovieDbService.ContentType)
+    func onItemTap(movieId: Int?, type: MovieFetchType)
 }

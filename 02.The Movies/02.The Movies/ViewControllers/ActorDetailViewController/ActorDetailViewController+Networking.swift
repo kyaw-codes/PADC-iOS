@@ -10,7 +10,7 @@ import UIKit
 extension ActorDetailViewController {
     
     func fetchDetial() {
-        dbService.fetchActorDetail(actorId: id) { [weak self] result in
+        networkAgent.fetchActorDetail(actorId: id) { [weak self] result in
             do {
                 self?.actorDetail = try result.get()
                 self?.navigationItem.title = self?.actorDetail?.name
@@ -19,7 +19,7 @@ extension ActorDetailViewController {
             }
         }
         
-        dbService.fetchMovies(of: id) { [weak self] result in
+        networkAgent.fetchMoviesRelatedTo(actorId: id) { [weak self] result in
             do {
                 let result = try result.get()
                 result.movies?.forEach { self?.movies.append($0.convertToMovie()) }

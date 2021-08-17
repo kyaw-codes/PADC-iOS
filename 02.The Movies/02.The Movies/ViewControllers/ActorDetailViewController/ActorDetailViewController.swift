@@ -35,7 +35,7 @@ class ActorDetailViewController: UIViewController, Storyboarded {
         }
     }
     
-    let dbService = MovieDbService.shared
+    let networkAgent = NetworkAgentImpl.shared
     var movies: [Movie] = []
     var id: Int = -1
 
