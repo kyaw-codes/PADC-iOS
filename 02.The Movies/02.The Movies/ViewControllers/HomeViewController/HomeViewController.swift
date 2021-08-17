@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    let networkAgent = NetworkAgentImpl.shared
     var upcomingMovies: [Movie]?
     var popularMovies: [Movie]?
     var popularSeries: [Movie]?
@@ -24,6 +23,10 @@ class HomeViewController: UIViewController {
     var bestActors: [Actor] = []
     var showcaseMovieResponse: MovieResponse?
     var actorResponse: ActorResponse?
+    
+    let movieModel: MoviesModel = MoviesModelImpl.shared
+    let genreModel: GenreModel = GenreModelImpl.shared
+    let actorModel: ActorModel = ActorModelImpl.shared
     
     // MARK: - Lifecycles
     
@@ -37,7 +40,7 @@ class HomeViewController: UIViewController {
                 UINib(nibName: String(describing: $0), bundle: nil), forCellReuseIdentifier: String(describing: $0))
         }
         
-        loadNetworkRequests()
+        loadData()
     }
     
     // MARK: - Target/Action Handlers

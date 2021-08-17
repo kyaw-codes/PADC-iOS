@@ -47,7 +47,7 @@ extension ListViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                                           : movies.count - 1)
         
         if isLastRow && currentPage <= noOfPages {
-            fetchNextPage(pageNo: currentPage + 1)
+            loadNextPageData(pageNo: currentPage + 1)
         }
     }
     

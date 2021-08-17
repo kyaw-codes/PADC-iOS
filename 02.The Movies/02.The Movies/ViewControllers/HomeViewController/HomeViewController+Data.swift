@@ -9,10 +9,10 @@ import Foundation
 
 extension HomeViewController {
     
-    func loadNetworkRequests() {
+    func loadData() {
         
-        // Fetch upcoming movies
-        networkAgent.fetchMovies(withEndpoint: .upComingMovies) { [weak self] result in
+        // Fetch slider movies
+        movieModel.getSliderMovies(pageNo: nil) { [weak self] result in
             do {
                 self?.upcomingMovies = try result.get().movies
                 self?.updateUI(at: .movieSlider)
@@ -22,7 +22,7 @@ extension HomeViewController {
         }
 
         // Fetch popular movies
-        networkAgent.fetchMovies(withEndpoint: .popularMovies) { [weak self] result in
+        movieModel.getPopularMovies(pageNo: nil) { [weak self] result in
             do {
                 self?.popularMovies = try result.get().movies
                 self?.updateUI(at: .popularMovies)
@@ -32,7 +32,7 @@ extension HomeViewController {
         }
         
         // Fetch popular series
-        networkAgent.fetchMovies(withEndpoint: .popularSeries) { [weak self] result in
+        movieModel.getPopularSeries(pageNo: nil) { [weak self] result in
             do {
                 self?.popularSeries = try result.get().movies
                 self?.updateUI(at: .popularSeries)
@@ -42,7 +42,7 @@ extension HomeViewController {
         }
         
         // Fetch movie genres
-        networkAgent.fetchGenres(withEndpoint: .genres) { [weak self] result in
+        genreModel.getGenres { [weak self] result in
             do {
                 let genres = try result.get()
                 self?.movieGenres = genres.map { $0.convertToVO() }
@@ -53,7 +53,7 @@ extension HomeViewController {
         }
         
         // Fetch show cases
-        networkAgent.fetchShowcaseMovies(withEndpoint: .showcaseMovies) { [weak self] result in
+        movieModel.getShowcaseMovies(pageNo: nil) { [weak self] result in
             do {
                 self?.showcaseMovieResponse = try result.get()
                 self?.showcaseMovies = self?.showcaseMovieResponse?.movies
@@ -64,7 +64,7 @@ extension HomeViewController {
         }
         
         // Fetch actors
-        networkAgent.fetchActors(withEndpoint: .popularActors) { [weak self] result in
+        actorModel.getActors(pageNo: nil) { [weak self] result in
             do {
                 let actorResponse = try result.get()
                 actorResponse.actors?.forEach {

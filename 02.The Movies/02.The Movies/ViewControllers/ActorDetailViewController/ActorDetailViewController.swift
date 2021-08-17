@@ -35,7 +35,7 @@ class ActorDetailViewController: UIViewController, Storyboarded {
         }
     }
     
-    let networkAgent = NetworkAgentImpl.shared
+    let actorModel: ActorModel = ActorModelImpl.shared
     var movies: [Movie] = []
     var id: Int = -1
 
@@ -44,7 +44,7 @@ class ActorDetailViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchDetial()
+        loadDetailData()
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
     }

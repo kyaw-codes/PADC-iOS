@@ -10,7 +10,8 @@ import Foundation
 extension SearchViewController {
     
     func searchMovie(pageNo: Int = 1) {
-        NetworkAgentImpl.shared.searchMovie(with: searchText, pageNo: pageNo) { [weak self] result in
+        
+        movieModel.searchMovie(with: searchText, pageNo: pageNo) { [weak self] result in
             do {
                 let response = try result.get()
                 self?.totalPages = response.totalPages ?? 1

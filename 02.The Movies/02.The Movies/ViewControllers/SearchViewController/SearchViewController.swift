@@ -24,6 +24,7 @@ class SearchViewController: UIViewController, Storyboarded {
     var searchText = ""
     var noOfCols: CGFloat = 3
     var spacing: CGFloat = 10
+    let movieModel: MoviesModel = MoviesModelImpl.shared
     
     // MARK: - Lifecycles
     

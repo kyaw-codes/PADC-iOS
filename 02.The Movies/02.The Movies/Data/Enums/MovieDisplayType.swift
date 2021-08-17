@@ -12,5 +12,6 @@ enum MovieDisplayType: String, CaseIterable {
     case popularMovies = "Popular Movies"
     case popularSeries = "Popular Series"
     case showcaseMovies = "Showcase Movies"
+    case similarMoves = "Similar Movies"
     case movieWithGenres = "Actor Movies"
 }

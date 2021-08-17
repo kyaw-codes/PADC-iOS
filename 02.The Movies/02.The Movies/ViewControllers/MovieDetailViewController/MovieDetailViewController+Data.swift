@@ -9,8 +9,8 @@ import UIKit
 
 extension MovieDetailViewController {
     
-    func fetchContents() {
-        networkAgent.fetchMovieDetail(movieId: movieId, contentType: self.contentType) { [weak self] result in
+    func loadData() {
+        movieModel.getMovieDetail(movieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 let movieDetail = try result.get()
                 self?.movieDetail = movieDetail
@@ -20,26 +20,26 @@ extension MovieDetailViewController {
                 print(error)
             }
         }
-        
+
         fetchMovieCredits()
         fetchSimilarMovies()
     }
     
     func downloadVideoAndPlay() {
-        networkAgent.fetchTrailer(movieId: movieId, contentType: self.contentType) { [weak self] result in
+        movieModel.getTrailer(movieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 let trailer = try result.get()
                 let playerVC = YoutubePlayerViewController.instantiate()
                 playerVC.keyPath = trailer.keyPath
                 self?.present(playerVC, animated: true, completion: nil)
             } catch {
-                
+               print(error)
             }
         }
     }
     
     private func fetchMovieCredits() {
-        networkAgent.fetchActors(ofMovieId: movieId, contentType: self.contentType) { [weak self] result in
+        movieModel.getMovieCredits(ofMovieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 self?.actors = try result.get()
                 self?.actorsCollectionView.reloadData()
@@ -50,7 +50,7 @@ extension MovieDetailViewController {
     }
     
     private func fetchSimilarMovies() {
-        networkAgent.fetchSimilarMovies(ofMovieId: movieId, contentType: self.contentType) { [weak self] result in
+        movieModel.getSimilarMovies(ofMovieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
                 self?.similarMovies = try result.get().movies
                 self?.similarMoviesCollectionView.reloadData()

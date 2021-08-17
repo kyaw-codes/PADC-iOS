@@ -42,7 +42,7 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     var actors: [Actor]?
     var similarMovies: [Movie]?
     
-    let networkAgent = NetworkAgentImpl.shared
+    let movieModel: MoviesModel = MoviesModelImpl.shared
 
     // MARK: - Lifecycle
     
@@ -57,7 +57,7 @@ class MovieDetailViewController: UIViewController, Storyboarded {
             $0?.dataSource = self
         }
                                 
-        fetchContents()
+        loadData()
     }
     
     // MARK: - Helpers

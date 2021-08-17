@@ -9,16 +9,16 @@ import UIKit
 
 extension ListViewController {
     
-    func fetchNextPage(pageNo: Int) {
+    func loadNextPageData(pageNo: Int) {
         if type == .casts {
-            fetchActors(pageNo: pageNo)
+            loadActors(pageNo: pageNo)
         } else {
-            fetchMovies(pageNo: pageNo)
+            loadMovies(pageNo: pageNo)
         }
     }
     
-    private func fetchActors(pageNo: Int) {
-        networkAgent.fetchActors(withEndpoint: .allActors(pageNo: pageNo)) { [weak self] result in
+    private func loadActors(pageNo: Int) {
+        actorModel.getActors(pageNo: pageNo) { [weak self] result in
             do {
                 let actorResponse = try result.get()
                 actorResponse.actors?.forEach {
@@ -32,8 +32,8 @@ extension ListViewController {
         }
     }
     
-    private func fetchMovies(pageNo: Int) {
-        networkAgent.fetchMovies(withEndpoint: .showcaseMovies, pageNo: pageNo) { [weak self] result in
+    private func loadMovies(pageNo: Int) {
+        movieModel.getShowcaseMovies(pageNo: pageNo) { [weak self] result in
             do {
                 let movieResponse = try result.get()
                 movieResponse.movies.forEach {
