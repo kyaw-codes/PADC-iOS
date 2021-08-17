@@ -1,5 +1,5 @@
 //
-//  MovieDbService.swift
+//  NetworkAgentImpl.swift
 //  02.The Movies
 //
 //  Created by Ko Kyaw on 24/06/2021.
@@ -14,14 +14,14 @@ final class NetworkAgentImpl: NetworkAgent {
     
     private init() {}
     
-    func fetchMovies(withEndpoint endpoint: MDBEndPoint, pageNo: Int = 1, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
+    func fetchMovies(withEndpoint endpoint: MDBEndPoint, pageNo: Int = 1, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void) {
         AF.request(endpoint.urlString).responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }
             
             if let movies = response.value {
-                completion(.success(movies.movies))
+                completion(.success(movies))
             }
         }.validate(statusCode: 200..<300)
     }
@@ -117,15 +117,15 @@ final class NetworkAgentImpl: NetworkAgent {
         }.validate(statusCode: 200..<300)
     }
     
-    func fetchSimilarMovies(ofMovieId id: Int, contentType: MovieFetchType = .movie, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void) {
+    func fetchSimilarMovies(ofMovieId id: Int, contentType: MovieFetchType = .movie, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void) {
         let url = MDBEndPoint.similarMovies(movieId: id, contentType: contentType).urlString
         AF.request(url).responseDecodable(of: MovieResponse.self) { response in
             if let error = response.error {
                 completion(.failure(error))
             }
             
-            if let detail = response.value {
-                completion(.success(detail.movies))
+            if let response = response.value {
+                completion(.success(response))
             }
         }.validate(statusCode: 200..<300)
     }

@@ -32,7 +32,7 @@ class ListViewController: UIViewController, Storyboarded {
     
     var actors: [Actor] = []
     var movies: [Movie] = []
-    var movieService = NetworkAgentImpl.shared
+    var networkAgent = NetworkAgentImpl.shared
     
     // MARK: - Lifecycle
     

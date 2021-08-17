@@ -52,7 +52,7 @@ extension MovieDetailViewController {
     private func fetchSimilarMovies() {
         networkAgent.fetchSimilarMovies(ofMovieId: movieId, contentType: self.contentType) { [weak self] result in
             do {
-                self?.similarMovies = try result.get()
+                self?.similarMovies = try result.get().movies
                 self?.similarMoviesCollectionView.reloadData()
             } catch {
                 print(error)

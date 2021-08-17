@@ -10,10 +10,10 @@ import Alamofire
 protocol NetworkAgent {
     
     // MARK: - Movie
-    func fetchMovies(withEndpoint endpoint: MDBEndPoint, pageNo: Int, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void)
+    func fetchMovies(withEndpoint endpoint: MDBEndPoint, pageNo: Int, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void)
     func fetchShowcaseMovies(withEndpoint endpoint: MDBEndPoint, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void)
     func searchMovie(with keyword: String, pageNo: Int, _ completion: @escaping(Result<MovieResponse, AFError>) -> Void)
-    func fetchSimilarMovies(ofMovieId id: Int, contentType: MovieFetchType, _ completion: @escaping (Result<Array<Movie>, AFError>) -> Void)
+    func fetchSimilarMovies(ofMovieId id: Int, contentType: MovieFetchType, _ completion: @escaping (Result<MovieResponse, AFError>) -> Void)
     func fetchMovieDetail(movieId id: Int, contentType: MovieFetchType, _ completion: @escaping (Result<MovieDetailResponse, AFError>) -> Void)
     
     // MARK: - Actor    
@@ -23,6 +23,7 @@ protocol NetworkAgent {
 
     func fetchTrailer(movieId id: Int, contentType: MovieFetchType, _ completion: @escaping (Result<Trailer, AFError>) -> Void)
     func fetchMoviesRelatedTo(actorId: Int, _ completion: @escaping(Result<ActorCreditResponse, AFError>) -> Void)
-    
+
+    // MARK: - Genres
     func fetchGenres(withEndpoint endpoint: MDBEndPoint, _ completion: @escaping (Result<Array<Genre>, AFError>) -> Void)
 }
