@@ -122,7 +122,6 @@ final class MoviesModelImpl: BaseModel, MoviesModel {
                     
                     completion(.success(detail))
                 })
-//                completion(.success(movies))
             } catch {
                 completion(.failure(error))
             }
