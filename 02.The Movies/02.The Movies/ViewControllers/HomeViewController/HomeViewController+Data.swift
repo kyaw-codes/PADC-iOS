@@ -14,7 +14,7 @@ extension HomeViewController {
         // Fetch slider movies
         movieModel.getSliderMovies(pageNo: nil) { [weak self] result in
             do {
-                self?.upcomingMovies = try result.get().movies
+                self?.sliderMovies = try result.get().movies
                 self?.updateUI(at: .movieSlider)
             } catch {
                 print("[Error: while fetching UpComingMovies]", error)

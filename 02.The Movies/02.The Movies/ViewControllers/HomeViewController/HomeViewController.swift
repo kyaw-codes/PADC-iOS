@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    var upcomingMovies: [Movie]?
+    var sliderMovies: [Movie]?
     var popularMovies: [Movie]?
     var popularSeries: [Movie]?
     var movieGenres: [GenreVO]?

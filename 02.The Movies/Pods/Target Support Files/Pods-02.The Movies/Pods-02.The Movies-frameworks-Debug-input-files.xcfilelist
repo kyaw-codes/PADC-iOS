@@ -1,5 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-02.The Movies/Pods-02.The Movies-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
+${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/Wormholy/Wormholy.framework
 ${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework

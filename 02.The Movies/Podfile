@@ -10,4 +10,5 @@ target '02.The Movies' do
   pod 'Wormholy', :configurations => ['Debug']
   pod 'SDWebImage', '~> 5.0'
   pod 'YouTubePlayer'
+  pod 'RealmSwift', '~>10'
 end

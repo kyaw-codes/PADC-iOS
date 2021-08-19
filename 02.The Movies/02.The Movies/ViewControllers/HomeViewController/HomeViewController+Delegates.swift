@@ -22,7 +22,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case Sections.movieSlider.rawValue:
             let cell = dequeueTableViewCell(ofType: MovieSliderTableViewCell.self, with: tableView, for: indexPath)
             cell.delegate = self
-            cell.movies = upcomingMovies
+            cell.movies = sliderMovies
             return cell
         case Sections.popularMovies.rawValue:
             let cell = dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
