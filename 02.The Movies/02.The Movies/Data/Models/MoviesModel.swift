@@ -23,15 +23,20 @@ protocol MoviesModel {
 final class MoviesModelImpl: BaseModel, MoviesModel {
     
     static let shared: MoviesModel = MoviesModelImpl()
+    private let movieRepo: MovieRepository = MovieRepositoryImpl.shared
     
     private override init() {
     }
     
     func getSliderMovies(pageNo: Int?, _ completion: @escaping (Result<MovieResponse, Error>) -> Void) {
-        networkAgent.fetchMovies(withEndpoint: .upComingMovies, pageNo: pageNo ?? 1) { result in
+        networkAgent.fetchMovies(withEndpoint: .upComingMovies, pageNo: pageNo ?? 1) { [weak self] result in
             do {
                 let response = try result.get()
-                completion(.success(response))
+                self?.movieRepo.saveMovies(type: .sliderMovies, pageNo: pageNo ?? 1, movies: response.movies)
+                
+                self?.movieRepo.getMovies(type: .sliderMovies, pageNo: pageNo ?? 1, { movies in
+                    completion(.success(MovieResponse(dates: response.dates, page: response.page, movies: movies, totalPages: response.totalPages, totalResults: response.totalResults)))
+                })
             } catch {
                 completion(.failure(error))
             }
@@ -39,10 +44,14 @@ final class MoviesModelImpl: BaseModel, MoviesModel {
     }
     
     func getPopularMovies(pageNo: Int?, _ completion: @escaping (Result<MovieResponse, Error>) -> Void) {
-        networkAgent.fetchMovies(withEndpoint: .popularMovies, pageNo: pageNo ?? 1) { result in
+        networkAgent.fetchMovies(withEndpoint: .popularMovies, pageNo: pageNo ?? 1) { [weak self] result in
             do {
-                let movies = try result.get()
-                completion(.success(movies))
+                let response = try result.get()
+                self?.movieRepo.saveMovies(type: .popularMovies, pageNo: pageNo ?? 1, movies: response.movies)
+                
+                self?.movieRepo.getMovies(type: .sliderMovies, pageNo: pageNo ?? 1, { movies in
+                    completion(.success(MovieResponse(dates: response.dates, page: response.page, movies: movies, totalPages: response.totalPages, totalResults: response.totalResults)))
+                })
             } catch {
                 completion(.failure(error))
             }
@@ -50,10 +59,14 @@ final class MoviesModelImpl: BaseModel, MoviesModel {
     }
     
     func getPopularSeries(pageNo: Int?, _ completion: @escaping (Result<MovieResponse, Error>) -> Void) {
-        networkAgent.fetchMovies(withEndpoint: .popularSeries, pageNo: pageNo ?? 1) { result in
+        networkAgent.fetchMovies(withEndpoint: .popularSeries, pageNo: pageNo ?? 1) { [weak self] result in
             do {
-                let movies = try result.get()
-                completion(.success(movies))
+                let response = try result.get()
+                self?.movieRepo.saveMovies(type: .popularSeries, pageNo: pageNo ?? 1, movies: response.movies)
+                
+                self?.movieRepo.getMovies(type: .popularSeries, pageNo: pageNo ?? 1, { movies in
+                    completion(.success(MovieResponse(dates: response.dates, page: response.page, movies: movies, totalPages: response.totalPages, totalResults: response.totalResults)))
+                })
             } catch {
                 completion(.failure(error))
             }
@@ -61,10 +74,14 @@ final class MoviesModelImpl: BaseModel, MoviesModel {
     }
     
     func getShowcaseMovies(pageNo: Int?, _ completion: @escaping (Result<MovieResponse, Error>) -> Void) {
-        networkAgent.fetchShowcaseMovies(withEndpoint: .showcaseMovies(pageNo: pageNo ?? 1)) { result in
+        networkAgent.fetchShowcaseMovies(withEndpoint: .showcaseMovies(pageNo: pageNo ?? 1)) { [weak self] result in
             do {
-                let movies = try result.get()
-                completion(.success(movies))
+                let response = try result.get()
+                self?.movieRepo.saveMovies(type: .showcaseMovies, pageNo: pageNo ?? 1, movies: response.movies)
+                
+                self?.movieRepo.getMovies(type: .showcaseMovies, pageNo: pageNo ?? 1, { movies in
+                    completion(.success(MovieResponse(dates: response.dates, page: response.page, movies: movies, totalPages: response.totalPages, totalResults: response.totalResults)))
+                })
             } catch {
                 completion(.failure(error))
             }
@@ -94,10 +111,18 @@ final class MoviesModelImpl: BaseModel, MoviesModel {
     }
     
     func getMovieDetail(movieId id: Int, contentType: MovieFetchType, _ completion: @escaping (Result<MovieDetailResponse, Error>) -> Void) {
-        networkAgent.fetchMovieDetail(movieId: id, contentType: contentType) { result in
+        networkAgent.fetchMovieDetail(movieId: id, contentType: contentType) { [weak self] result in
             do {
-                let movies = try result.get()
-                completion(.success(movies))
+                let movieResponse = try result.get()
+                self?.movieRepo.saveMovieDetail(movieId: id, detail: movieResponse)
+                self?.movieRepo.getMovieDetail(movieId: id, { detail in
+                    guard let detail = detail else {
+                        fatalError("Movie detail found nil")
+                    }
+                    
+                    completion(.success(detail))
+                })
+//                completion(.success(movies))
             } catch {
                 completion(.failure(error))
             }

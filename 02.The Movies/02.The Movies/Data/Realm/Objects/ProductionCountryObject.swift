@@ -10,4 +10,8 @@ import RealmSwift
 class ProductionCountryObject: Object {
     @Persisted(primaryKey: true) var name: String?
     @Persisted var iso3166_1: String?
+    
+    func convertToProductionCountry() -> ProductionCountry {
+        ProductionCountry(iso3166_1: iso3166_1, name: name)
+    }
 }

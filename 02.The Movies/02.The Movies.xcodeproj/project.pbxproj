@@ -47,6 +47,8 @@
 		0245ABC926CD79C90033AED0 /* ProductionCountryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245ABC826CD79C90033AED0 /* ProductionCountryObject.swift */; };
 		0245ABCB26CD7AA10033AED0 /* SpokenLanguageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245ABCA26CD7AA10033AED0 /* SpokenLanguageObject.swift */; };
 		0245ABD126CE09780033AED0 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245ABD026CE09780033AED0 /* BaseRepository.swift */; };
+		0245ABD326CE0FA70033AED0 /* GenreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245ABD226CE0FA70033AED0 /* GenreRepository.swift */; };
+		0245ABD526CE16C80033AED0 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245ABD426CE16C80033AED0 /* MovieRepository.swift */; };
 		024A014025C57E5200119AFE /* ShowcaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024A013E25C57E5200119AFE /* ShowcaseTableViewCell.swift */; };
 		024A014125C57E5200119AFE /* ShowcaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024A013F25C57E5200119AFE /* ShowcaseTableViewCell.xib */; };
 		024A014525C57E8F00119AFE /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024A014425C57E8F00119AFE /* UILabel+Extensions.swift */; };
@@ -136,6 +138,8 @@
 		0245ABC826CD79C90033AED0 /* ProductionCountryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCountryObject.swift; sourceTree = "<group>"; };
 		0245ABCA26CD7AA10033AED0 /* SpokenLanguageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpokenLanguageObject.swift; sourceTree = "<group>"; };
 		0245ABD026CE09780033AED0 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		0245ABD226CE0FA70033AED0 /* GenreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenreRepository.swift; path = ../../../../../../../../../Downloads/GenreRepository.swift; sourceTree = "<group>"; };
+		0245ABD426CE16C80033AED0 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		024A013E25C57E5200119AFE /* ShowcaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseTableViewCell.swift; sourceTree = "<group>"; };
 		024A013F25C57E5200119AFE /* ShowcaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowcaseTableViewCell.xib; sourceTree = "<group>"; };
 		024A014425C57E8F00119AFE /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
@@ -445,6 +449,8 @@
 			isa = PBXGroup;
 			children = (
 				0245ABD026CE09780033AED0 /* BaseRepository.swift */,
+				0245ABD226CE0FA70033AED0 /* GenreRepository.swift */,
+				0245ABD426CE16C80033AED0 /* MovieRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02154FF82694120100C2D33C /* ActorResponse.swift in Sources */,
+				0245ABD326CE0FA70033AED0 /* GenreRepository.swift in Sources */,
 				02CB100325C51B7C006FC20B /* UICollectionView+Extensions.swift in Sources */,
 				0288F1D025CC105B0018D916 /* BestActorsTableViewCell.swift in Sources */,
 				020B2F8625C3B430008022E6 /* HomeViewController.swift in Sources */,
@@ -737,6 +744,7 @@
 				020B2FAB25C3BC3F008022E6 /* MovieSliderTableViewCell.swift in Sources */,
 				0281D24E26C934620082427F /* NetworkAgent.swift in Sources */,
 				02FF31A1268E11F000C221CE /* CompanyCollectionViewCell.swift in Sources */,
+				0245ABD526CE16C80033AED0 /* MovieRepository.swift in Sources */,
 				0217BE6125C3DA0B001E6D8A /* PopularMovieTableViewCell.swift in Sources */,
 				022C689226996C0000F38F37 /* ListViewController+Delegates.swift in Sources */,
 				0245ABC726CD79C00033AED0 /* ProductionCompanyObject.swift in Sources */,

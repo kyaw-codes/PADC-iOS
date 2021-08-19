@@ -13,4 +13,8 @@ class ProductionCompanyObject: Object {
     @Persisted var logoPath: String?
     @Persisted var name: String?
     @Persisted var originCountry: String?
+    
+    func convertToProductionCompany() -> ProductionCompany {
+        ProductionCompany(id: id, logoPath: logoPath, name: name, originCountry: originCountry)
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - MovieResponse
 struct MovieResponse: Codable {
@@ -57,6 +58,29 @@ struct Movie: Codable, Hashable {
         case voteCount = "vote_count"
         case mediaType = "media_type"
     }
+    
+    func convertToMovieObj(type: MovieDisplayType, pageNo: Int = 1) -> MovieObject {
+        let obj = MovieObject()
+        obj.adult = adult
+        obj.backdropPath = backdropPath
+        obj.genreIDS = genreIDS?.map { String($0) }.joined(separator: ",") ?? ""
+        obj.id = id
+        obj.originalLanguage = originalLanguage
+        obj.originalTitle = originalTitle
+        obj.overview = overview
+        obj.popularity = popularity
+        obj.posterPath = posterPath
+        obj.releaseDate = releaseDate
+        obj.name = name
+        obj.title = title
+        obj.video = video
+        obj.voteAverage = voteAverage
+        obj.voteCount = voteCount
+        obj.mediaType = mediaType
+        obj.displayType = type
+        obj.pageNo = pageNo
+        return obj
+    }
 }
 
 // MARK: - MovieGenres
@@ -71,5 +95,12 @@ struct Genre: Codable {
     
     func convertToVO() -> GenreVO {
         GenreVO(id: id, genreName: name, isSelected: false)
+    }
+    
+    func convertToGenreObject() -> GenreObject {
+        let object = GenreObject()
+        object.id = id
+        object.name = name
+        return object
     }
 }

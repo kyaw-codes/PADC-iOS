@@ -11,7 +11,7 @@ class BaseRepository {
     
     let realm = try! Realm()
     
-    private init() {
+    init() {
         print("Default Realm file location: \(realm.configuration.fileURL?.absoluteString ?? "undefined")")
     }
 }

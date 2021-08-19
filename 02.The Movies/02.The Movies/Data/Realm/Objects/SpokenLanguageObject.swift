@@ -11,4 +11,8 @@ class SpokenLanguageObject: Object {
     @Persisted(primaryKey: true) var name: String?
     @Persisted var  englishName: String?
     @Persisted var iso639_1: String?
+    
+    func convertToSpokenLanguage() -> SpokenLanguage {
+        SpokenLanguage(englishName: englishName, iso639_1: iso639_1, name: name)
+    }
 }

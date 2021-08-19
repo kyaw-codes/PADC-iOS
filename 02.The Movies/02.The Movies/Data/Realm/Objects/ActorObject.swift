@@ -7,6 +7,8 @@
 
 import RealmSwift
 
+// MARK: - ActorObject
+
 class ActorObject: Object {
     
     @Persisted(primaryKey: true) var id: Int
@@ -18,6 +20,8 @@ class ActorObject: Object {
     @Persisted var profilePath: String?
     @Persisted var detail: ActorDetailEmbeddedObject?
 }
+
+// MARK: - ActorDetailEmbeddedObject
 
 class ActorDetailEmbeddedObject: EmbeddedObject {
     

@@ -16,14 +16,18 @@ final class GenreModelImpl: BaseModel, GenreModel {
 
     static let shared: GenreModel = GenreModelImpl()
     
+    private let genreRepo = GenreRepositoryImpl.shared
+    
     private override init() {
     }
     
     func getGenres(completion: @escaping (Result<[Genre], Error>) -> Void) {
-        networkAgent.fetchGenres(withEndpoint: .genres) { result in
+        networkAgent.fetchGenres(withEndpoint: .genres) { [weak self] result in
             do {
                 let genres = try result.get()
-                completion(.success(genres))
+                self?.genreRepo.saveGenres(genres: genres)
+                
+                self?.genreRepo.getGenres { completion(.success($0)) }
             } catch {
                 completion(.failure(error))
             }
