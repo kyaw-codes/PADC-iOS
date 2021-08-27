@@ -7,8 +7,8 @@
 
 import RealmSwift
 
-class SpokenLanguageObject: Object {
-    @Persisted(primaryKey: true) var name: String?
+class SpokenLanguageEmbeddedObject: EmbeddedObject {
+    @Persisted var name: String?
     @Persisted var  englishName: String?
     @Persisted var iso639_1: String?
     

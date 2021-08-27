@@ -18,14 +18,26 @@ final class ActorModelImpl: BaseModel, ActorModel {
 
     static let shared: ActorModel = ActorModelImpl()
     
+    private let actorRepo = ActorRepositoryImpl.shared
+    
     private override init() {
     }
     
     func getActors(pageNo: Int?, completion: @escaping (Result<ActorResponse, Error>) -> Void) {
-        networkAgent.fetchActors(withEndpoint: .allActors(pageNo: pageNo ?? 1)) { result in
+        networkAgent.fetchActors(withEndpoint: .allActors(pageNo: pageNo ?? 1)) { [weak self] result in
             do {
                 let actorResponse = try result.get()
-                completion(.success(actorResponse))
+                self?.actorRepo.saveActors(pageNo: actorResponse.page, actors: actorResponse.actors ?? [Actor]())
+                self?.actorRepo.getActors(pageNo: actorResponse.page, completion: { actors in
+                    completion(
+                        .success(
+                            ActorResponse(page: actorResponse.page,
+                                          actors: actors,
+                                          totalPages: actorResponse.totalPages,
+                                          totalResults: actorResponse.totalResults)
+                        )
+                    )
+                })
             } catch {
                 completion(.failure(error))
             }
@@ -33,10 +45,13 @@ final class ActorModelImpl: BaseModel, ActorModel {
     }
     
     func getActorDetail(actorId id: Int, completion: @escaping (Result<ActorDetailResponse, Error>) -> Void) {
-        networkAgent.fetchActorDetail(actorId: id) { result in
+        networkAgent.fetchActorDetail(actorId: id) { [weak self] result in
             do {
                 let actorDetail = try result.get()
-                completion(.success(actorDetail))
+                self?.actorRepo.saveActorDetail(forActorId: actorDetail.id ?? -1, detail: actorDetail)
+                self?.actorRepo.getActorDetail(actorId: actorDetail.id ?? -1, completion: { detail in
+                    completion(.success(detail))
+                })
             } catch {
                 completion(.failure(error))
             }

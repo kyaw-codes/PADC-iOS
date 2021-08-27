@@ -63,7 +63,7 @@ class MovieDetailEmbeddedObject: EmbeddedObject {
     @Persisted var adult: Bool?
     @Persisted var backdropPath: String?
     @Persisted var budget: Int?
-    @Persisted var genres: List<GenreObject>
+    var genres: List<GenreObject> = List<GenreObject>()
     @Persisted var homepage: String?
     @Persisted var id: Int?
     @Persisted var imdbID: String?
@@ -74,13 +74,13 @@ class MovieDetailEmbeddedObject: EmbeddedObject {
     @Persisted var overview: String?
     @Persisted var popularity: Double?
     @Persisted var posterPath: String?
-    @Persisted var productionCompanies: List<ProductionCompanyObject>
-    @Persisted var productionCountries: List<ProductionCountryObject>
+    @Persisted var productionCompanies: List<ProductionCompanyEmbeddedObject>
+    @Persisted var productionCountries: List<ProductionCountryEmbeddedObject>
     @Persisted var releaseDate: String?
     @Persisted var lastAirDate: String?
     @Persisted var revenue: Int?
     @Persisted var runtime: Int?
-    @Persisted var spokenLanguages: List<SpokenLanguageObject>
+    @Persisted var spokenLanguages: List<SpokenLanguageEmbeddedObject>
     @Persisted var status: String?
     @Persisted var tagline: String?
     @Persisted var title: String?

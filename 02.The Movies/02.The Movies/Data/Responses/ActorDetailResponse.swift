@@ -5,7 +5,7 @@
 //  Created by Ko Kyaw on 07/07/2021.
 //
 
-import Foundation
+import RealmSwift
 
 // MARK: - ActorDetailResponse
 struct ActorDetailResponse: Codable {
@@ -33,5 +33,28 @@ struct ActorDetailResponse: Codable {
         case adult
         case imdbID = "imdb_id"
         case homepage
+    }
+    
+    func convertToActorDetailObj() -> ActorDetailEmbeddedObject {
+        let obj = ActorDetailEmbeddedObject()
+        
+        let akaList = List<String>()
+        alsoKnownAs?.forEach { akaList.append($0) }
+
+        obj.id = id
+        obj.birthday = birthday
+        obj.knownForDepartment = knownForDepartment
+        obj.deathday = deathday
+        obj.name = name
+        obj.alsoKnownAs = akaList
+        obj.gender = gender
+        obj.biography = biography
+        obj.popularity = popularity
+        obj.placeOfBirth = placeOfBirth
+        obj.profilePath = profilePath
+        obj.adult = adult
+        obj.imdbID = imdbID
+        obj.homepage = homepage
+        return obj
     }
 }

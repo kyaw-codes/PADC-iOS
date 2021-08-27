@@ -7,9 +7,9 @@
 
 import RealmSwift
 
-class ProductionCompanyObject: Object {
+class ProductionCompanyEmbeddedObject: EmbeddedObject {
     
-    @Persisted(primaryKey: true) var id: Int?
+    @Persisted var id: Int?
     @Persisted var logoPath: String?
     @Persisted var name: String?
     @Persisted var originCountry: String?

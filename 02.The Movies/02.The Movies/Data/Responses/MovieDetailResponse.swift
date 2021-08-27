@@ -80,13 +80,13 @@ struct MovieDetailResponse: Codable {
         let genreList = List<GenreObject>()
         genres?.map { $0.convertToGenreObject() }.forEach { genreList.append($0) }
         
-        let companyList = List<ProductionCompanyObject>()
+        let companyList = List<ProductionCompanyEmbeddedObject>()
         productionCompanies?.map { $0.convertToProductionCompanyObj() }.forEach { companyList.append($0) }
         
-        let countryList = List<ProductionCountryObject>()
+        let countryList = List<ProductionCountryEmbeddedObject>()
         productionCountries?.map { $0.convertToProductionCountryObj() }.forEach { countryList.append($0) }
         
-        let languageList = List<SpokenLanguageObject>()
+        let languageList = List<SpokenLanguageEmbeddedObject>()
         spokenLanguages?.map { $0.convertToSpokenLanguageObj() }.forEach { languageList.append($0) }
         
         let episodeRuntimeList = List<Int>()
@@ -96,7 +96,7 @@ struct MovieDetailResponse: Codable {
         obj.adult = adult
         obj.backdropPath = backdropPath
         obj.budget = budget
-        obj.genres = genreList
+        obj.genres = genreList        
         obj.homepage = homepage
         obj.id = id
         obj.imdbID = imdbID
@@ -139,8 +139,8 @@ struct ProductionCompany: Codable {
         case originCountry = "origin_country"
     }
     
-    func convertToProductionCompanyObj() -> ProductionCompanyObject {
-        let obj = ProductionCompanyObject()
+    func convertToProductionCompanyObj() -> ProductionCompanyEmbeddedObject {
+        let obj = ProductionCompanyEmbeddedObject()
         obj.id = id
         obj.logoPath = logoPath
         obj.name = name
@@ -158,8 +158,8 @@ struct ProductionCountry: Codable {
         case name
     }
     
-    func convertToProductionCountryObj() -> ProductionCountryObject {
-        let obj = ProductionCountryObject()
+    func convertToProductionCountryObj() -> ProductionCountryEmbeddedObject {
+        let obj = ProductionCountryEmbeddedObject()
         obj.iso3166_1 = iso3166_1
         obj.name = name
         return obj
@@ -176,8 +176,8 @@ struct SpokenLanguage: Codable {
         case name
     }
     
-    func convertToSpokenLanguageObj() -> SpokenLanguageObject {
-        let obj = SpokenLanguageObject()
+    func convertToSpokenLanguageObj() -> SpokenLanguageEmbeddedObject {
+        let obj = SpokenLanguageEmbeddedObject()
         obj.englishName = englishName
         obj.iso639_1 = iso639_1
         obj.name = name

@@ -7,8 +7,8 @@
 
 import RealmSwift
 
-class ProductionCountryObject: Object {
-    @Persisted(primaryKey: true) var name: String?
+class ProductionCountryEmbeddedObject: EmbeddedObject {
+    @Persisted var name: String?
     @Persisted var iso3166_1: String?
     
     func convertToProductionCountry() -> ProductionCountry {

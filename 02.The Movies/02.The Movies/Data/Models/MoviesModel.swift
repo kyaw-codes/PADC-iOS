@@ -49,7 +49,7 @@ final class MoviesModelImpl: BaseModel, MoviesModel {
                 let response = try result.get()
                 self?.movieRepo.saveMovies(type: .popularMovies, pageNo: pageNo ?? 1, movies: response.movies)
                 
-                self?.movieRepo.getMovies(type: .sliderMovies, pageNo: pageNo ?? 1, { movies in
+                self?.movieRepo.getMovies(type: .popularMovies, pageNo: pageNo ?? 1, { movies in
                     completion(.success(MovieResponse(dates: response.dates, page: response.page, movies: movies, totalPages: response.totalPages, totalResults: response.totalResults)))
                 })
             } catch {
