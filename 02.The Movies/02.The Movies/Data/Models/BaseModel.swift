@@ -9,5 +9,6 @@ import Foundation
 
 class BaseModel {
     
-    let networkAgent = NetworkAgentImpl.shared
+    let networkAgent: NetworkAgent = NetworkAgentImpl.shared
+    let rxNetworkAgent: RxNetworkAgent = RxNetworkAgentImpl.shared
 }

@@ -11,4 +11,7 @@ target '02.The Movies' do
   pod 'SDWebImage', '~> 5.0'
   pod 'YouTubePlayer'
   pod 'RealmSwift', '~>10'
+  pod 'RxAlamofire', '~>6.1'
+  pod 'RxSwift', '~>6.2'
+  pod 'RxRealm', '~>5.0'
 end
