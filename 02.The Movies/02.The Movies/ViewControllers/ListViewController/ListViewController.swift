@@ -47,6 +47,8 @@ class ListViewController: UIViewController, Storyboarded {
         setupUpButton()
         
         navigationItem.title = type == .casts ? "All Actors" : "Top Rated Movies"
+        
+        debugPrint(movieResponse ?? "Nil")
     }
     
     // MARK: - Helpers

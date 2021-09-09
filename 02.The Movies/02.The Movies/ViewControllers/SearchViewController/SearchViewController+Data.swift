@@ -11,9 +11,24 @@ extension SearchViewController {
     
     func searchMovie(pageNo: Int = 1) {
         
-        movieModel.searchMovie(with: searchText, pageNo: pageNo) { [weak self] result in
-            do {
-                let response = try result.get()
+//        movieModel.searchMovie(with: searchText, pageNo: pageNo) { [weak self] result in
+//            do {
+//                let response = try result.get()
+//                self?.totalPages = response.totalPages ?? 1
+//
+//                if pageNo == 1 {
+//                    self?.movies = response.movies
+//                } else {
+//                    self?.movies.append(contentsOf: response.movies)
+//                }
+//                self?.collectionView.reloadData()
+//            } catch {
+//                print("[Error while searching movie]", error)
+//            }
+//        }
+        
+        rxMovieModel.searchMovie(with: searchText, pageNo: pageNo)
+            .subscribe { [weak self] response in
                 self?.totalPages = response.totalPages ?? 1
                 
                 if pageNo == 1 {
@@ -22,9 +37,9 @@ extension SearchViewController {
                     self?.movies.append(contentsOf: response.movies)
                 }
                 self?.collectionView.reloadData()
-            } catch {
-                print("[Error while searching movie]", error)
+            } onError: { error in
+                print("\(#function) \(error)")
             }
-        }
+            .disposed(by: disposeBag)
     }
 }

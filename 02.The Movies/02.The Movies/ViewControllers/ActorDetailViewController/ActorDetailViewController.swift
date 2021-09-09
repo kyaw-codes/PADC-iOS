@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ActorDetailViewController: UIViewController, Storyboarded {
     
@@ -36,8 +37,11 @@ class ActorDetailViewController: UIViewController, Storyboarded {
     }
     
     let actorModel: ActorModel = ActorModelImpl.shared
+    let rxActorModel: RxActorModel = RxActorModelImpl.shared
     var movies: [Movie] = []
     var id: Int = -1
+    
+    let disposeBag = DisposeBag()
 
     // MARK: - Lifecycles
     

@@ -31,6 +31,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.4)
   - RealmSwift (~> 10)
   - RxAlamofire (~> 6.1)
+  - RxCocoa (= 6.2.0)
   - RxRealm (~> 5.0)
   - RxSwift (~> 6.2)
   - SDWebImage (~> 5.0)
@@ -64,6 +65,6 @@ SPEC CHECKSUMS:
   Wormholy: 2e70f64227e010d363f8d33268369f77faf12471
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: b4ca9a95efe0592e46fad51bfee05109d6ea13f0
+PODFILE CHECKSUM: 8a4da063565b770f5ce1b3cbebc4f3848a5e0b11
 
 COCOAPODS: 1.10.1

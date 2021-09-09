@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import RxSwift
 
 class MovieDetailViewController: UIViewController, Storyboarded {
 
@@ -43,6 +44,9 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     var similarMovies: [Movie]?
     
     let movieModel: MoviesModel = MoviesModelImpl.shared
+    let rxMovieModel: RxMoviesModel = RxMoviesModelImpl.shared
+    
+    let disposeBag = DisposeBag()
 
     // MARK: - Lifecycle
     

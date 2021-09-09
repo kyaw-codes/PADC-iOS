@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController {
     
@@ -25,8 +26,13 @@ class HomeViewController: UIViewController {
     var actorResponse: ActorResponse?
     
     let movieModel: MoviesModel = MoviesModelImpl.shared
-    let genreModel: GenreModel = GenreModelImpl.shared
+    let rxMovieModel: RxMoviesModel = RxMoviesModelImpl.shared
+    
+    let rxGenreModel: RxGenreModel = RxGenreModelImpl.shared
+    
     let actorModel: ActorModel = ActorModelImpl.shared
+    
+    let disposeBag = DisposeBag()
     
     // MARK: - Lifecycles
     

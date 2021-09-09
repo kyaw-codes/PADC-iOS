@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class SearchViewController: UIViewController, Storyboarded {
     
@@ -25,6 +26,9 @@ class SearchViewController: UIViewController, Storyboarded {
     var noOfCols: CGFloat = 3
     var spacing: CGFloat = 10
     let movieModel: MoviesModel = MoviesModelImpl.shared
+    let rxMovieModel: RxMoviesModel = RxMoviesModelImpl.shared
+    
+    let disposeBag = DisposeBag()
     
     // MARK: - Lifecycles
     

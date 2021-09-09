@@ -11,12 +11,7 @@ protocol MovieRepository {
     func saveMovies(type: MovieDisplayType, pageNo: Int, movies: [Movie])
     func getMovies(type: MovieDisplayType, pageNo: Int, _ completion: @escaping ([Movie]) -> Void)
     func getMovieDetail(movieId id: Int, _ completion: @escaping (MovieDetailResponse?) -> Void)
-    
-//    func getSimilarMovies(ofMovieId id: Int, contentType: MovieFetchType, _ completion: @escaping (Result<MovieResponse, Error>) -> Void)
     func saveMovieDetail(movieId id: Int, detail: MovieDetailResponse)
-//    func getMovieDetail(movieId id: Int, contentType: MovieFetchType, _ completion: @escaping (Result<MovieDetailResponse, Error>) -> Void)
-//    func getTrailer(movieId: Int, contentType: MovieFetchType, completion: @escaping (Result<Trailer, Error>) -> Void)
-//    func getMovieCredits(ofMovieId id: Int, contentType: MovieFetchType, completion: @escaping (Result<[Actor], Error>) -> Void)
 }
 
 final class MovieRepositoryImpl: BaseRepository, MovieRepository {

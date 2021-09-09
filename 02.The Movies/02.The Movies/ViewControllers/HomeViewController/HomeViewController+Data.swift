@@ -12,56 +12,54 @@ extension HomeViewController {
     func loadData() {
         
         // Fetch slider movies
-        movieModel.getSliderMovies(pageNo: nil) { [weak self] result in
-            do {
-                self?.sliderMovies = try result.get().movies
+        rxMovieModel.getSliderMovies(pageNo: nil)
+            .subscribe { [weak self] response in
+                self?.sliderMovies = response.movies
                 self?.updateUI(at: .movieSlider)
-            } catch {
-                print("[Error: while fetching UpComingMovies]", error)
+            } onError: { error in
+                print(error)
             }
-        }
+            .disposed(by: disposeBag)
 
         // Fetch popular movies
-        movieModel.getPopularMovies(pageNo: nil) { [weak self] result in
-            do {
-                self?.popularMovies = try result.get().movies
+        rxMovieModel.getPopularMovies(pageNo: nil)
+            .subscribe { [weak self] response in
+                self?.popularMovies = response.movies
                 self?.updateUI(at: .popularMovies)
-            } catch {
-                print("[Error: while fetching PopularMovies]", error)
+            } onError: { error in
+                print(error)
             }
-        }
+            .disposed(by: disposeBag)
         
         // Fetch popular series
-        movieModel.getPopularSeries(pageNo: nil) { [weak self] result in
-            do {
-                self?.popularSeries = try result.get().movies
+        rxMovieModel.getPopularSeries(pageNo: nil)
+            .subscribe { [weak self] response in
+                self?.popularSeries = response.movies
                 self?.updateUI(at: .popularSeries)
-            } catch {
-                print("[Error: while fetching PopularSeries]", error)
+            } onError: { error in
+                print(error)
             }
-        }
+            .disposed(by: disposeBag)
         
         // Fetch movie genres
-        genreModel.getGenres { [weak self] result in
-            do {
-                let genres = try result.get()
+        rxGenreModel.getGenres()
+            .subscribe { [weak self] genres in
                 self?.movieGenres = genres.map { $0.convertToVO() }
                 self?.updateUI(at: .movieWithGenre)
-            } catch {
-                print("[Error: while fetching MovieWithGenres]", error)
+            } onError: { error in
+                print(error)
             }
-        }
+            .disposed(by: disposeBag)
         
         // Fetch show cases
-        movieModel.getShowcaseMovies(pageNo: nil) { [weak self] result in
-            do {
-                self?.showcaseMovieResponse = try result.get()
-                self?.showcaseMovies = self?.showcaseMovieResponse?.movies
+        rxMovieModel.getShowcaseMovies(pageNo: nil)
+            .subscribe { [weak self] response in
+                self?.showcaseMovies = response.movies
                 self?.updateUI(at: .showCase)
-            } catch {
-                print("[Error: while fetching TopRated]", error)
+            } onError: { error in
+                print(error)
             }
-        }
+            .disposed(by: disposeBag)
         
         // Fetch actors
         actorModel.getActors(pageNo: nil) { [weak self] result in
