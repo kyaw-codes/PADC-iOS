@@ -47,7 +47,8 @@ class RxNetworkAgentImpl: RxNetworkAgent {
     }
     
     func searchMovie(with keyword: String, pageNo: Int = 1) -> Observable<MovieResponse> {
-        RxAlamofire.requestDecodable(MDBEndPoint.searchMovies(keyword: keyword))
+        let whiteSpacesReplacedStr: String = keyword.replacingOccurrences(of: " ", with: "+")
+        return RxAlamofire.requestDecodable(MDBEndPoint.searchMovies(keyword: whiteSpacesReplacedStr))
             .flatMap { Observable.just($0.1) }
     }
     
