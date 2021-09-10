@@ -98,7 +98,12 @@ class RxNetworkAgentImpl: RxNetworkAgent {
     
     func fetchGenres(withEndpoint endpoint: MDBEndPoint) -> Observable<[Genre]> {
         RxAlamofire.requestDecodable(endpoint)
-            .flatMap { Observable.just($0.1) }
+            .compactMap { tuple -> MovieGenres in
+                tuple.1
+            }
+            .flatMap { movieGenres in
+                Observable.just(movieGenres.genres ?? [])
+            }
     }
     
     

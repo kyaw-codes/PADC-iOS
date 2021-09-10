@@ -25,14 +25,15 @@ final class RxGenreModelImpl: BaseModel, RxGenreModel {
     
     func getGenres() -> Observable<[Genre]> {
         rxNetworkAgent.fetchGenres(withEndpoint: .genres)
-            .subscribe { [weak self] genres in
-                self?.rxGenreRepo.saveGenres(genres: genres)
+            .subscribe { genres in
+                print("Genres \(genres.count)")
+                self.rxGenreRepo.saveGenres(genres: genres)
             } onError: { error in
-                print("Error in network agent fetchGenres: \(error)")
+                print("\(#function) \(error)")
             }
             .disposed(by: disposeBag)
-                    
-        return rxGenreRepo.getGenres()
+        
+        return self.rxGenreRepo.getGenres()
     }
 
 }
