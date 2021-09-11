@@ -35,7 +35,11 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     
     // MARK: - Properties
     
-    var movieId: Int = -1
+    var movieId: Int = -1 {
+        didSet {
+            loadData()
+        }
+    }
     var contentType: MovieFetchType = .movie
     
     var companies: [ProductionCompany]?
@@ -43,7 +47,6 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     var actors: [Actor]?
     var similarMovies: [Movie]?
     
-    let movieModel: MoviesModel = MoviesModelImpl.shared
     let rxMovieModel: RxMoviesModel = RxMoviesModelImpl.shared
     
     let disposeBag = DisposeBag()
