@@ -26,7 +26,6 @@ final class RxGenreModelImpl: BaseModel, RxGenreModel {
     func getGenres() -> Observable<[Genre]> {
         rxNetworkAgent.fetchGenres(withEndpoint: .genres)
             .subscribe { genres in
-                print("Genres \(genres.count)")
                 self.rxGenreRepo.saveGenres(genres: genres)
             } onError: { error in
                 print("\(#function) \(error)")

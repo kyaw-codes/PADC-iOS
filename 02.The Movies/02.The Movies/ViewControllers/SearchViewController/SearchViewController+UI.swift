@@ -11,7 +11,6 @@ extension SearchViewController {
     
     func setupSearchBar() {
         let searchBar = searchController.searchBar
-        searchBar.delegate = self
         
         let colorYellow = UIColor(named: "Color_Yellow")!
         

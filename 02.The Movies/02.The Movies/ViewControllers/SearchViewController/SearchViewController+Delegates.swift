@@ -7,30 +7,11 @@
 
 import UIKit
 
-extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueCell(ofType: PopularMovieCollectionViewCell.self, for: indexPath, shouldRegister: true) { cell in
-            cell.movie = movies[indexPath.row]
-        }
-    }
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 20 - ((noOfCols - 1) * spacing)) / noOfCols
         return CGSize(width: width, height: 200)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let isLastRow = indexPath.row == movies.count - 1
-        
-        if isLastRow && currentPage <= totalPages {
-            currentPage += 1
-            searchMovie(pageNo: currentPage)
-        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -47,29 +28,5 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             }
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = movies[indexPath.item]
-        let vc = MovieDetailViewController.instantiate()
-        vc.movieId = item.id ?? -1
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
 }
 
-extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        if let text = searchController.searchBar.text, !text.isEmpty {
-            currentPage = 1
-            searchText = text
-            searchMovie()
-        }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        movies = []
-        collectionView.reloadData()
-    }
-    
-}
