@@ -17,21 +17,14 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    //    var sliderMovies: [Movie]?
-    //    var popularMovies: [Movie]?
-    //    var popularSeries: [Movie]?
-    //    var movieGenres: [GenreVO]?
-    //    var showcaseMovies: [Movie]?
-    //    var bestActors: [Actor] = []
-    //    var showcaseMovieResponse: MovieResponse?
-    //    var actorResponse: ActorResponse?
-    
     var observableSliderMovies: BehaviorSubject<[Movie]> = BehaviorSubject(value: [])
     var observablePopularMovies: BehaviorSubject<[Movie]> = BehaviorSubject(value: [])
     var observablePopularSeries: BehaviorSubject<[Movie]> = BehaviorSubject(value: [])
     var observableGenres: BehaviorSubject<[GenreVO]> = BehaviorSubject(value: [])
     var observableShowcaseMovieResponse: BehaviorSubject<MovieResponse?> = BehaviorSubject(value: nil)
     var observableActorResponse: BehaviorSubject<ActorResponse?> = BehaviorSubject(value: nil)
+    
+    var datasource: RxTableViewSectionedReloadDataSource<HomeSectionModel>!
     
     let rxMovieModel: RxMoviesModel = RxMoviesModelImpl.shared
     let rxGenreModel: RxGenreModel = RxGenreModelImpl.shared
@@ -57,8 +50,22 @@ class HomeViewController: UIViewController {
         
         rxLoadData()
         
-        let dataSource = initDatasource()
-        
+        self.datasource = initRxDatasource()
+        bindModelsWithDatasource()
+    }
+    
+    // MARK: - Target/Action Handlers
+    
+    @IBAction private func onSearchButtonTapped(_ sender: Any) {
+        guard let navVC = storyboard?.instantiateViewController(identifier: "SearchNavigationController") else {
+            fatalError("Cannot find SearchNavigationController")
+        }
+        present(navVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - Helpers
+    
+    fileprivate func bindModelsWithDatasource() {
         Observable.combineLatest(
             observableSliderMovies,
             observablePopularMovies,
@@ -80,11 +87,11 @@ class HomeViewController: UIViewController {
             if !popularSeries.isEmpty {
                 items.append(.PopularSeries(items: [.PopularSeriesSectionItem(items: popularSeries)]))
             }
-
+            
             items.append(.MovieShowTime(item: .MovieShowTimeSectionItem(item: "")))
             
             items.append(.MovieWithGenres(items: [.MovieWithGenresSectionItem(items: popularMovies)]))
-
+            
             if !showcaseMovies.isEmpty {
                 items.append(.ShowcaseMovies(items: [.ShowcaseMoviesSectionItem(items: showcaseMovies)]))
             }
@@ -95,79 +102,8 @@ class HomeViewController: UIViewController {
             
             return .just(items)
         }
-        .bind(to: moviesTableView.rx.items(dataSource: dataSource))
+        .bind(to: moviesTableView.rx.items(dataSource: datasource))
         .disposed(by: disposeBag)
     }
     
-    // MARK: - Target/Action Handlers
-    
-    @IBAction private func onSearchButtonTapped(_ sender: Any) {
-        guard let navVC = storyboard?.instantiateViewController(identifier: "SearchNavigationController") else {
-            fatalError("Cannot find SearchNavigationController")
-        }
-        present(navVC, animated: true, completion: nil)
-    }
-    
-    // MARK: - Helpers
-    
-    func dequeueTableViewCell<T: UITableViewCell>(ofType: T.Type, with tableView: UITableView, for indexPath: IndexPath, _ setupCell: ((T) -> Void) = {_ in}) -> T {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath) as? T else {
-            fatalError("ERROR: Fail to cast the given cell into \(T.self)")
-        }
-        setupCell(cell)
-        return cell
-    }
-    
-    func initDatasource() -> RxTableViewSectionedReloadDataSource<HomeSectionModel> {
-        RxTableViewSectionedReloadDataSource<HomeSectionModel> { dataSource, tableView, indexPath, item in
-            switch item {
-            case .SliderMoviesSectionItem(let items):
-                let cell = self.dequeueTableViewCell(ofType: MovieSliderTableViewCell.self, with: tableView, for: indexPath)
-                cell.delegate = self
-                cell.movies = items
-                return cell
-            case .PopularMoviesSectionItem(let items):
-                let cell = self.dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
-                cell.delegate = self
-                cell.sectionTitle.text = "BEST POPULAR MOVIES"
-                cell.movies = items
-                return cell
-            case .PopularSeriesSectionItem(let items):
-                let cell = self.dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
-                cell.delegate = self
-                cell.sectionTitle.text = "BEST POPULAR SERIES"
-                cell.movies = items
-                return cell
-            case .MovieShowTimeSectionItem(_):
-                return self.dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)
-            case .MovieWithGenresSectionItem(let items):
-                let cell = self.dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
-                cell.movies = items
-                cell.delegate = self
-                cell.genreList = try! self.observableGenres.value()
-                return cell
-            case .ShowcaseMoviesSectionItem(let items):
-                let cell = self.dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
-                cell.movies = items
-                cell.delegate = self
-                cell.onMoreShowcasesTapped = {
-                    let vc = ListViewController.instantiate()
-                    vc.type = .movies
-                    vc.movieResponse = try! self.observableShowcaseMovieResponse.value()
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                return cell
-            case .BestActorsSectionItem(let items):
-                let cell = self.dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
-                cell.actors = items
-                cell.onViewMoreTapped = { [weak self] in
-                    let vc = ListViewController.instantiate()
-                    vc.actorResponse = try! self?.observableActorResponse.value()
-                    self?.navigationController?.pushViewController(vc, animated: true)
-                }
-                cell.delegate = self
-                return cell
-            }
-        }
-    }
 }

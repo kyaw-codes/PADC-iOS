@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  HomeSectionModel.swift
 //  02.The Movies
 //
 //  Created by Ko Kyaw on 11/09/2021.

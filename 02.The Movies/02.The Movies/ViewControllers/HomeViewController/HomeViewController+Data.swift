@@ -6,8 +6,20 @@
 //
 
 import Foundation
+import RxDataSources
 
 extension HomeViewController {
+    
+    // MARK: - Load data from model
+    
+    func rxLoadData() {
+        loadSliderMovies()
+        loadPopularMovies()
+        loadPopularSeries()
+        loadMovieGenres()
+        loadShowcaseMovies()
+        loadActors()
+    }
 
     fileprivate func loadSliderMovies() {
         // Fetch slider movies
@@ -78,13 +90,67 @@ extension HomeViewController {
             .disposed(by: disposeBag)
     }
     
-    func rxLoadData() {
-        loadSliderMovies()
-        loadPopularMovies()
-        loadPopularSeries()
-        loadMovieGenres()
-        loadShowcaseMovies()
-        loadActors()
+    // MARK: - Init RxTableViewSectionedReloadDataSource
+    
+    func initRxDatasource() -> RxTableViewSectionedReloadDataSource<HomeSectionModel> {
+        RxTableViewSectionedReloadDataSource<HomeSectionModel> { dataSource, tableView, indexPath, item in
+            switch item {
+            case .SliderMoviesSectionItem(let items):
+                let cell = self.dequeueTableViewCell(ofType: MovieSliderTableViewCell.self, with: tableView, for: indexPath)
+                cell.delegate = self
+                cell.movies = items
+                return cell
+            case .PopularMoviesSectionItem(let items):
+                let cell = self.dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
+                cell.delegate = self
+                cell.sectionTitle.text = "BEST POPULAR MOVIES"
+                cell.movies = items
+                return cell
+            case .PopularSeriesSectionItem(let items):
+                let cell = self.dequeueTableViewCell(ofType: PopularMovieTableViewCell.self, with: tableView, for: indexPath)
+                cell.delegate = self
+                cell.sectionTitle.text = "BEST POPULAR SERIES"
+                cell.movies = items
+                return cell
+            case .MovieShowTimeSectionItem(_):
+                return self.dequeueTableViewCell(ofType: CheckShowtimeTableViewCell.self, with: tableView, for: indexPath)
+            case .MovieWithGenresSectionItem(let items):
+                let cell = self.dequeueTableViewCell(ofType: MovieWithGenreTableViewCell.self, with: tableView, for: indexPath)
+                cell.movies = items
+                cell.delegate = self
+                cell.genreList = try! self.observableGenres.value()
+                return cell
+            case .ShowcaseMoviesSectionItem(let items):
+                let cell = self.dequeueTableViewCell(ofType: ShowcaseTableViewCell.self, with: tableView, for: indexPath)
+                cell.movies = items
+                cell.delegate = self
+                cell.onMoreShowcasesTapped = {
+                    let vc = ListViewController.instantiate()
+                    vc.type = .movies
+                    vc.movieResponse = try! self.observableShowcaseMovieResponse.value()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                return cell
+            case .BestActorsSectionItem(let items):
+                let cell = self.dequeueTableViewCell(ofType: BestActorsTableViewCell.self, with: tableView, for: indexPath)
+                cell.actors = items
+                cell.onViewMoreTapped = { [weak self] in
+                    let vc = ListViewController.instantiate()
+                    vc.actorResponse = try! self?.observableActorResponse.value()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+                cell.delegate = self
+                return cell
+            }
+        }
     }
-
+    
+    private func dequeueTableViewCell<T: UITableViewCell>(ofType: T.Type, with tableView: UITableView, for indexPath: IndexPath, _ setupCell: ((T) -> Void) = {_ in}) -> T {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath) as? T else {
+            fatalError("ERROR: Fail to cast the given cell into \(T.self)")
+        }
+        setupCell(cell)
+        return cell
+    }
+    
 }
