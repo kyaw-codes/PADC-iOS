@@ -110,7 +110,7 @@ final class RxMoviesModelImpl: BaseModel, RxMoviesModel {
                 print("\(#function) \(error)")
             }
             .flatMap { response -> Observable<MovieDetailResponse?> in
-                self.rxMovieRepo.getMovieDetail(movieId: response.id!)
+                self.rxMovieRepo.getMovieDetail(movieId: response.id ?? -1)
             }
     }
 

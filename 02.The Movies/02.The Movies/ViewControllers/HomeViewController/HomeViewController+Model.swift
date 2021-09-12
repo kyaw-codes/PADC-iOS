@@ -63,7 +63,7 @@ enum HomeSectionModel : SectionModelType {
         case PopularSeriesSectionItem(items: [Movie])
         case MovieShowTimeSectionItem(item: String)
         case MovieWithGenresSectionItem(items: [Movie])
-        case ShowcaseMoviesSectionItem(items: [GenreVO])
+        case ShowcaseMoviesSectionItem(items: [Movie])
         case BestActorsSectionItem(items: [Actor])
     }
 }

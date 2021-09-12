@@ -8,72 +8,83 @@
 import Foundation
 
 extension HomeViewController {
-    
-    func loadData() {
-        
+
+    fileprivate func loadSliderMovies() {
         // Fetch slider movies
         rxMovieModel.getSliderMovies(pageNo: nil)
             .subscribe { [weak self] response in
-                self?.sliderMovies = response.movies
-                self?.updateUI(at: .movieSlider)
+                self?.observableSliderMovies.onNext(response.movies)
             } onError: { error in
-                print(error)
+                print("\(#function) \(error)")
             }
             .disposed(by: disposeBag)
-
+    }
+    
+    fileprivate func loadPopularMovies() {
         // Fetch popular movies
         rxMovieModel.getPopularMovies(pageNo: nil)
             .subscribe { [weak self] response in
-                self?.popularMovies = response.movies
-                self?.updateUI(at: .popularMovies)
+                self?.observablePopularMovies.onNext(response.movies)
             } onError: { error in
-                print(error)
+                print("\(#function) \(error)")
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    fileprivate func loadPopularSeries() {
         // Fetch popular series
         rxMovieModel.getPopularSeries(pageNo: nil)
             .subscribe { [weak self] response in
-                self?.popularSeries = response.movies
-                self?.updateUI(at: .popularSeries)
+                self?.observablePopularSeries.onNext(response.movies)
             } onError: { error in
-                print(error)
+                print("\(#function) \(error)")
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    fileprivate func loadMovieGenres() {
         // Fetch movie genres
         rxGenreModel.getGenres()
-            .subscribe { [weak self] genres in
-                self?.movieGenres = genres.map { $0.convertToVO() }
-                self?.updateUI(at: .movieWithGenre)
+            .map { genres -> [GenreVO] in
+                genres.map { $0.convertToVO() }
+            }
+            .subscribe { genreVOs in
+                self.observableGenres.onNext(genreVOs)
             } onError: { error in
-                print(error)
+                print("\(#function) \(error)")
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    fileprivate func loadShowcaseMovies() {
         // Fetch show cases
         rxMovieModel.getShowcaseMovies(pageNo: nil)
             .subscribe { [weak self] response in
-                self?.showcaseMovies = response.movies
-                self?.updateUI(at: .showCase)
+                self?.observableShowcaseMovieResponse.onNext(response)
             } onError: { error in
-                print(error)
+                print("\(#function) \(error)")
             }
             .disposed(by: disposeBag)
-        
-        // Fetch actors
-        actorModel.getActors(pageNo: nil) { [weak self] result in
-            do {
-                let actorResponse = try result.get()
-                actorResponse.actors?.forEach {
-                    self?.bestActors.append($0)
-                }
-                self?.actorResponse = actorResponse
-                self?.updateUI(at: .bestActors)
-            } catch {
-                print("[Error: while fetching Actors]", error)
-            }
-        }
     }
     
+    fileprivate func loadActors() {
+        // Fetch actors
+        rxActorModel.getActors(pageNo: 1)
+            .subscribe { [weak self] response in
+                self?.observableActorResponse.onNext(response)
+            } onError: { error in
+                print("\(#function) \(error)")
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func rxLoadData() {
+        loadSliderMovies()
+        loadPopularMovies()
+        loadPopularSeries()
+        loadMovieGenres()
+        loadShowcaseMovies()
+        loadActors()
+    }
+
 }
