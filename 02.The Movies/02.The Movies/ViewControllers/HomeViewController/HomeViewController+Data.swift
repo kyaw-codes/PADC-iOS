@@ -127,7 +127,18 @@ extension HomeViewController {
                 cell.onMoreShowcasesTapped = {
                     let vc = ListViewController.instantiate()
                     vc.type = .movies
-                    vc.movieResponse = try! self.observableShowcaseMovieResponse.value()
+                    self.observableShowcaseMovieResponse
+                        .do { data in
+//                            vc.observableNoOfPages.onNext(data?.totalPages ?? 1)
+                            vc.observableNoOfPages = .just(data?.totalPages ?? 1)
+                        }
+                        .compactMap { $0?.movies }
+                        .subscribe { data in
+                            vc.observableMovieList.onNext(data)
+                        } onError: { error in
+                            print(error)
+                        }
+                        .disposed(by: self.disposeBag)
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 return cell

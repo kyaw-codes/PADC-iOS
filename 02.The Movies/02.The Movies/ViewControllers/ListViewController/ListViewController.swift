@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ListViewController: UIViewController, Storyboarded {
     
@@ -17,14 +18,14 @@ class ListViewController: UIViewController, Storyboarded {
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var upButton: UIButton!
-
+    
     // MARK: - Properties
     
     var actorResponse: ActorResponse?
     var movieResponse: MovieResponse?
     
     var type: ListType = .casts
-
+    
     var noOfCols: CGFloat = 3
     var spacing: CGFloat = 10
     var currentPage = 1
@@ -32,6 +33,11 @@ class ListViewController: UIViewController, Storyboarded {
     
     var actors: [Actor] = []
     var movies: [Movie] = []
+    
+    var observableNoOfPages: Observable<Int> = .just(1)
+    lazy var observableActorList: BehaviorSubject<[Actor]> = BehaviorSubject(value: [])
+    lazy var observableMovieList: BehaviorSubject<[Movie]> = BehaviorSubject(value: [])
+    
     let movieModel: MoviesModel = MoviesModelImpl.shared
     let actorModel: ActorModel = ActorModelImpl.shared
     
@@ -47,8 +53,6 @@ class ListViewController: UIViewController, Storyboarded {
         setupUpButton()
         
         navigationItem.title = type == .casts ? "All Actors" : "Top Rated Movies"
-        
-        debugPrint(movieResponse ?? "Nil")
     }
     
     // MARK: - Helpers
